@@ -1,6 +1,6 @@
 # Alchemy CMS Spree Connector
 
-An Alchemy CMS and Spree connector.
+An [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree](https://github.com/spree/spree) connector.
 
 For now it basicly provides buttons in each admin panels to switch to each other.
 
@@ -17,10 +17,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install alchemy_spree
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
