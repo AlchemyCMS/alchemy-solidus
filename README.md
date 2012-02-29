@@ -4,7 +4,7 @@ The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Co
 
 This gem is a [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree](https://github.com/spree/spree) connector.
 
-It provides buttons in each admin panels to switch to each other and a new essence for Alchemy called EssenceSpreeProduct that you can use to place a Spree product on you page.
+It provides buttons in each admin panels to switch to each other and a new essence for Alchemy called EssenceSpreeProduct that you can use to place a Spree product on your page.
 
 ## Installation
 
