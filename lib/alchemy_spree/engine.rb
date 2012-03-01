@@ -1,5 +1,4 @@
 require "alchemy_spree/alchemy_module"
-require "alchemy_spree/spree_extension"
 
 module AlchemySpree
 	class Engine < ::Rails::Engine

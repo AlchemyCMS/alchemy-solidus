@@ -4,11 +4,11 @@ require "alchemy_cms"
 
 Alchemy::Modules.register_module({
 	:name => 'spree',
-	:engine_name => 'spree',
+	:engine_name => 'alchemy_spree',
 	:navigation => {
-		:controller => 'spree/admin/orders',
+		:controller => 'alchemy/admin/spree',
 		:action => 'index',
-		:name => 'Spree ™',
+		:name => 'Shop',
 		:image => '/assets/alchemy_spree/alchemy_module_icon.png'
 	}
 })

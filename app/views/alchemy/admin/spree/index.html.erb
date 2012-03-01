@@ -1,0 +1,16 @@
+<iframe src="<%= spree.admin_url %>" frameborder=0 width="100%" id="spree_admin" style="display: none"></iframe>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		var $frame = $('iframe#spree_admin');
+		function sizeSpreeFrame() {
+			$frame.css({height: $(window).height()-62});
+		}
+		$('#toolbar').remove();
+		$frame.on('load', function() {
+			$('#main_content').css({'background-color': '#162F54'});
+			sizeSpreeFrame();
+			$frame.show();
+		});
+		$(window).on('resize', sizeSpreeFrame);
+	});
+</script>

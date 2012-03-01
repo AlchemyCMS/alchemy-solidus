@@ -4,7 +4,8 @@ The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Co
 
 This gem is a [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree](https://github.com/spree/spree) connector.
 
-It provides buttons in each admin panels to switch to each other and a new essence for Alchemy called EssenceSpreeProduct that you can use to place a Spree product on your page.
+It provides an Alchemy module that displays Spree admin in an iframe inside Alchemy admin.
+It gives you a new Essence for Alchemy called EssenceSpreeProduct that you can use to place a Spree product on your page.
 
 ## Installation
 
@@ -22,7 +23,12 @@ Or install it yourself as:
 
 ## Usage
 
-### Create a new element for Alchemy
+### Mount the engine into your routes
+
+	# config/routes.rb
+	mount AlchemySpree::Engine => '/'
+
+### Create a new Element for Alchemy
 
 	# config/alchemy/elements.yml
 	- name: product
@@ -34,7 +40,7 @@ Or install it yourself as:
 
 	$ rails g alchemy:elements --skip
 
-### Allow this element on a page layout
+### Place this element on a page layout
 
 	# config/alchemy/page_layouts.yml
 	- name: products
@@ -45,7 +51,7 @@ Or install it yourself as:
 	# app/views/alchemy/elements/_product_view.html.erb
 	<%= element.ingredient('spree_product') %>
 
-Alchemy <3 Spree
+Alchemy <3 Spree!
 
 ## Contributing
 
