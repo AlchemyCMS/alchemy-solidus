@@ -4,8 +4,8 @@ require File.expand_path('../lib/alchemy_spree/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Thomas von Deyen"]
   gem.email         = ["tvd@magiclabs.de"]
-  gem.description   = %q{An Alchemy CMS and Spree connector}
-  gem.summary       = %q{An Alchemy CMS and Spree connector}
+  gem.description   = %q{A Alchemy CMS and Spree connector}
+  gem.summary       = %q{The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Content Management System!}
   gem.homepage      = "https://github.com/magiclabs/alchemy_spree"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
