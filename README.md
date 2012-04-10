@@ -4,10 +4,11 @@ The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Co
 
 This gem is a [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree](https://github.com/spree/spree) connector.
 
-### For now it does two things:
+### For now it does this:
 
 1. It provides an Alchemy module that displays Spree admin in an iframe inside Alchemy admin.
 2. It gives you a new Essence for Alchemy called EssenceSpreeProduct that you can use to place a Spree product on your page.
+3. It adds a TinyMCE editor to the Spree product description textarea.
 
 ### TODO:
 
