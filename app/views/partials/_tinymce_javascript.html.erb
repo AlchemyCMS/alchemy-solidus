@@ -1,13 +1,13 @@
+<% prefix = Rails.application.config.assets.prefix -%>
 <script type="text/javascript">
   var tinyMCEPreInit = {
-    base: '/assets/tiny_mce',
+    base: '/<%= prefix -%>/tiny_mce',
     suffix: ''
   };
 </script>
-<script type="text/javascript" src="/assets/tiny_mce/tiny_mce"></script>
+<script type="text/javascript" src="/<%= prefix -%>/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
   jQuery(function($) {
-    var myConfig = { dompath: true };
     if ($('textarea#product_description').length > 0) {
       tinyMCE.init({
         mode : "exact",
@@ -17,8 +17,8 @@
         skin : "o2k7",
         skin_variant : 'silver',
         inlinepopups_skin : 'alchemy',
-        popup_css : "/assets/alchemy/tinymce_dialog.css",
-        content_css : "/assets/alchemy/tinymce_content.css",
+        popup_css : "/<%= prefix -%>/alchemy/tinymce_dialog.css",
+        content_css : "/<%= prefix -%>/alchemy/tinymce_content.css",
         width : "100%",
         plugins : "paste,inlinepopups",
 
