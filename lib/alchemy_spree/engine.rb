@@ -5,7 +5,7 @@ module AlchemySpree
   class Engine < ::Rails::Engine
     engine_name 'alchemy_spree'
 
-    initializer 'spree.user_class' do
+    initializer 'spree.user_class', :after => 'alchemy.include_authentication_helpers' do
       Spree.user_class = "Alchemy::User"
       require File.join(File.dirname(__FILE__), '../spree/authentication_helpers')
     end
