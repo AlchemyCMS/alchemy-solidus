@@ -1,18 +1,41 @@
 <%= image_tag('alchemy/ajax_loader.gif', :id => "frame_load_info", :style => "position: absolute; top: 50%; left: 50%; margin-top: -12px; margin-left: -12px") %>
 <iframe src="<%= spree.admin_url(:protocol => Rails.env.production? ? 'https' : nil) %>" frameborder=0 width="100%" id="spree_admin" style="display: none"></iframe>
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
-		var $frame = $('iframe#spree_admin');
-		function sizeSpreeFrame() {
-			$frame.css({height: $(window).height()-62});
-		}
-		$('#toolbar').remove();
-		$frame.on('load', function() {
-			$('#main_content').css({'background-color': '#162F54'});
-			sizeSpreeFrame();
-			$('#frame_load_info').hide();
-			$frame.show();
-		});
-		$(window).on('resize', sizeSpreeFrame);
-	});
+  jQuery(document).ready(function($) {
+    var $frame = $('iframe#spree_admin');
+
+    function sizeSpreeFrame() {
+      $frame.css({height: $(window).height() - 30});
+    }
+
+    $('#toolbar').remove();
+    $('#archive_all').css({padding: 0});
+
+    $frame.on('load', function() {
+      var frame_document;
+      var frame_window = (this.contentWindow || this.contentDocument);
+      var elements = ['header', 'footer', 'admin-menu', 'sub-menu', 'content'];
+      if (frame_window.document) {
+        frame_document = frame_window.document;
+      } else {
+        frame_document = frame_window;
+        frame_window = frame_document.window;
+      }
+      frame_document.body.style.backgroundColor = '#EDEDED';
+      frame_document.body.style.fontFamily = '"Lucida Grande", Arial, sans-serif';
+      frame_document.body.style.fontSize = '12px';
+      for (var i = elements.length - 1; i >= 0; i--) {
+        element = frame_document.getElementById(elements[i]);
+        if (element) {
+          if (element.id === 'header' || element.id === 'footer') element.style.display = 'none';
+          element.style.margin = 0;
+        }
+      }
+      sizeSpreeFrame();
+      $('#frame_load_info').hide();
+      $frame.show();
+    });
+
+    $(window).on('resize', sizeSpreeFrame);
+  });
 </script>
