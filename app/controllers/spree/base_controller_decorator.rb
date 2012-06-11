@@ -1,3 +1,3 @@
 Spree::BaseController.class_eval do
-  include AlchemyCrm::AlchemyLanguageIdStore
+  include AlchemySpree::AlchemyLanguageStore
 end
