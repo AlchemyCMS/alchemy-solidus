@@ -24,13 +24,21 @@ And then execute:
 Or install it yourself as:
 
     $ gem install alchemy_spree
+    
+Install the migrations:
+
+    $ rake alchemy_spree:install:migrations
+    
+Migrate the database:
+
+    $ rake db:migrate
+
+Mount the engine into your routes:
+
+    # config/routes.rb
+	mount AlchemySpree::Engine => '/'
 
 ## Usage
-
-### Mount the engine into your routes
-
-	# config/routes.rb
-	mount AlchemySpree::Engine => '/'
 
 ### Create a new Element for Alchemy
 
