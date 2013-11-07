@@ -1,4 +1,5 @@
 Alchemy::Modules.register_module({
+  engine_name: 'alchemy',
   name: 'spree',
   navigation: {
     controller: 'alchemy/admin/spree',
@@ -7,5 +8,3 @@ Alchemy::Modules.register_module({
     image: '/assets/alchemy_spree/alchemy_module_icon.png'
   }
 })
-
-Alchemy::Auth::Engine.get_instance.load(File.join(File.dirname(__FILE__), '../..', 'config/authorization_rules.rb'))
