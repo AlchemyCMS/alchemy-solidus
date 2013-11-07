@@ -2,8 +2,8 @@
   <label><%= render_content_name(content) %></label>
   <%= select_tag(
     content.form_field_name,
-    options_from_collection_for_select(Spree::Product.not_deleted, :id, :name, content.essence.product_id),
-    :class => ['alchemy_selectbox very_long', html_options[:class]].join(' '),
-    :style => html_options[:style]
+    options_from_collection_for_select(Spree::Product.not_deleted, :id, :name, content.essence.spree_product_id),
+    class: ['alchemy_selectbox very_long', html_options[:class]].join(' '),
+    style: html_options[:style]
   ) %>
 </div>
