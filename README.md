@@ -7,7 +7,7 @@ This gem is a [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree
 ### For now it does this:
 
 1. It provides an Alchemy module that displays Spree admin in an iframe inside Alchemy admin.
-2. It gives you a new Essence for Alchemy called EssenceSpreeProduct that you can use to place a Spree product on your page.
+2. It gives you new Essences for Alchemy called EssenceSpreeProduct and EssenceSpreeTaxon that you can use to place a Spree product and Taxon on your pages.
 3. It adds a TinyMCE editor to the Spree product description textarea.
 4. Shares admin session between Alchemy and Spree.
 
@@ -43,6 +43,11 @@ Migrate the database:
     - name: spree_product
       type: EssenceSpreeProduct
 
+  - name: product_category
+    contents:
+    - name: spree_taxon
+      type: EssenceSpreeTaxon
+
 ### Generate the views
 
   $ rails g alchemy:elements --skip
@@ -50,13 +55,18 @@ Migrate the database:
 ### Place this element on a page layout
 
   # config/alchemy/page_layouts.yml
-  - name: products
+  - name: product
     elements: [product]
+  - name: products
+    elements: [product_category]
 
-### You can haz Spree product!
+### You can haz Spree product and taxons!
 
   # app/views/alchemy/elements/_product_view.html.erb
   <%= element.ingredient('spree_product') %>
+
+  # app/views/alchemy/elements/_product_category_view.html.erb
+  <%= element.ingredient('spree_taxon') %>
 
 Alchemy <3 Spree!
 

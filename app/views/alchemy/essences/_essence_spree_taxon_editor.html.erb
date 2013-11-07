@@ -1,0 +1,16 @@
+<div class="content_editor">
+  <label><%= render_content_name(content) %></label>
+  <%= select_tag(
+    content.form_field_name,
+    option_groups_from_collection_for_select(
+      Spree::Taxon.all,
+      :children,
+      :name,
+      :id,
+      :name,
+      content.essence.taxon_id
+    ),
+    :class => ['alchemy_selectbox very_long', html_options[:class]].join(' '),
+    :style => html_options[:style]
+  ) %>
+</div>
