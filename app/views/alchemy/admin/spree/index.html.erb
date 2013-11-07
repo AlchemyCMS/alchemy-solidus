@@ -1,27 +1,33 @@
-<%= image_tag('alchemy/ajax_loader.gif', :id => "frame_load_info", :style => "position: absolute; top: 50%; left: 50%; margin-top: -12px; margin-left: -12px") %>
-<iframe src="<%= spree.admin_url(:protocol => Rails.env.production? ? 'https' : nil) %>" frameborder=0 width="100%" id="spree_admin" style="display: none"></iframe>
+<iframe src="<%= spree.admin_url %>" frameborder=0 width="100%" id="spree_admin" style="display: none"></iframe>
 <script type="text/javascript">
   jQuery(document).ready(function($) {
     var $frame = $('iframe#spree_admin');
+
+    spinner = Alchemy.Spinner.medium();
+    spinner.spin($("#main_content")[0])
 
     function sizeSpreeFrame() {
       $frame.css({height: $(window).height() - 30});
     }
 
     $('#toolbar').remove();
-    $('#archive_all').css({padding: 0});
+    $('#main_content').css({
+      padding: '27px 0px 0px 66px',
+      backgroundColor: 'white'
+    });
 
     $frame.on('load', function() {
       var frame_document;
       var frame_window = (this.contentWindow || this.contentDocument);
       var elements = ['header', 'footer', 'admin-menu', 'sub-menu', 'content'];
+      spinner.stop();
       if (frame_window.document) {
         frame_document = frame_window.document;
       } else {
         frame_document = frame_window;
         frame_window = frame_document.window;
       }
-      frame_document.body.style.backgroundColor = '#EDEDED';
+      frame_document.body.style.backgroundColor = '#fff';
       frame_document.body.style.fontFamily = '"Lucida Grande", Arial, sans-serif';
       frame_document.body.style.fontSize = '12px';
       for (var i = elements.length - 1; i >= 0; i--) {
