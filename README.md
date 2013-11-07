@@ -8,8 +8,7 @@ This gem is a [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree
 
 1. It provides an Alchemy module that displays Spree admin in an iframe inside Alchemy admin.
 2. It gives you new Essences for Alchemy called EssenceSpreeProduct and EssenceSpreeTaxon that you can use to place a Spree product and Taxon on your pages.
-3. It adds a TinyMCE editor to the Spree product description textarea.
-4. Shares admin session between Alchemy and Spree.
+3. Shares admin session between Alchemy and Spree.
 
 ## Installation
 
