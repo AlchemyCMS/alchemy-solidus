@@ -1,1 +1,2 @@
-require "alchemy_spree/engine"
+require "alchemy_cms"
+require "alchemy/spree/engine"

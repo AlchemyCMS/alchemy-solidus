@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/alchemy_spree/version', __FILE__)
+require File.expand_path('../lib/alchemy/spree/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Thomas von Deyen"]
@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "alchemy_spree"
   gem.require_paths = ["lib"]
-  gem.version       = AlchemySpree::VERSION
+  gem.version       = Alchemy::Spree::VERSION
 
   #gem.add_dependency('alchemy_cms', ['~> 2.2.rc12'])
   #gem.add_dependency('spree', ['~> 1.1.0.beta'])
