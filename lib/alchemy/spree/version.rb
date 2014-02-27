@@ -1,5 +1,5 @@
 module Alchemy
   module Spree
-    VERSION = "0.2.0"
+    VERSION = "0.3.0.beta"
   end
 end
