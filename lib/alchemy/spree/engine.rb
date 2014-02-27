@@ -1,4 +1,6 @@
+require 'alchemy/spree/ability'
 require 'alchemy/spree/alchemy_language_store'
+require 'spree'
 
 module Alchemy
   module Spree
@@ -14,7 +16,7 @@ module Alchemy
         Dir.glob(File.join(File.dirname(__FILE__), "../../../app/**/*_decorator*.rb")) do |c|
           Rails.configuration.cache_classes ? require(c) : load(c)
         end
-        Alchemy::Auth::Engine.get_instance.load(File.join(File.dirname(__FILE__), '../..', 'config/authorization_rules.rb'))
+        Alchemy.register_ability(Alchemy::Spree::Ability)
       end
 
       config.to_prepare &method(:activate).to_proc
