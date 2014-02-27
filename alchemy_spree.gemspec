@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{A Alchemy CMS and Spree connector}
   gem.summary       = %q{The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Content Management System!}
   gem.homepage      = "https://github.com/magiclabs/alchemy_spree"
-
+  gem.license       = 'BSD New'
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
