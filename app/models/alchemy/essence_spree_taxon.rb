@@ -7,8 +7,6 @@ module Alchemy
       preview_text_method: 'name'
     )
 
-    attr_accessible :taxon_id
-
     def ingredient
       taxon
     end
