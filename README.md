@@ -14,7 +14,7 @@ This gem is a [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree
 
 ## Spree
 
-This version runs with Spreecommerce 2.1
+This version runs with Spreecommerce 2.1 and above.
 
 ## Alchemy
 
