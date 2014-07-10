@@ -24,56 +24,72 @@ This version runs with Alchemy 3.0
 
 Add this line to your application's Gemfile:
 
-    gem 'alchemy_spree', github: 'magiclabs/alchemy_spree', branch: 'master'
+```ruby
+gem 'alchemy_spree', github: 'magiclabs/alchemy_spree', branch: 'master'
+```
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Install the migrations:
 
-    $ rake alchemy_spree:install:migrations
+```sh
+$ rake alchemy_spree:install:migrations
+```
 
 Migrate the database:
 
-    $ rake db:migrate
+```sh
+$ rake db:migrate
+```
 
 ## Usage
 
 ### Create a new Element for Alchemy
 
-  # config/alchemy/elements.yml
-  - name: product
-    contents:
-    - name: spree_product
-      type: EssenceSpreeProduct
+```yaml
+# config/alchemy/elements.yml
+- name: product
+  contents:
+  - name: spree_product
+    type: EssenceSpreeProduct
 
-  - name: product_category
-    contents:
-    - name: spree_taxon
-      type: EssenceSpreeTaxon
+- name: product_category
+  contents:
+  - name: spree_taxon
+    type: EssenceSpreeTaxon
+```
 
 ### Generate the views
 
-  $ rails g alchemy:elements --skip
+```sh
+$ rails g alchemy:elements --skip
+```
 
 ### Place this element on a page layout
 
-  # config/alchemy/page_layouts.yml
-  - name: product
-    elements: [product]
-  - name: products
-    elements: [product_category]
+```yaml
+# config/alchemy/page_layouts.yml
+- name: product
+  elements: [product]
+- name: products
+  elements: [product_category]
+```
 
 ### You can haz Spree product and taxons!
 
-  # app/views/alchemy/elements/_product_view.html.erb
-  <%= element.ingredient('spree_product') %>
+```erb
+# app/views/alchemy/elements/_product_view.html.erb
+<%= element.ingredient('spree_product') %>
 
-  # app/views/alchemy/elements/_product_category_view.html.erb
-  <%= element.ingredient('spree_taxon') %>
+# app/views/alchemy/elements/_product_category_view.html.erb
+<%= element.ingredient('spree_taxon') %>
+```
 
-Alchemy <3 Spree!
+Alchemy :heart: Spree!
 
 ## Contributing
 
