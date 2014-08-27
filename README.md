@@ -46,6 +46,30 @@ Migrate the database:
 $ rake db:migrate
 ```
 
+### Authentication system installation
+
+Since Alchemy 3.0 has dropped the authentication from its core, you will need to choose one authentication system. The easiest choice is to use the [alchemy-devise gem](https://github.com/magiclabs/alchemy-devise).
+
+To install alchemy-devise:
+
+```ruby
+# Gemfile
+gem 'alchemy-devise', '~> 2.0'
+```
+
+And then execute:
+
+```sh
+$ bundle
+```
+
+Finally, you'll need to instruct Spree accordingly:
+
+```ruby
+# config/initializers/spree.rb
+Spree.user_class = "Alchemy::User"
+```
+
 ## Usage
 
 ### Create a new Element for Alchemy
