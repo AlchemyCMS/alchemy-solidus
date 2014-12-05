@@ -5,6 +5,6 @@ Alchemy::Modules.register_module({
     controller: 'alchemy/admin/spree',
     action: 'index',
     name: 'Spree',
-    image: '/assets/alchemy_spree/alchemy_module_icon.png'
+    image: 'alchemy_spree/alchemy_module_icon.png'
   }
 })
