@@ -40,34 +40,71 @@ Install the migrations:
 $ rake alchemy_spree:install:migrations
 ```
 
-Migrate the database:
+Do the next step before running the migrations.
 
-```sh
-$ rake db:migrate
-```
 
 ### Authentication system installation
 
-Since Alchemy 3.0 has dropped the authentication from its core, you will need to choose one authentication system. The easiest choice is to use the [alchemy-devise gem](https://github.com/magiclabs/alchemy-devise).
+Both Alchemy 3.0 and Spree come without an authentication system in place. You will need to choose an authentication system yourself. There are 3 available options. Whichever you choose, you need to instruct Spree & Alchemy about your choice of authentication system. Here are the steps for each option:
 
-To install alchemy-devise:
 
-```ruby
-# Gemfile
-gem 'alchemy-devise', '~> 2.0'
-```
+1. Use [Spree Auth Devise](https://github.com/spree/spree_auth_devise)
 
-And then execute:
+  Recommended for:
+    - an existing Spree installation. `gem 'spree_auth_devise'` should already be in your Gemfile.
+    - you are just adding Alchemy
+
+
+  To use Spree Auth Devise, instruct Alchemy to use the Spree Auth Devise user class:
+
+  ```ruby
+  # config/initializers/alchemy.rb
+  Alchemy.user_class_name = 'Spree::User'
+  Alchemy.current_user_method = :spree_current_user
+
+  # Include the Spree controller helpers to render the
+  # alchemy pages within the default Spree layout
+  Alchemy::BaseHelper.send :include, Spree::BaseHelper
+  Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Common
+  Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Store
+  ```
+
+2. Use [Alchemy Devise](https://github.com/magiclabs/alchemy-devise)
+
+  Recommended for:
+    - an existing Alchemy installation
+    - you don't have an authentication system and don't want to role an authentication system on your own.
+
+
+  To install alchemy-devise:
+
+  ```ruby
+  # Gemfile
+  gem 'alchemy-devise', '~> 2.0'
+  ```
+
+  And then execute:
+
+  ```sh
+  $ bundle
+  ```
+
+  Finally, you'll need to instruct Spree to use the Alchemy Devise user class:
+
+  ```ruby
+  # config/initializers/spree.rb
+  Spree.user_class = "Alchemy::User"
+  ```
+
+3. Build their own authentication
+
+
+---
+
+In either case, run the migrations now:
 
 ```sh
-$ bundle
-```
-
-Finally, you'll need to instruct Spree accordingly:
-
-```ruby
-# config/initializers/spree.rb
-Spree.user_class = "Alchemy::User"
+$ rake db:migrate
 ```
 
 ## Usage

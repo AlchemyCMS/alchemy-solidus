@@ -1,10 +1,10 @@
-Alchemy::User.class_eval do
+Spree.user_class.class_eval do
 
-  def spree_roles
+  def alchemy_roles
     if admin?
-      ::Spree::Role.where(name: 'admin')
+      %w(admin)
     else
-      ::Spree::Role.where('1 = 0') # aka. empty relation
+      []
     end
   end
 
