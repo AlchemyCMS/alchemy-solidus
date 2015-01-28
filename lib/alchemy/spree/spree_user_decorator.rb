@@ -1,11 +1,10 @@
-Spree.user_class.class_eval do
+Spree::User.class_eval do
 
   def alchemy_roles
-    if admin?
+    if has_spree_role?(:admin)
       %w(admin)
     else
       []
     end
   end
-
 end
