@@ -4,11 +4,10 @@ module Alchemy
       include CanCan::Ability
 
       def initialize(user)
-        if user && user.is_admin?
+        if user && user.alchemy_roles.include?('admin')
           can :index, :alchemy_admin_spree
         end
       end
-
     end
   end
 end

@@ -7,5 +7,4 @@ Alchemy::User.class_eval do
       ::Spree::Role.where('1 = 0') # aka. empty relation
     end
   end
-
 end
