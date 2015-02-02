@@ -148,6 +148,30 @@ $ bundle exec rake alchemy:install
 
 and follow the on screen instructions.
 
+### Render Alchemy Content in Spree views
+
+If you plan to render Alchemy content in your Spree views (ie. a global header or footer section), you need to include the Alchemy view helpers and language store in your Spree controllers.
+
+```ruby
+# config/initializers/spree.rb
+...
+Spree::BaseController.class_eval do
+  include Alchemy::ControllerActions
+end
+```
+
+#### With Spree::Auth::Devise
+
+If you also use the `Spree::User` class you need to additionally tell the Spree user sessions controller to include the Alchemy related helpers and methods.
+
+```ruby
+# config/initializers/spree.rb
+...
+Spree::UserSessionsController.class_eval do
+  include Alchemy::ControllerActions
+end
+```
+
 ## Usage
 
 ### Create a new Element for Alchemy
