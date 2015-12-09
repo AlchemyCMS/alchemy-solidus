@@ -1,8 +1,8 @@
 Alchemy::Modules.register_module({
-  engine_name: 'alchemy',
+  engine_name: 'spree',
   name: 'solidus',
   navigation: {
-    controller: 'alchemy/admin/solidus',
+    controller: 'spree/admin/orders',
     action: 'index',
     name: 'Solidus',
     image: 'alchemy/solidus/alchemy_module_icon.png'

@@ -1,12 +1,9 @@
-require 'alchemy/solidus/ability'
-
 module Alchemy
   module Solidus
     class Engine < ::Rails::Engine
       engine_name 'alchemy_solidus'
 
       def self.activate
-        Alchemy.register_ability(::Alchemy::Solidus::Ability)
         Alchemy.register_ability(::Spree::Ability)
       end
 
