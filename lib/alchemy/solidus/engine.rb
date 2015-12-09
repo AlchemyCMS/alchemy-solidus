@@ -1,6 +1,4 @@
 require 'alchemy/solidus/ability'
-require 'solidus'
-require_relative '../../../config/routes'
 
 module Alchemy
   module Solidus

@@ -1,4 +1,3 @@
-raise "run"
 Alchemy::Modules.register_module({
   engine_name: 'alchemy',
   name: 'solidus',
