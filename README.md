@@ -1,31 +1,31 @@
-# Alchemy CMS Spree Extension
+# Alchemy CMS Solidus Integration
 
 The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Content Management System!
 
-This gem is a [Alchemy CMS](https://github.com/magiclabs/alchemy_cms) and [Spree](https://github.com/spree/spree) connector.
+This gem is a [Alchemy CMS](https://github.com/AlchemyCMS/alchemy_cms) and [Solidus](https://github.com/solidusio/solidus) connector.
 
 ### For now it does this:
 
-1. It provides an Alchemy module that displays Spree admin in an iframe inside Alchemy admin.
+1. It provides an Alchemy module that displays Solidus admin in an iframe inside Alchemy admin.
 2. It gives you new Essences for Alchemy called EssenceSpreeProduct and EssenceSpreeTaxon that you can use to place a Spree product and Taxon on your pages.
-3. Shares admin session between Alchemy and Spree.
+3. Shares admin session between Alchemy and Solidus.
 
 ### Compatibility
 
-## Spree
+## Solidus
 
-This version runs with Spreecommerce 2.1 and above.
+This version runs with Solidus 1.0 and above.
 
 ## Alchemy
 
-This version runs with Alchemy 3.0 and above.
+This version runs with Alchemy 3.2 and above.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'alchemy_spree', github: 'magiclabs/alchemy_spree', branch: 'master'
+gem 'alchemy-solidus', github: 'AlchemyCMS/alchemy-solidus', branch: 'master'
 ```
 
 Install the gem with:
@@ -36,17 +36,17 @@ $ bundle install
 
 ### Authentication system installation
 
-Both Alchemy 3.0 and Spree come without an authentication system in place. You will need to choose an authentication system yourself. There are 3 available options. Whichever you choose, you need to instruct Spree & Alchemy about your choice of authentication system.
+Both Alchemy and Solidus come without an authentication system in place. You will need to choose an authentication system yourself. There are 3 available options. Whichever you choose, you need to instruct Solidus & Alchemy about your choice of authentication system.
 
 Here are the steps for each option:
 
-#### 1. Option: Use [Spree Auth Devise](https://github.com/spree/spree_auth_devise)
+#### 1. Option: Use [Solidus Auth Devise](https://github.com/solidusio/solidus_auth_devise)
 
 **Recommended for:**
-  - An existing Spree installation (`gem 'spree_auth_devise'` should already be in your Gemfile).
+  - An existing Solidus installation (`gem 'solidus_auth_devise'` should already be in your Gemfile).
   - You are just adding Alchemy
 
-To use Spree Auth Devise, instruct Alchemy to use the `Spree::User` class:
+To use Solidus Auth Devise, instruct Alchemy to use the `Spree::User` class:
 
 ```ruby
 # config/initializers/alchemy.rb
@@ -56,7 +56,7 @@ Alchemy.user_class_name = 'Spree::User'
 Alchemy.current_user_method = :spree_current_user
 
 # Load the Spree.user_class decorator for Alchemy roles
-require 'alchemy/spree/spree_user_decorator'
+require 'alchemy/solidus/spree_user_decorator'
 
 # Include the Spree controller helpers to render the
 # alchemy pages within the default Spree layout
@@ -65,7 +65,7 @@ Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Common
 Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Store
 ```
 
-#### 2. Option: Use [Alchemy Devise](https://github.com/magiclabs/alchemy-devise)
+#### 2. Option: Use [Alchemy Devise](https://github.com/AlchemyCMS/alchemy-devise)
 
 **Recommended for:**
   - An existing Alchemy installation
@@ -75,7 +75,7 @@ Add `alchemy-devise` to your `Gemfile`
 
 ```ruby
 # Gemfile
-gem 'alchemy-devise', '~> 2.0'
+gem 'alchemy-devise', '~> 3.2'
 ```
 
 and install it:
@@ -85,31 +85,31 @@ $ bundle install
 $ bundle exec rails g alchemy:devise:install
 ```
 
-Run the Spree installer:
+Run the Solidus installer:
 
-*NOTE*: Skip this if you already have a running Spree installation.
+*NOTE*: Skip this if you already have a running Solidus installation.
 
 ```shell
 $ bundle exec rails g spree:install
 ```
 
-Then run the spree custom user generator:
+Then run the solidus custom user generator:
 
 ```shell
 $ bundle exec rails g spree:custom_user Alchemy::User
 ```
 
-Now you'll need to instruct Spree to use the Alchemy User class:
+Now you'll need to instruct Solidus to use the Alchemy User class:
 
 ```ruby
 # config/initializers/spree.rb
 ...
 Spree.user_class = "Alchemy::User"
-require 'alchemy/spree/alchemy_user_decorator'
+require 'alchemy/solidus/alchemy_user_decorator'
 ...
 ```
 
-and tell Spree about Alchemy's path helpers:
+and tell Solidus about Alchemy's path helpers:
 
 ```ruby
 # lib/spree/authentication_helpers.rb
@@ -130,14 +130,14 @@ and tell Spree about Alchemy's path helpers:
 
 #### 3. Option: Build their own authentication
 
-Please follow the [spree custom authentication](https://guides.spreecommerce.com/developer/authentication.html) and the [Alchemy custom authentication](http://guides.alchemy-cms.com/edge/custom_authentication.html) guides in order to integrate your custom user with Spree and Alchemy.
+Please follow the [spree custom authentication](https://guides.spreecommerce.com/developer/authentication.html) and the [Alchemy custom authentication](http://guides.alchemy-cms.com/edge/custom_authentication.html) guides in order to integrate your custom user with Solidus and Alchemy.
 
 #### In either case
 
 Install the migrations
 
 ```shell
-$ bundle exec rake alchemy_spree:install:migrations
+$ bundle exec rake alchemy_solidus:install:migrations
 ```
 
 Run the installer of Alchemy
@@ -148,21 +148,21 @@ $ bundle exec rake alchemy:install
 
 and follow the on screen instructions.
 
-### Render Alchemy Content in Spree views
+### Render Alchemy Content in Solidus views
 
-If you plan to render Alchemy content in your Spree views (ie. a global header or footer section), you need to include the Alchemy view helpers and language store in your Spree controllers.
+If you plan to render Alchemy content in your Solidus views (ie. a global header or footer section), you need to include the Alchemy view helpers and language store in your Solidus controllers.
 
 ```ruby
-# config/initializers/spree.rb
+# config/initializers/solidus.rb
 ...
 Spree::BaseController.class_eval do
   include Alchemy::ControllerActions
 end
 ```
 
-#### With Spree::Auth::Devise
+#### With Solidus::Auth::Devise
 
-If you also use the `Spree::User` class you need to additionally tell the Spree user sessions controller to include the Alchemy related helpers and methods.
+If you also use the `Spree::User` class you need to additionally tell the Solidus user sessions controller to include the Alchemy related helpers and methods.
 
 ```ruby
 # config/initializers/spree.rb
@@ -205,7 +205,7 @@ $ rails g alchemy:elements --skip
   elements: [product_category]
 ```
 
-### You can haz Spree product and taxons!
+### You can haz Solidus product and taxons!
 
 ```erb
 # app/views/alchemy/elements/_product_view.html.erb
@@ -215,7 +215,7 @@ $ rails g alchemy:elements --skip
 <%= element.ingredient('spree_taxon') %>
 ```
 
-Alchemy :heart: Spree!
+Alchemy :heart: Solidus!
 
 ## Contributing
 

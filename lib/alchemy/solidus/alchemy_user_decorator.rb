@@ -4,7 +4,7 @@ Alchemy::User.class_eval do
     if admin?
       ::Spree::Role.where(name: 'admin')
     else
-      ::Spree::Role.where('1 = 0') # aka. empty relation
+      ::Spree::Role.none
     end
   end
 end

@@ -1,3 +1,3 @@
 Alchemy::Engine.routes.draw do
-  get '/admin/spree' => 'admin/spree#index', :as => :spree_admin
+  get '/admin/solidus' => 'admin/solidus#index', :as => :solidus_admin
 end

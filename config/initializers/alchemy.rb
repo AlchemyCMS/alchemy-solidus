@@ -1,10 +1,11 @@
+raise "run"
 Alchemy::Modules.register_module({
   engine_name: 'alchemy',
-  name: 'spree',
+  name: 'solidus',
   navigation: {
-    controller: 'alchemy/admin/spree',
+    controller: 'alchemy/admin/solidus',
     action: 'index',
-    name: 'Spree',
-    image: 'alchemy_spree/alchemy_module_icon.png'
+    name: 'Solidus',
+    image: 'alchemy/solidus/alchemy_module_icon.png'
   }
 })

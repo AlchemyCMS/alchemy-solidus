@@ -6,7 +6,7 @@
     spinner = Alchemy.Spinner.medium();
     spinner.spin($("#main_content")[0])
 
-    function sizeSpreeFrame() {
+    function sizeSolidusFrame() {
       $frame.css({height: $(window).height() - 30});
     }
 
@@ -37,11 +37,11 @@
           element.style.margin = 0;
         }
       }
-      sizeSpreeFrame();
+      sizeSolidusFrame();
       $('#frame_load_info').hide();
       $frame.show();
     });
 
-    $(window).on('resize', sizeSpreeFrame);
+    $(window).on('resize', sizeSolidusFrame);
   });
 </script>
