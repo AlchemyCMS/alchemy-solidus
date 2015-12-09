@@ -1,0 +1,3 @@
+<% if Spree.user_class && can?(:edit_content, Alchemy::Page) %>
+  <%= tab *[:cms], url: alchemy.admin_pages_path, icon: 'copy' %>
+<% end %>

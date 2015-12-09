@@ -4,7 +4,7 @@ Alchemy::Modules.register_module({
   navigation: {
     controller: 'spree/admin/orders',
     action: 'index',
-    name: 'Solidus',
+    name: 'Shop',
     image: 'alchemy/solidus/alchemy_module_icon.png'
   }
 })

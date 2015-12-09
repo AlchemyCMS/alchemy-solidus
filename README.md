@@ -6,9 +6,9 @@ This gem is a [Alchemy CMS](https://github.com/AlchemyCMS/alchemy_cms) and [Soli
 
 ### For now it does this:
 
-1. It provides an Alchemy module that displays Solidus admin in an iframe inside Alchemy admin.
-2. It gives you new Essences for Alchemy called EssenceSpreeProduct and EssenceSpreeTaxon that you can use to place a Spree product and Taxon on your pages.
-3. Shares admin session between Alchemy and Solidus.
+1. It provides tabs in Alchemy and Solidus menus to easily switch between both backends
+2. It offers two new Essences for Alchemy called `EssenceSpreeProduct` and `EssenceSpreeTaxon` that you can use to place Spree products and/or Taxons on your pages.
+3. Shares admin sessions and user abilities between Alchemy and Solidus.
 
 ### Compatibility
 
