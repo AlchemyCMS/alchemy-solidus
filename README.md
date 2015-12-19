@@ -61,6 +61,7 @@ require 'alchemy/solidus/spree_user_decorator'
 # Include the Spree controller helpers to render the
 # alchemy pages within the default Spree layout
 Alchemy::BaseHelper.send :include, Spree::BaseHelper
+Alchemy::BaseHelper.send :include, Spree::StoreHelper
 Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Common
 Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Store
 ```
