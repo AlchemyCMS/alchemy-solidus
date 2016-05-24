@@ -54,9 +54,6 @@ To use Solidus Auth Devise, instruct Alchemy to use the `Spree::User` class:
 # Tell Alchemy to use the Spree::User class
 Alchemy.user_class_name = 'Spree::User'
 Alchemy.current_user_method = :spree_current_user
-
-# Load the Spree.user_class decorator for Alchemy roles
-require 'alchemy/solidus/spree_user_decorator'
 ```
 
 #### 2. Option: Use [Alchemy Devise](https://github.com/AlchemyCMS/alchemy-devise)
@@ -99,7 +96,6 @@ Now you'll need to instruct Solidus to use the Alchemy User class:
 # config/initializers/spree.rb
 ...
 Spree.user_class = "Alchemy::User"
-require 'alchemy/solidus/alchemy_user_decorator'
 ...
 ```
 

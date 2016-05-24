@@ -1,5 +1,4 @@
-Alchemy::User.class_eval do
-
+module Alchemy::SpreeUserExtension
   def spree_roles
     if admin?
       ::Spree::Role.where(name: 'admin')
