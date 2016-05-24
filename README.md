@@ -57,13 +57,6 @@ Alchemy.current_user_method = :spree_current_user
 
 # Load the Spree.user_class decorator for Alchemy roles
 require 'alchemy/solidus/spree_user_decorator'
-
-# Include the Spree controller helpers to render the
-# alchemy pages within the default Spree layout
-Alchemy::BaseHelper.send :include, Spree::BaseHelper
-Alchemy::BaseHelper.send :include, Spree::StoreHelper
-Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Common
-Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Store
 ```
 
 #### 2. Option: Use [Alchemy Devise](https://github.com/AlchemyCMS/alchemy-devise)
@@ -149,28 +142,26 @@ $ bundle exec rake alchemy:install
 
 and follow the on screen instructions.
 
-### Render Alchemy Content in Solidus views
+### Render Alchemy Content in Solidus Layout
 
-If you plan to render Alchemy content in your Solidus views (ie. a global header or footer section), you need to include the Alchemy view helpers and language store in your Solidus controllers.
+If you plan to render the Alchemy site in the Solidus layout add the following
+to your initializer:
 
 ```ruby
-# config/initializers/solidus.rb
-...
-Spree::BaseController.class_eval do
-  include Alchemy::ControllerActions
-end
+# config/initializers/alchemy.rb
+require 'alchemy/solidus/use_solidus_layout'
 ```
 
-#### With Solidus::Auth::Devise
+### Render Alchemy Content in Solidus views
 
-If you also use the `Spree::User` class you need to additionally tell the Solidus user sessions controller to include the Alchemy related helpers and methods.
+If you plan to render Alchemy content in your Solidus views (ie. a global header
+or footer section), you need to include the Alchemy view helpers and language
+store in your Solidus controllers with the following addition to your
+initializer:
 
 ```ruby
-# config/initializers/spree.rb
-...
-Spree::UserSessionsController.class_eval do
-  include Alchemy::ControllerActions
-end
+# config/initializers/alchemy.rb
+require 'alchemy/solidus/alchemy_in_solidus'
 ```
 
 ## Usage
