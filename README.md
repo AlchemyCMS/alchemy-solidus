@@ -50,10 +50,17 @@ To use Solidus Auth Devise, instruct Alchemy to use the `Spree::User` class:
 
 ```ruby
 # config/initializers/alchemy.rb
-
-# Tell Alchemy to use the Spree::User class
 Alchemy.user_class_name = 'Spree::User'
 Alchemy.current_user_method = :spree_current_user
+```
+
+If you put Spree in it's own routing namespace (see below) you will want to
+let Alchemy know these paths:
+
+```ruby
+# config/initializers/alchemy.rb
+Alchemy.login_path = '/store/login'
+Alchemy.logout_path = '/store/logout'
 ```
 
 #### 2. Option: Use [Alchemy Devise](https://github.com/AlchemyCMS/alchemy-devise)
@@ -158,6 +165,48 @@ initializer:
 ```ruby
 # config/initializers/alchemy.rb
 require 'alchemy/solidus/alchemy_in_solidus'
+```
+
+## Routing
+
+For routing you have a few options.
+
+### Place both engines in their own namespace:
+
+```ruby
+# config/routes.rb
+mount Spree::Core::Engine => '/store'
+mount Alchemy::Engine => '/pages'
+```
+
+### Put Solidus at the root level and Alchemy in its own namespace:
+
+```ruby
+# config/routes.rb
+mount Alchemy::Engine => '/pages'
+mount Spree::Core::Engine => '/'
+```
+
+### Put Alchemy at the root level and Solidus in its own namespace:
+
+```ruby
+# config/routes.rb
+mount Spree::Core::Engine => '/store'
+mount Alchemy::Engine => '/'
+```
+
+### Put both engines in the root level
+
+```ruby
+# config/routes.rb
+
+# Make Alchemy's root page have higher priority than Spree's root page
+root to: 'alchemy/pages#show'
+
+mount Spree::Core::Engine => '/'
+
+# Must be last so it's catch-all route can render undefined paths
+mount Alchemy::Engine => '/'
 ```
 
 ## Usage
