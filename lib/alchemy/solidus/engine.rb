@@ -1,3 +1,6 @@
+require 'alchemy/solidus/alchemy_user_extension'
+require 'alchemy/solidus/spree_user_extension'
+
 module Alchemy
   module Solidus
     class Engine < ::Rails::Engine
@@ -9,11 +12,11 @@ module Alchemy
         ]
       end
 
-      def self.activate
-        Alchemy.register_ability(::Spree::Ability)
+      config.to_prepare do
+        Alchemy.register_ability ::Spree::Ability
+        Spree::User.include Spree::AlchemyUserExtension if Alchemy.user_class_name == 'Spree::User'
+        Alchemy::User.include Alchemy::SpreeUserExtension if Alchemy.user_class_name == 'Alchemy::User'
       end
-
-      config.to_prepare &method(:activate).to_proc
     end
   end
 end

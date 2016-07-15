@@ -50,20 +50,17 @@ To use Solidus Auth Devise, instruct Alchemy to use the `Spree::User` class:
 
 ```ruby
 # config/initializers/alchemy.rb
-
-# Tell Alchemy to use the Spree::User class
 Alchemy.user_class_name = 'Spree::User'
 Alchemy.current_user_method = :spree_current_user
+```
 
-# Load the Spree.user_class decorator for Alchemy roles
-require 'alchemy/solidus/spree_user_decorator'
+If you put Spree in it's own routing namespace (see below) you will want to
+let Alchemy know these paths:
 
-# Include the Spree controller helpers to render the
-# alchemy pages within the default Spree layout
-Alchemy::BaseHelper.send :include, Spree::BaseHelper
-Alchemy::BaseHelper.send :include, Spree::StoreHelper
-Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Common
-Alchemy::BaseController.send :include, Spree::Core::ControllerHelpers::Store
+```ruby
+# config/initializers/alchemy.rb
+Alchemy.login_path = '/store/login'
+Alchemy.logout_path = '/store/logout'
 ```
 
 #### 2. Option: Use [Alchemy Devise](https://github.com/AlchemyCMS/alchemy-devise)
@@ -106,7 +103,6 @@ Now you'll need to instruct Solidus to use the Alchemy User class:
 # config/initializers/spree.rb
 ...
 Spree.user_class = "Alchemy::User"
-require 'alchemy/solidus/alchemy_user_decorator'
 ...
 ```
 
@@ -149,28 +145,68 @@ $ bundle exec rake alchemy:install
 
 and follow the on screen instructions.
 
-### Render Alchemy Content in Solidus views
+### Render Alchemy Content in Solidus Layout
 
-If you plan to render Alchemy content in your Solidus views (ie. a global header or footer section), you need to include the Alchemy view helpers and language store in your Solidus controllers.
+If you plan to render the Alchemy site in the Solidus layout add the following
+to your initializer:
 
 ```ruby
-# config/initializers/solidus.rb
-...
-Spree::BaseController.class_eval do
-  include Alchemy::ControllerActions
-end
+# config/initializers/alchemy.rb
+require 'alchemy/solidus/use_solidus_layout'
 ```
 
-#### With Solidus::Auth::Devise
+### Render Alchemy Content in Solidus views
 
-If you also use the `Spree::User` class you need to additionally tell the Solidus user sessions controller to include the Alchemy related helpers and methods.
+If you plan to render Alchemy content in your Solidus views (ie. a global header
+or footer section), you need to include the Alchemy view helpers and language
+store in your Solidus controllers with the following addition to your
+initializer:
 
 ```ruby
-# config/initializers/spree.rb
-...
-Spree::UserSessionsController.class_eval do
-  include Alchemy::ControllerActions
-end
+# config/initializers/alchemy.rb
+require 'alchemy/solidus/alchemy_in_solidus'
+```
+
+## Routing
+
+For routing you have a few options.
+
+### Place both engines in their own namespace:
+
+```ruby
+# config/routes.rb
+mount Spree::Core::Engine => '/store'
+mount Alchemy::Engine => '/pages'
+```
+
+### Put Solidus at the root level and Alchemy in its own namespace:
+
+```ruby
+# config/routes.rb
+mount Alchemy::Engine => '/pages'
+mount Spree::Core::Engine => '/'
+```
+
+### Put Alchemy at the root level and Solidus in its own namespace:
+
+```ruby
+# config/routes.rb
+mount Spree::Core::Engine => '/store'
+mount Alchemy::Engine => '/'
+```
+
+### Put both engines in the root level
+
+```ruby
+# config/routes.rb
+
+# Make Alchemy's root page have higher priority than Spree's root page
+root to: 'alchemy/pages#show'
+
+mount Spree::Core::Engine => '/'
+
+# Must be last so it's catch-all route can render undefined paths
+mount Alchemy::Engine => '/'
 ```
 
 ## Usage
