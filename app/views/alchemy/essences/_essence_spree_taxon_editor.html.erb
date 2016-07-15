@@ -1,16 +1,15 @@
-<div class="content_editor">
-  <label><%= render_content_name(content) %></label>
+<div class="content_editor essence_spree_taxon essence_select">
+  <%= content_label(content) %>
   <%= select_tag(
     content.form_field_name,
-    option_groups_from_collection_for_select(
-      Spree::Taxon.all,
-      :children,
-      :name,
+    options_from_collection_for_select(
+      local_assigns.fetch(:options, {})[:taxons] || Spree::Taxon.all,
       :id,
-      :name,
+      :pretty_name,
       content.essence.taxon_id
     ),
-    :class => ['alchemy_selectbox very_long', html_options[:class]].join(' '),
-    :style => html_options[:style]
+    include_blank: t(".none"),
+    class: ["alchemy_selectbox", "essence_editor_select", html_options[:class]].join(' '),
+    style: html_options[:style]
   ) %>
 </div>
