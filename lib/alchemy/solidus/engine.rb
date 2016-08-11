@@ -14,6 +14,7 @@ module Alchemy
 
       config.to_prepare do
         Alchemy.register_ability ::Spree::Ability
+        ::Spree::Ability.register_ability ::Alchemy::Permissions
         Spree::User.include Spree::AlchemyUserExtension if Alchemy.user_class_name == 'Spree::User'
         Alchemy::User.include Alchemy::SpreeUserExtension if Alchemy.user_class_name == 'Alchemy::User'
       end
