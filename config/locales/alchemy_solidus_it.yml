@@ -1,0 +1,5 @@
+it:
+  spree:
+    admin:
+      tab:
+        cms: CMS

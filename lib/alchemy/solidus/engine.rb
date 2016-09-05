@@ -12,6 +12,15 @@ module Alchemy
         ]
       end
 
+      initializer 'alchemy_solidus.i18n' do |app|
+        Alchemy::Solidus::Engine.instance_eval do
+            
+          files = Dir[File.join(File.dirname(__FILE__), '../..', 'alchemy_solidus_*.yml')]
+          ::I18n.load_path.concat(files)
+
+        end
+      end
+
       config.to_prepare do
         Alchemy.register_ability ::Spree::Ability
         ::Spree::Ability.register_ability ::Alchemy::Permissions
