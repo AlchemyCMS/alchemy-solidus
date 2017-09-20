@@ -1,0 +1,48 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'alchemy/solidus' %>
+  <%= render 'alchemy/admin/partials/js_init' %>
+  <%= render 'alchemy/admin/partials/routes' %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <button class="btn btn-primary alchemy-reload-button">
+      <span class="fa fa-refresh"></span>&nbsp;&nbsp;Reload preview
+    </button>
+  </li>
+  <li>
+    <button class="btn btn-primary alchemy-expand-button">
+      <span class="fa fa-expand"></span>&nbsp;&nbsp;Expand preview
+    </button>
+  </li>
+<% end %>
+
+<% admin_breadcrumb(link_to plural_resource_name(Spree::Product), spree.admin_products_path) %>
+<% admin_breadcrumb(link_to @product.name, spree.admin_product_path(@product)) %>
+<% admin_breadcrumb('Page') %>
+
+<%= javascript_include_tag 'alchemy/solidus' %>
+
+<% if Alchemy::Tinymce.custom_config_contents(@product.alchemy_page).present? %>
+  <%= render 'tinymce_custom_config' %>
+<% end %>
+
+<%= render 'alchemy/admin/partials/locale_data' %>
+
+<script>
+  $(function() {
+    Alchemy.ElementsWindow = new Alchemy.Views.ElementsWindow(
+      <%= @product.product_page.page_id %>, {
+        container: 'body',
+        top_menu_height: $('#content-header').outerHeight(),
+        element_window_button: '.alchemy-expand-button'
+      }
+    );
+    Alchemy.PreviewWindow = new Alchemy.Views.PreviewWindow(
+      '<%= spree.product_path(id: @product.slug) %>', {
+        main_menu_width: $('.admin-nav').outerWidth(),
+        reload_button: '.alchemy-reload-button'
+      }
+    );
+  });
+</script>

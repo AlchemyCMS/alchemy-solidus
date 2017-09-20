@@ -8,7 +8,9 @@ module Alchemy
 
       initializer 'alchemy_solidus.assets' do |app|
         app.config.assets.precompile += [
-          'alchemy/solidus/alchemy_module_icon.png'
+          'alchemy/solidus/alchemy_module_icon.png',
+          'alchemy/solidus.css',
+          'alchemy/solidus.js'
         ]
       end
 
