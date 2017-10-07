@@ -1,3 +1,3 @@
-require "alchemy_cms"
+require "alchemy-backend"
 require "solidus"
 require "alchemy/solidus/engine"

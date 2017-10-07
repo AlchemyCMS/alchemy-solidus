@@ -4,4 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'sqlite3'
-gem 'alchemy-devise'
+gem 'alchemy-backend', path: '../alchemy-backend'

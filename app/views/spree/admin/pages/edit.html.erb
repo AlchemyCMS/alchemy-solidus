@@ -1,18 +1,23 @@
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'alchemy/solidus' %>
-  <%= render 'alchemy/admin/partials/js_init' %>
-  <%= render 'alchemy/admin/partials/routes' %>
+  <%# TODO: Load CSS assets from CDN/URL %>
+  <%= stylesheet_link_tag 'alchemy/backend' %>
+  <%# TODO: Load JS assets from CDN/URL %>
+  <%= javascript_include_tag 'alchemy/backend' %>
+  <script>
+    // TODO: Move host config into Alchemy::Solidus::Config
+    Alchemy.Routes.host = 'http://localhost:4000';
+  </script>
+  <%# TODO: Find solution for setting up tinymce %>
+  <%= render 'alchemy/admin/partials/tinymce_init' %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <button class="btn btn-primary alchemy-reload-button">
-      <span class="fa fa-refresh"></span>&nbsp;&nbsp;Reload preview
+    <button class="btn btn-primary alchemy-reload-button with-tip fa fa-refresh" title="Reload preview">
     </button>
   </li>
   <li>
-    <button class="btn btn-primary alchemy-expand-button">
-      <span class="fa fa-expand"></span>&nbsp;&nbsp;Expand preview
+    <button class="btn btn-primary alchemy-expand-button with-tip fa fa-expand" title="Expand preview">
     </button>
   </li>
 <% end %>
@@ -21,12 +26,12 @@
 <% admin_breadcrumb(link_to @product.name, spree.admin_product_path(@product)) %>
 <% admin_breadcrumb('Page') %>
 
-<%= javascript_include_tag 'alchemy/solidus' %>
-
+<%# TODO: Find solution for setting up custom tinymce config %>
 <% if Alchemy::Tinymce.custom_config_contents(@product.alchemy_page).present? %>
   <%= render 'tinymce_custom_config' %>
 <% end %>
 
+<%# TODO: Find solution for locale data loading %>
 <%= render 'alchemy/admin/partials/locale_data' %>
 
 <script>
