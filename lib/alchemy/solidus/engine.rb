@@ -1,5 +1,8 @@
 require 'alchemy/solidus/alchemy_user_extension'
 require 'alchemy/solidus/spree_user_extension'
+require 'alchemy_cms'
+require 'solidus_core'
+require 'solidus_backend'
 
 module Alchemy
   module Solidus
