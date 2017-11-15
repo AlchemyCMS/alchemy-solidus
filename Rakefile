@@ -21,3 +21,17 @@ RDoc::Task.new(:rdoc) do |rdoc|
 end
 
 Bundler::GemHelper.install_tasks
+
+require 'active_support/core_ext/string'
+
+desc 'Setup test app'
+task :test_setup do
+  Dir.chdir('spec/dummy') do
+    system <<-SETUP.strip_heredoc
+      export RAILS_ENV=test && \
+      bin/rake db:drop db:create && \
+      bin/rails g spree:install --force --quiet --auto-accept --no-seed --no-sample && \
+      bin/rails g alchemy:solidus:install --auto-accept
+    SETUP
+  end
+end
