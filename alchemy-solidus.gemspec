@@ -19,4 +19,10 @@ Gem::Specification.new do |gem|
   gem.add_dependency('solidus_core', ['~> 2.0'])
   gem.add_dependency('solidus_backend', ['~> 2.0'])
   gem.add_dependency('deface', ['~> 1.0'])
+
+  gem.add_development_dependency('rspec-rails', ['~> 3.7'])
+  gem.add_development_dependency('capybara', ['~> 2.15'])
+  gem.add_development_dependency('capybara-screenshot', ['~> 1.0'])
+  gem.add_development_dependency('factory_bot', ['~> 4.8'])
+  gem.add_development_dependency('ffaker', ['~> 2.7'])
 end
