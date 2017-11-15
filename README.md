@@ -34,6 +34,22 @@ Install the gem with:
 $ bundle install
 ```
 
+## Automated setup
+
+We ship a Rails generator that helps you to install this gem into your existing Rails app.
+
+```
+$ bin/rails g alchemy:solidus:install
+```
+
+There are several options available, please check them by:
+
+```
+$ bin/rails g alchemy:solidus:install --help
+```
+
+## Manual setup
+
 ### Authentication system installation
 
 Both Alchemy and Solidus come without an authentication system in place. You will need to choose an authentication system yourself. There are 3 available options. Whichever you choose, you need to instruct Solidus & Alchemy about your choice of authentication system.
