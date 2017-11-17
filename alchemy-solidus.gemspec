@@ -3,8 +3,8 @@ require File.expand_path('../lib/alchemy/solidus/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Thomas von Deyen"]
-  gem.email         = ["tvd@magiclabs.de"]
-  gem.description   = %q{A Alchemy CMS and Solidus connector}
+  gem.email         = ["thomas@vondeyen.com"]
+  gem.description   = %q{A AlchemyCMS and Solidus integration}
   gem.summary       = %q{The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Content Management System!}
   gem.homepage      = "https://github.com/AlchemyCMS/alchemy-solidus"
   gem.license       = 'BSD New'
