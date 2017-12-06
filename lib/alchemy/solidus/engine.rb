@@ -32,6 +32,7 @@ module Alchemy
 
         if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5')
           require 'alchemy/solidus/spree_custom_user_generator_fix'
+          require 'alchemy/solidus/spree_install_generator_fix'
         end
       end
     end
