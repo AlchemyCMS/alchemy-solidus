@@ -1,5 +1,8 @@
 require 'alchemy/solidus/alchemy_user_extension'
 require 'alchemy/solidus/spree_user_extension'
+require 'alchemy_cms'
+require 'solidus_core'
+require 'solidus_backend'
 
 module Alchemy
   module Solidus
@@ -15,8 +18,16 @@ module Alchemy
       config.to_prepare do
         Alchemy.register_ability ::Spree::Ability
         ::Spree::Ability.register_ability ::Alchemy::Permissions
-        Spree::User.include Spree::AlchemyUserExtension if Alchemy.user_class_name == 'Spree::User'
-        Alchemy::User.include Alchemy::SpreeUserExtension if Alchemy.user_class_name == 'Alchemy::User'
+
+        if Alchemy.user_class_name == 'Spree::User'
+          require 'alchemy/solidus/spree_user_extension'
+          Spree::User.include Alchemy::Solidus::SpreeUserExtension
+        end
+
+        if Alchemy.user_class_name == 'Alchemy::User'
+          require 'alchemy/solidus/alchemy_user_extension'
+          Alchemy::User.include Alchemy::Solidus::AlchemyUserExtension
+        end
       end
     end
   end

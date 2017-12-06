@@ -15,7 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Alchemy::Solidus::VERSION
 
-  gem.add_dependency('alchemy_cms', ['~> 3.2'])
-  gem.add_dependency('solidus', ['~> 1.0'])
+  gem.add_dependency('alchemy_cms', ['>= 4.0.0.beta', '< 5.0'])
+  gem.add_dependency('solidus_core', ['~> 2.0'])
+  gem.add_dependency('solidus_backend', ['~> 2.0'])
   gem.add_dependency('deface', ['~> 1.0'])
 end
