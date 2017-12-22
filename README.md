@@ -25,7 +25,7 @@ This version runs with Alchemy 4.0 and above. For a Alchemy 3 compatible version
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'alchemy-solidus', github: 'AlchemyCMS/alchemy-solidus', branch: 'master'
+gem 'alchemy-solidus', github: 'AlchemyCMS/alchemy-solidus', branch: '2.0-stable'
 ```
 
 Install the gem with:
