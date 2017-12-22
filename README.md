@@ -14,11 +14,11 @@ This gem is a [Alchemy CMS](https://github.com/AlchemyCMS/alchemy_cms) and [Soli
 
 ## Solidus
 
-This version runs with Solidus 1.0 and above.
+This version runs with Solidus 2.0 and above. For a Solidus 1 compatible version please use the `1.0-stable` branch or 1.1.0 gem version.
 
 ## Alchemy
 
-This version runs with Alchemy 3.2 and above.
+This version runs with Alchemy 4.0 and above. For a Alchemy 3 compatible version please use the `1.0-stable` branch or 1.1.0 gem version.
 
 ## Installation
 
