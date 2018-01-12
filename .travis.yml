@@ -1,0 +1,20 @@
+language: ruby
+dist: trusty
+sudo: false
+cache:
+  bundler: true
+rvm:
+  - 2.4.2
+env:
+  matrix:
+    - SOLIDUS_BRANCH=v2.0
+    - SOLIDUS_BRANCH=v2.1
+    - SOLIDUS_BRANCH=v2.2
+    - SOLIDUS_BRANCH=v2.3
+    - SOLIDUS_BRANCH=v2.4
+    - SOLIDUS_BRANCH=master
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: SOLIDUS_BRANCH=master
+script: bundle exec rake
