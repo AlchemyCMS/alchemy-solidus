@@ -24,7 +24,7 @@ require 'rspec/rails'
 
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
-require 'factory_girl'
+require 'factory_bot'
 require 'ffaker'
 
 # Checks for pending migrations and applies them before tests are run.
