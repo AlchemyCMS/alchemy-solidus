@@ -7,5 +7,6 @@ gem "solidus", github: "solidusio/solidus", branch: branch
 gemspec
 
 gem 'sqlite3'
-gem 'alchemy-devise'
+gem 'alchemy_cms', github: 'AlchemyCMS/alchemy_cms'
+gem 'alchemy-devise', github: 'AlchemyCMS/alchemy-devise'
 gem 'pry-rails'
