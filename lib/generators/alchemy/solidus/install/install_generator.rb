@@ -5,7 +5,7 @@ require 'solidus_support'
 
 begin
   require 'generators/alchemy/devise/install/install_generator'
-rescue
+rescue LoadError
 end
 
 module Alchemy
