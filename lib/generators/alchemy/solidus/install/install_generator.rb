@@ -42,7 +42,7 @@ module Alchemy
           arguments = options[:auto_accept] ? ['Alchemy::User', '--force'] : ['Alchemy::User']
           Spree::CustomUserGenerator.start(arguments)
           gsub_file 'lib/spree/authentication_helpers.rb', /main_app\./, 'alchemy.'
-          if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.0')
+          if SolidusSupport.solidus_gem_version < Gem::Version.new('2.7.0')
             gsub_file 'config/initializers/spree.rb', /Spree\.user_class.?=.?.+$/, 'Spree.user_class = "Alchemy::User"'
           end
           rake 'db:migrate'
