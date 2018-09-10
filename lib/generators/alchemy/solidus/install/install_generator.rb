@@ -20,6 +20,8 @@ module Alchemy
         desc: "Set true if you don't want to run the Alchemy Devise installer. NOTE: Automatically skipped if Alchemy::Devise is not available."
       class_option :skip_spree_custom_user_generator, default: false, type: :boolean,
         desc: "Set true if you don't want to run the Solidus custom user generator. NOTE: Automatically skipped if Alchemy::Devise is not available."
+      class_option :skip_alchemy_user_generator, default: false, type: :boolean,
+        desc: "Set true if you don't want to generate an admin user. NOTE: Automatically skipped if Alchemy::Devise is not available."
       class_option :auto_accept, default: false, type: :boolean,
         desc: 'Set true if run from a automated script (ie. on a CI)'
 
@@ -46,6 +48,28 @@ module Alchemy
             gsub_file 'config/initializers/spree.rb', /Spree\.user_class.?=.?.+$/, 'Spree.user_class = "Alchemy::User"'
           end
           rake 'db:migrate'
+        end
+      end
+
+      def create_admin_user
+        if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_alchemy_user_generator] && Alchemy::User.count.zero?
+          login = ENV.fetch('ALCHEMY_ADMIN_USER_LOGIN', 'admin')
+          email = ENV.fetch('ALCHEMY_ADMIN_USER_EMAIL', 'admin@example.com')
+          password = ENV.fetch('ALCHEMY_ADMIN_USER_PASSWORD', 'test1234')
+          unless options[:auto_accept]
+            login = ask("\nEnter the username for the admin user", default: login)
+            email = ask("Enter the email for the admin user", default: email)
+            password = ask("Enter the password for the admin user", default: password)
+          end
+
+          Alchemy::User.create!(
+            login: login,
+            email: email,
+            password: password,
+            password_confirmation: password,
+            alchemy_roles: 'admin',
+            spree_roles: [Spree::Role.find_or_create_by!(name: 'admin')]
+          )
         end
       end
 
