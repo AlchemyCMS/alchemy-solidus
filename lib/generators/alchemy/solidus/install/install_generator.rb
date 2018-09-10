@@ -104,6 +104,26 @@ module Alchemy
           "\n  mount Alchemy::Engine, at: '/#{mountpoint.chomp('/')}'\n"
         end
       end
+
+      def set_root_route
+        routes_file_path = Rails.root.join('config', 'routes.rb')
+        if options[:auto_accept] || ask("\nDo you want Alchemy to handle the root route ('/')?", default: true)
+          if File.read(routes_file_path).match SPREE_MOUNT_REGEXP
+            sentinel = SPREE_MOUNT_REGEXP
+          else
+            sentinel = "Rails.application.routes.draw do\n"
+          end
+          inject_into_file routes_file_path, {after: sentinel} do
+            <<~ROOT_ROUTE
+              \n
+              \  # Let AlchemyCMS handle the root route
+              \  Spree::Core::Engine.routes.draw do
+              \    root to: '/alchemy/pages#index'
+              \  end
+            ROOT_ROUTE
+          end
+        end
+      end
     end
   end
 end
