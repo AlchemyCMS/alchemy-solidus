@@ -12,6 +12,8 @@ env:
     - SOLIDUS_BRANCH=v2.2
     - SOLIDUS_BRANCH=v2.3
     - SOLIDUS_BRANCH=v2.4
+    - SOLIDUS_BRANCH=v2.5
+    - SOLIDUS_BRANCH=v2.6
     - SOLIDUS_BRANCH=master
 matrix:
   fast_finish: true

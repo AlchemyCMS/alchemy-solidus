@@ -6,18 +6,6 @@ end
 require 'spree/testing_support/factories/address_factory'
 
 RSpec.feature "Admin Integration", type: :feature do
-  let!(:admin) do
-    Alchemy::User.create!(
-      login: 'admin',
-      password: 'S3cre#t',
-      password_confirmation: 'S3cre#t',
-      email: 'email@example.com',
-      alchemy_roles: 'admin',
-      spree_roles: [Spree::Role.first_or_create!(name: 'admin')],
-      bill_address: FactoryBot.create(:address)
-    )
-  end
-
   it 'it is possible to login and visit Alchemy admin' do
     login!
     visit '/admin/dashboard'
@@ -38,8 +26,8 @@ RSpec.feature "Admin Integration", type: :feature do
     visit '/admin/login'
 
     expect(page).to have_field 'user_login'
-    fill_in 'user_login', with: admin.login
-    fill_in 'user_password', with: admin.password
+    fill_in 'user_login', with: 'admin'
+    fill_in 'user_password', with: 'test1234'
     click_button 'login'
   end
 end
