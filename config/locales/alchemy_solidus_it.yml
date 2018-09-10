@@ -3,3 +3,9 @@ it:
     admin:
       tab:
         cms: CMS
+        pages: "Pagine"
+        sites: "Siti"
+        languages: "Lingue"
+        tags: "Tags"
+        pictures: "Immagini"
+        attachments: "File"

@@ -51,6 +51,22 @@ module Alchemy
         end
       end
 
+      def inject_admin_tab
+        inject_into_file 'config/initializers/spree.rb', {after: "Spree::Backend::Config.configure do |config|\n"} do
+          <<~ADMIN_TAB
+            \  # AlchemyCMS admin tabs
+            \  config.menu_items << config.class::MenuItem.new(
+            \    [:pages, :sites, :languages, :tags, :users, :pictures, :attachments],
+            \    'copy',
+            \    label: :cms,
+            \    condition: -> { can?(:index, :alchemy_admin_dashboard) },
+            \    partial: 'spree/admin/shared/alchemy_sub_menu',
+            \    url: '/admin/pages'
+            \  )
+          ADMIN_TAB
+        end
+      end
+
       def create_admin_user
         if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_alchemy_user_generator] && Alchemy::User.count.zero?
           login = ENV.fetch('ALCHEMY_ADMIN_USER_LOGIN', 'admin')

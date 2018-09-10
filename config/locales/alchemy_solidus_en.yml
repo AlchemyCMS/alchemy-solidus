@@ -3,3 +3,10 @@ en:
     admin:
       tab:
         cms: CMS
+        pages: Pages
+        sites: Sites
+        languages: Languages
+        tags: Tags
+        users: Users
+        pictures: Pictures
+        attachments: Attachments

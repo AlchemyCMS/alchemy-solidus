@@ -1,0 +1,23 @@
+<ul class="admin-subnav">
+  <% if can?(:index, :alchemy_admin_pages) %>
+    <%= tab :pages, label: :pages, url: alchemy.admin_pages_path %>
+  <% end %>
+  <% if can?(:index, :alchemy_admin_sites) %>
+    <%= tab :sites, label: :sites, url: alchemy.admin_sites_path %>
+  <% end %>
+  <% if can?(:index, :alchemy_admin_languages) %>
+    <%= tab :languages, label: :languages, url: alchemy.admin_languages_path %>
+  <% end %>
+  <% if can?(:index, :alchemy_admin_tags) %>
+    <%= tab :tags, label: :tags, url: alchemy.admin_tags_path %>
+  <% end %>
+  <% if defined?(Alchemy::User) && can?(:index, :alchemy_admin_users) %>
+    <%= tab :users, label: :users, url: alchemy.admin_users_path %>
+  <% end %>
+  <% if can?(:index, :alchemy_admin_pictures) %>
+    <%= tab :pictures, label: :pictures, url: alchemy.admin_pictures_path %>
+  <% end %>
+  <% if can?(:index, :alchemy_admin_attachments) %>
+    <%= tab :attachments, label: :attachments, url: alchemy.admin_attachments_path %>
+  <% end %>
+</ul>
