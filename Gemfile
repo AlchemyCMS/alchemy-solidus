@@ -14,12 +14,13 @@ case solidus_branch
 when 'master'
   gem 'alchemy_cms', github: 'AlchemyCMS/alchemy_cms'
   gem 'alchemy-devise', github: 'AlchemyCMS/alchemy-devise'
-when 'v2.5', 'v2.6'
+when 'v2.5'
   gem 'alchemy_cms', '~> 4.0.4'
-  gem 'alchemy-devise'
+  gem 'alchemy-devise', '~> 4.0.0'
 when 'v2.4'
   gem 'factory_bot', '4.8.2'
-  gem 'alchemy-devise'
+  gem 'alchemy_cms', '~> 4.0.4'
+  gem 'alchemy-devise', '~> 4.0.0'
 else
-  gem 'alchemy-devise'
+  gem 'alchemy-devise', '~> 4.1.0'
 end
