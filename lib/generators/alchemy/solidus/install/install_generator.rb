@@ -25,6 +25,8 @@ module Alchemy
       class_option :auto_accept, default: false, type: :boolean,
         desc: 'Set true if run from a automated script (ie. on a CI)'
 
+      source_root File.expand_path('templates', __dir__)
+
       def run_alchemy_installer
         unless options[:skip_alchemy_installer]
           arguments = options[:auto_accept] ? ['--skip-demo-files', '--force'] : []
@@ -49,6 +51,10 @@ module Alchemy
           end
           rake 'db:migrate'
         end
+      end
+
+      def copy_alchemy_initializer
+        template "alchemy.rb.tt", "config/initializers/alchemy.rb"
       end
 
       def inject_admin_tab
