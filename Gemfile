@@ -17,7 +17,7 @@ when 'master'
 when 'v2.5', 'v2.6'
   gem 'alchemy_cms', '~> 4.0.4'
   gem 'alchemy-devise'
-when 'v2.0', 'v2.1', 'v2.2', 'v2.3', 'v2.4'
+when 'v2.4'
   gem 'factory_bot', '4.8.2'
   gem 'alchemy-devise'
 else
