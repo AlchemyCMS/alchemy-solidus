@@ -7,6 +7,12 @@ end
 require 'spree/testing_support/factories/address_factory'
 
 RSpec.feature "Admin Integration", type: :feature do
+  it 'gets redirected to login if accessing admin' do
+    visit '/admin'
+
+    expect(page).to have_field 'user_login'
+  end
+
   it 'it is possible to login and visit Alchemy admin' do
     login!
     visit '/admin/dashboard'

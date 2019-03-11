@@ -26,6 +26,7 @@ module Alchemy
         if Alchemy.user_class_name == 'Alchemy::User'
           require 'alchemy/solidus/alchemy_user_extension'
           Alchemy::User.include Alchemy::Solidus::AlchemyUserExtension
+          require 'alchemy/solidus/spree_admin_unauthorized_redirect'
         end
 
         if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5')

@@ -45,7 +45,7 @@ module Alchemy
         if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_spree_custom_user_generator]
           arguments = options[:auto_accept] ? ['Alchemy::User', '--force'] : ['Alchemy::User']
           Spree::CustomUserGenerator.start(arguments)
-          gsub_file 'lib/spree/authentication_helpers.rb', /main_app\./, 'alchemy.'
+          gsub_file 'lib/spree/authentication_helpers.rb', /main_app\./, 'Alchemy.'
           if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.0')
             gsub_file 'config/initializers/spree.rb', /Spree\.user_class.?=.?.+$/, 'Spree.user_class = "Alchemy::User"'
           end
