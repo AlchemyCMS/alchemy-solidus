@@ -1,3 +1,4 @@
+require 'alchemy/version'
 require 'rails_helper'
 begin
   require 'factory_girl'
@@ -28,6 +29,6 @@ RSpec.feature "Admin Integration", type: :feature do
     expect(page).to have_field 'user_login'
     fill_in 'user_login', with: 'admin'
     fill_in 'user_password', with: 'test1234'
-    click_button 'login'
+    click_button Alchemy.version > '4.1.0' ? 'Login' : 'login'
   end
 end
