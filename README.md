@@ -1,8 +1,10 @@
-# Alchemy CMS Solidus Integration
+[![Build Status](https://travis-ci.org/AlchemyCMS/alchemy-solidus.svg?branch=master)](https://travis-ci.org/AlchemyCMS/alchemy-solidus)
+
+# AlchemyCMS Solidus Integration
 
 The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Content Management System!
 
-This gem is a [Alchemy CMS](https://github.com/AlchemyCMS/alchemy_cms) and [Solidus](https://github.com/solidusio/solidus) connector.
+This gem is a [AlchemyCMS](https://github.com/AlchemyCMS/alchemy_cms) and [Solidus](https://github.com/solidusio/solidus) connector.
 
 ### For now it does this:
 
@@ -89,7 +91,7 @@ Add `alchemy-devise` to your `Gemfile`
 
 ```ruby
 # Gemfile
-gem 'alchemy-devise', '~> 3.2'
+gem 'alchemy-devise', '~> 4.1'
 ```
 
 and install it:
@@ -128,15 +130,15 @@ and tell Solidus about Alchemy's path helpers:
 # lib/spree/authentication_helpers.rb
     ...
     def spree_login_path
-      alchemy.login_path
+      Alchemy.login_path
     end
 
     def spree_signup_path
-      alchemy.signup_path
+      Alchemy.signup_path
     end
 
     def spree_logout_path
-      alchemy.logout_path
+      Alchemy.logout_path
     end
     ...
 ```
@@ -217,7 +219,7 @@ mount Alchemy::Engine => '/'
 # config/routes.rb
 
 # Make Alchemy's root page have higher priority than Spree's root page
-root to: 'alchemy/pages#show'
+root to: 'alchemy/pages#index'
 
 mount Spree::Core::Engine => '/'
 
