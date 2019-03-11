@@ -19,11 +19,6 @@ alchemy_module = {
         name: 'Products'
       },
       {
-        controller: 'spree/admin/reports',
-        action: 'index',
-        name: 'Reports'
-      },
-      {
         controller: 'spree/admin/promotions',
         action: 'index',
         name: 'Promotions'
