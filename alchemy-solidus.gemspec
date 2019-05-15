@@ -9,7 +9,6 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/AlchemyCMS/alchemy-solidus"
   gem.license       = 'BSD New'
   gem.files         = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
-  gem.test_files    = Dir["spec/**/*"]
   gem.name          = "alchemy-solidus"
   gem.require_paths = ["lib"]
   gem.version       = Alchemy::Solidus::VERSION
