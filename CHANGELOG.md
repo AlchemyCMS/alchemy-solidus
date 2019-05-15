@@ -1,3 +1,8 @@
+# 2.3.1
+
+- Remove test files from built Ruby gem [#39](https://github.com/AlchemyCMS/alchemy-solidus/pull/39) ([tvdeyen](https://github.com/tvdeyen))
+- Include all Solidus helpers when using Solidus layouts [#38](https://github.com/AlchemyCMS/alchemy-solidus/pull/38) ([rickythefox](https://github.com/rickythefox))
+
 # 2.3.0
 
 - Alchemy master fixes [#34](https://github.com/AlchemyCMS/alchemy-solidus/pull/34) ([tvdeyen](https://github.com/tvdeyen))
