@@ -44,6 +44,15 @@ module Alchemy
           end
         end
       end
+      
+      # In versions of Solidus prior to 2.8, we override the tabs partial
+      # to pass a match_path value to each tab. (Version 2.8 is already
+      # passing this option.) This option is used to configure the paths
+      # for which a given tab is active.
+      #
+      if Spree.solidus_gem_version < Gem::Version.new('2.8')
+        paths['app/views'] << 'lib/views'
+      end
     end
   end
 end
