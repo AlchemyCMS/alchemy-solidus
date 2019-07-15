@@ -67,7 +67,8 @@ module Alchemy
             \    label: :cms,
             \    condition: -> { can?(:index, :alchemy_admin_dashboard) },
             \    partial: 'spree/admin/shared/alchemy_sub_menu',
-            \    url: '/admin/pages'
+            \    url: '/admin/pages',
+            \    match_path: '/pages'
             \  )
           ADMIN_TAB
         end
