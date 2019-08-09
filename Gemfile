@@ -10,17 +10,4 @@ gemspec
 gem 'sqlite3', '~> 1.3.6' # Fix for sqlite v1.4 broken with latest Rails
 gem 'pry-rails'
 
-case solidus_branch
-when 'master'
-  gem 'alchemy_cms', github: 'AlchemyCMS/alchemy_cms'
-  gem 'alchemy-devise', github: 'AlchemyCMS/alchemy-devise'
-when 'v2.5'
-  gem 'alchemy_cms', '~> 4.0.4'
-  gem 'alchemy-devise', '~> 4.0.0'
-when 'v2.4'
-  gem 'factory_bot', '4.8.2'
-  gem 'alchemy_cms', '~> 4.0.4'
-  gem 'alchemy-devise', '~> 4.0.0'
-else
-  gem 'alchemy-devise', '~> 4.1.0'
-end
+gem 'alchemy-devise'
