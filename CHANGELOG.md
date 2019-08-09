@@ -1,3 +1,7 @@
+# 2.3.2
+
+- Match path fix for tabs in Solidus < 2.8 [#40](https://github.com/AlchemyCMS/alchemy-solidus/pull/40) ([pelargir](https://github.com/pelargir))
+
 # 2.3.1
 
 - Remove test files from built Ruby gem [#39](https://github.com/AlchemyCMS/alchemy-solidus/pull/39) ([tvdeyen](https://github.com/tvdeyen))
