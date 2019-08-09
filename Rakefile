@@ -21,7 +21,7 @@ task :test_setup do
       export RAILS_ENV=test && \
       bin/rake db:environment:set db:drop && \
       bin/rails g spree:install --force --quiet --auto-accept --no-seed --no-sample && \
-      bin/rails g alchemy:solidus:install --auto-accept
+      bin/rails g alchemy:solidus:install --auto-accept --force
     SETUP
     exit($?.exitstatus) unless $?.success?
   end
