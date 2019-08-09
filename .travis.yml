@@ -7,6 +7,9 @@ rvm:
   - 2.5.5
 env:
   matrix:
+    - ALCHEMY_BRANCH=4.1-stable
+    - ALCHEMY_BRANCH=4.2-stable
+    - ALCHEMY_BRANCH=master
     - SOLIDUS_BRANCH=v2.6
     - SOLIDUS_BRANCH=v2.7
     - SOLIDUS_BRANCH=v2.8
@@ -15,5 +18,6 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
+    - env: ALCHEMY_BRANCH=master
     - env: SOLIDUS_BRANCH=master
 script: bundle exec rake

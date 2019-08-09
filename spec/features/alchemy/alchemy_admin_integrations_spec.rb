@@ -35,6 +35,11 @@ RSpec.feature "Admin Integration", type: :feature do
     expect(page).to have_field 'user_login'
     fill_in 'user_login', with: 'admin'
     fill_in 'user_password', with: 'test1234'
-    click_button Alchemy.version > '4.1.0' ? 'Login' : 'login'
+
+    if Gem::Version.new(Alchemy.version) >= Gem::Version.new('4.2.0')
+      click_button 'Login'
+    else
+      click_button 'login'
+    end
   end
 end
