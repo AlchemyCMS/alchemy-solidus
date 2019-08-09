@@ -1,56 +1,68 @@
 [![Build Status](https://travis-ci.org/AlchemyCMS/alchemy-solidus.svg?branch=master)](https://travis-ci.org/AlchemyCMS/alchemy-solidus)
 
-# AlchemyCMS Solidus Integration
+# Alchemy-Solidus
 
-The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Content Management System!
-
-This gem is a [AlchemyCMS](https://github.com/AlchemyCMS/alchemy_cms) and [Solidus](https://github.com/solidusio/solidus) connector.
-
-### For now it does this:
+This is a [AlchemyCMS](https://alchemy-cms.com) and [Solidus](https://solidus.io) integration gem.
 
 1. It provides tabs in Alchemy and Solidus menus to easily switch between both backends
 2. It offers two new Essences for Alchemy called `EssenceSpreeProduct` and `EssenceSpreeTaxon` that you can use to place Spree products and/or Taxons on your pages.
 3. Shares admin sessions and user abilities between Alchemy and Solidus.
 
-### Compatibility
+## Compatibility
 
-## Solidus
+### Solidus
 
-This version runs with Solidus 2.0 and above. For a Solidus 1 compatible version please use the `1.0-stable` branch or 1.1.0 gem version.
+This version runs with Solidus 2.6 and above.
 
-## Alchemy
+- For a Solidus < 2.6 compatible version please use the `2.3-stable` branch or `2.3.2` gem version.
+- For a Solidus 1.x compatible version please use the `1.0-stable` branch or `1.1.0` gem version.
 
-This version runs with Alchemy 4.0 and above. For a Alchemy 3 compatible version please use the `1.0-stable` branch or 1.1.0 gem version.
+### Alchemy
+
+This version runs with Alchemy 4.1 and above.
+
+- For a Alchemy 4.0 compatible version please use the `2.3-stable` branch or `2.3.2` gem version.
+- For a Alchemy 3.x compatible version please use the `1.0-stable` branch or `1.1.0` gem version.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your applications `Gemfile`:
 
 ```ruby
-gem 'alchemy-solidus', github: 'AlchemyCMS/alchemy-solidus', branch: 'master'
+gem 'alchemy-solidus', '~> 2.4.0'
 ```
 
 Install the gem with:
 
-```shell
+```bash
 $ bundle install
 ```
 
 ## Automated setup
 
-We ship a Rails generator that helps you to install this gem into your existing Rails app.
+We ship a Rails generator that helps you to install this gem into your existing application.
 
-```
+```bash
 $ bin/rails g alchemy:solidus:install
 ```
 
-There are several options available, please check them by:
+There are several options available, please check them with
 
-```
+```bash
 $ bin/rails g alchemy:solidus:install --help
 ```
 
+## Upgrading
+
+To upgrade update the Gemfile and run the install generator again
+
+```bash
+$ bin/rails g alchemy:solidus:install
+```
+
 ## Manual setup
+
+If you want to have full control over the integration you can also set this up manually.
 
 ### Authentication system installation
 
@@ -96,7 +108,7 @@ gem 'alchemy-devise', '~> 4.1'
 
 and install it:
 
-```shell
+```bash
 $ bundle install
 $ bundle exec rails g alchemy:devise:install
 ```
@@ -105,13 +117,13 @@ Run the Solidus installer:
 
 *NOTE*: Skip this if you already have a running Solidus installation.
 
-```shell
+```bash
 $ bundle exec rails g spree:install
 ```
 
 Then run the solidus custom user generator:
 
-```shell
+```bash
 $ bundle exec rails g spree:custom_user Alchemy::User
 ```
 
@@ -143,21 +155,21 @@ and tell Solidus about Alchemy's path helpers:
     ...
 ```
 
-#### 3. Option: Build their own authentication
+#### 3. Option: Build your own authentication
 
-Please follow the [spree custom authentication](https://guides.spreecommerce.com/developer/authentication.html) and the [Alchemy custom authentication](http://guides.alchemy-cms.com/edge/custom_authentication.html) guides in order to integrate your custom user with Solidus and Alchemy.
+Please follow the [Solidus custom authentication](https://guides.solidus.io/developers/users/custom-authentication.html) and the [Alchemy custom authentication](https://guides.alchemy-cms.com/custom_authentication.html) guides in order to integrate your custom user with Solidus and Alchemy.
 
-#### In either case
+### In either case
 
 Install the migrations
 
-```shell
+```bash
 $ bundle exec rake alchemy_solidus:install:migrations
 ```
 
 Run the installer of Alchemy
 
-```shell
+```bash
 $ bundle exec rake alchemy:install
 ```
 
@@ -185,11 +197,11 @@ initializer:
 require 'alchemy/solidus/alchemy_in_solidus'
 ```
 
-## Routing
+### Routing
 
 For routing you have a few options.
 
-### Place both engines in their own namespace:
+#### Place both engines in their own namespace:
 
 ```ruby
 # config/routes.rb
@@ -197,7 +209,7 @@ mount Spree::Core::Engine => '/store'
 mount Alchemy::Engine => '/pages'
 ```
 
-### Put Solidus at the root level and Alchemy in its own namespace:
+#### Put Solidus at the root level and Alchemy in its own namespace:
 
 ```ruby
 # config/routes.rb
@@ -205,7 +217,7 @@ mount Alchemy::Engine => '/pages'
 mount Spree::Core::Engine => '/'
 ```
 
-### Put Alchemy at the root level and Solidus in its own namespace:
+#### Put Alchemy at the root level and Solidus in its own namespace:
 
 ```ruby
 # config/routes.rb
@@ -213,7 +225,7 @@ mount Spree::Core::Engine => '/store'
 mount Alchemy::Engine => '/'
 ```
 
-### Put both engines in the root level
+#### Put both engines in the root level
 
 ```ruby
 # config/routes.rb
@@ -228,6 +240,8 @@ mount Alchemy::Engine => '/'
 ```
 
 ## Usage
+
+Please make yourself familiar with AlchemyCMS by [reading the guidelines](https://guides.alchemy-cms.com)
 
 ### Create a new Element for Alchemy
 
@@ -260,14 +274,38 @@ $ rails g alchemy:elements --skip
   elements: [product_category]
 ```
 
-### You can haz Solidus product and taxons!
+### Access the Solidus product or taxon in your element views
+
+You can mix Alchemy and Solidus content in the same view.
 
 ```erb
-# app/views/alchemy/elements/_product_view.html.erb
-<%= element.ingredient('spree_product') %>
+<!-- app/views/alchemy/elements/_product_view.html.erb -->
+<% cache element do %>
+  <%= element_view_for element do |el| %>
+    <% product = el.ingredient(:spree_product) %>
+    <h1><%= product.name %></h1>
+    <p><%= product.description %></p>
+    <%= el.render :text %>
+    <%= el.render :image %>
+  <% end %>
+<% end %>
+```
 
-# app/views/alchemy/elements/_product_category_view.html.erb
-<%= element.ingredient('spree_taxon') %>
+Or for a list of taxon products
+
+```erb
+<!-- app/views/alchemy/elements/_product_category_view.html.erb -->
+<% cache element do %>
+  <%= element_view_for element do |el| %>
+    <h2><%= el.render :headline %></h2>
+    <%= el.render :description %>
+
+    <% taxon = el.ingredient(:spree_taxon) %>
+    <% taxon.products.each do |product| %>
+      <%= link_to product.name, spree.product_path(product) %>
+    <% end %>
+  <% end %>
+<% end %>
 ```
 
 Alchemy :heart: Solidus!
