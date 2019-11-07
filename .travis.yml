@@ -9,6 +9,7 @@ env:
   matrix:
     - ALCHEMY_BRANCH=4.1-stable
     - ALCHEMY_BRANCH=4.2-stable
+    - ALCHEMY_BRANCH=4.3-stable
     - ALCHEMY_BRANCH=master
     - SOLIDUS_BRANCH=v2.6
     - SOLIDUS_BRANCH=v2.7
