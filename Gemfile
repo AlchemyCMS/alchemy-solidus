@@ -13,3 +13,4 @@ gemspec
 
 gem 'sqlite3', '~> 1.3.6' # Fix for sqlite v1.4 broken with latest Rails
 gem 'pry-rails'
+gem 'sprockets', '< 4'
