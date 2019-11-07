@@ -11,6 +11,6 @@ gem 'alchemy-devise', github: "AlchemyCMS/alchemy-devise", branch: alchemy_branc
 # Specify your gem's dependencies in alchemy-solidus.gemspec
 gemspec
 
-gem 'sqlite3', '~> 1.3.6' # Fix for sqlite v1.4 broken with latest Rails
+gem 'sqlite3'
 gem 'pry-rails'
 gem 'sprockets', '< 4'
