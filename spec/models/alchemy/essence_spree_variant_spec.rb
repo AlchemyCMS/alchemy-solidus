@@ -52,4 +52,12 @@ RSpec.describe Alchemy::EssenceSpreeVariant, type: :model do
       end
     end
   end
+
+  describe '#preview_text' do
+    subject { essence.preview_text(nil) }
+
+    it 'returns the variants name' do
+      is_expected.to eq(variant.descriptive_name)
+    end
+  end
 end

@@ -6,10 +6,7 @@ module Alchemy
 
     belongs_to :variant, class_name: 'Spree::Variant', optional: true
 
-    acts_as_essence(
-      ingredient_column: :variant,
-      preview_text_method: :name
-    )
+    acts_as_essence(ingredient_column: :variant)
 
     def ingredient=(variant_or_id)
       case variant_or_id
@@ -20,6 +17,11 @@ module Alchemy
       else
         super
       end
+    end
+
+    def preview_text(_maxlength)
+      return unless variant
+      variant.descriptive_name
     end
   end
 end
