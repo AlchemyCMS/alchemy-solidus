@@ -11,12 +11,12 @@ module Alchemy
       preview_text_method: :name
     )
 
-    def ingredient=(variant)
-      case variant
+    def ingredient=(variant_or_id)
+      case variant_or_id
       when VARIANT_ID
-        self.variant = Spree::Variant.new(id: variant)
+        self.variant_id = variant_or_id
       when Spree::Variant
-        self.variant = variant
+        self.variant = variant_or_id
       else
         super
       end
