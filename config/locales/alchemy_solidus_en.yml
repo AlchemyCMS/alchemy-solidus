@@ -1,4 +1,7 @@
 en:
+  alchemy:
+    solidus:
+      search_variant: Search a variant
   spree:
     admin:
       tab:

@@ -8,12 +8,19 @@ RSpec.describe 'alchemy/essences/_essence_spree_variant_editor' do
 
   before do
     view.class.send(:include, Alchemy::Admin::EssencesHelper)
-    allow(view).to receive(:content_label).and_return(content.name)
+    allow(view).to receive(:content_label) { content.name }
   end
 
-  it "renders a variant select box" do
-    render 'alchemy/essences/essence_spree_variant_editor', content: content
-    expect(rendered).to have_css('select.alchemy_selectbox.full_width')
+  subject do
+    render 'alchemy/essences/essence_spree_variant_editor',
+      content: content,
+      spree: double(api_variants_path: '/api/variants'),
+      current_alchemy_user: double(spree_api_key: '123')
+    rendered
+  end
+
+  it "renders a variant input" do
+    is_expected.to have_css('input.alchemy_selectbox.full_width')
   end
 
   context 'with a variant related to essence' do
@@ -21,13 +28,8 @@ RSpec.describe 'alchemy/essences/_essence_spree_variant_editor' do
     let(:variant) { Spree::Variant.new(id: 1, product: product) }
     let(:essence) { Alchemy::EssenceSpreeVariant.new(variant_id: variant.id) }
 
-    before do
-      expect(Spree::Variant).to receive(:all) { [variant] }
-    end
-
-    it "selects variant in select box" do
-      render 'alchemy/essences/essence_spree_variant_editor', content: content
-      expect(rendered).to have_css('option[value="1"][selected]')
+    it "sets variant id as value" do
+      is_expected.to have_css('input.alchemy_selectbox[value="1"]')
     end
   end
 end
