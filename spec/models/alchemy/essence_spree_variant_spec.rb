@@ -18,8 +18,6 @@ RSpec.describe Alchemy::EssenceSpreeVariant, type: :model do
   end
 
   describe 'ingredient=' do
-    subject(:ingredient) { essence.variant }
-
     context 'when String value is only a number' do
       let(:value) { '101' }
 
@@ -27,9 +25,8 @@ RSpec.describe Alchemy::EssenceSpreeVariant, type: :model do
         essence.ingredient = value
       end
 
-      it 'sets variant to an variant instance with that id' do
-        is_expected.to be_a(Spree::Variant)
-        expect(ingredient.id).to eq(101)
+      it 'sets variant_id with that id' do
+        expect(essence.variant_id).to eq(101)
       end
     end
 
@@ -40,9 +37,8 @@ RSpec.describe Alchemy::EssenceSpreeVariant, type: :model do
         essence.ingredient = value
       end
 
-      it 'sets variant to an variant instance with that id' do
-        is_expected.to be_a(Spree::Variant)
-        expect(ingredient).to eq(variant)
+      it 'sets variant to that variant' do
+        expect(essence.variant).to eq(variant)
       end
     end
 
@@ -54,6 +50,14 @@ RSpec.describe Alchemy::EssenceSpreeVariant, type: :model do
           essence.ingredient = value
         }.to raise_error(ActiveRecord::AssociationTypeMismatch)
       end
+    end
+  end
+
+  describe '#preview_text' do
+    subject { essence.preview_text(nil) }
+
+    it 'returns the variants name' do
+      is_expected.to eq(variant.descriptive_name)
     end
   end
 end

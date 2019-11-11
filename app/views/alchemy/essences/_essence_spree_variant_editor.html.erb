@@ -1,9 +1,17 @@
 <div class="content_editor essence_spree_variant" id="<%= content.dom_id %>" data-content-id="<%= content.id %>">
   <%= content_label(content) %>
-  <%= select_tag(
+  <%= text_field_tag(
     content.form_field_name,
-    options_from_collection_for_select(Spree::Variant.all, :id, :name, content.essence.variant_id),
+    content.essence.variant_id,
     id: content.form_field_id,
     class: 'alchemy_selectbox full_width'
   ) %>
 </div>
+
+<script>
+  $('#<%= content.form_field_id %>').alchemyVariantSelect({
+    placeholder: "<%= Alchemy.t(:search_variant, scope: 'solidus') %>",
+    apiToken: "<%= current_alchemy_user.spree_api_key %>",
+    baseUrl: "<%= spree.api_variants_path %>"
+  })
+</script>
