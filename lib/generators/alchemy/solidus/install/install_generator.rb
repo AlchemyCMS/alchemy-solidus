@@ -131,6 +131,11 @@ module Alchemy
           end
         end
       end
+
+      def append_assets
+        append_file "vendor/assets/javascripts/alchemy/admin/all.js",
+          "//= require alchemy/solidus/admin.js"
+      end
     end
   end
 end
