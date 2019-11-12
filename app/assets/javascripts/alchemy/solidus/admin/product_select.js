@@ -25,7 +25,7 @@ $.fn.alchemyProductSelect = function(options) {
         }
       }
     },
-    formatSelection: function (product) {
+    formatSelection: function(product) {
       return product.text || product.name
     }
   }))
