@@ -26,3 +26,11 @@ task :test_setup do
     exit($?.exitstatus) unless $?.success?
   end
 end
+
+require 'github_changelog_generator/task'
+require 'alchemy/solidus/version'
+GitHubChangelogGenerator::RakeTask.new(:changelog) do |config|
+  config.user = 'AlchemyCMS'
+  config.project = 'alchemy-solidus'
+  config.future_release = "v#{Alchemy::Solidus::VERSION}"
+end

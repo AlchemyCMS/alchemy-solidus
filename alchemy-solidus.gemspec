@@ -25,4 +25,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('capybara-screenshot', ['~> 1.0'])
   gem.add_development_dependency('factory_bot', ['~> 4.8'])
   gem.add_development_dependency('ffaker', ['~> 2.7'])
+  gem.add_development_dependency('github_changelog_generator')
 end
