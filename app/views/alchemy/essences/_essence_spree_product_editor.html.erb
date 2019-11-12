@@ -1,9 +1,17 @@
-<div class="content_editor essence_spree_product">
-  <label><%= render_content_name(content) %></label>
-  <%= select_tag(
+<div class="content_editor essence_spree_product" id="<%= content.dom_id %>" data-content-id="<%= content.id %>">
+  <%= content_label(content) %>
+  <%= text_field_tag(
     content.form_field_name,
-    options_from_collection_for_select(Spree::Product.not_deleted, :id, :name, content.essence.spree_product_id),
-    class: ['alchemy_selectbox very_long', html_options[:class]].join(' '),
-    style: html_options[:style]
+    content.essence.spree_product_id,
+    id: content.form_field_id,
+    class: 'alchemy_selectbox full_width'
   ) %>
 </div>
+
+<script>
+  $('#<%= content.form_field_id %>').alchemyProductSelect({
+    placeholder: "<%= Alchemy.t(:search_product, scope: 'solidus') %>",
+    apiToken: "<%= current_alchemy_user.spree_api_key %>",
+    baseUrl: "<%= spree.api_products_path %>"
+  })
+</script>
