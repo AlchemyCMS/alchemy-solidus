@@ -1,6 +1,6 @@
 //= require alchemy/solidus/admin/select2_config
 
-$.fn.alchemyVariantSelect = function(options) {
+$.fn.alchemyProductSelect = function(options) {
   var config = Alchemy.Solidus.getSelect2Config(options)
 
   this.select2($.extend(true, config, {
@@ -8,25 +8,25 @@ $.fn.alchemyVariantSelect = function(options) {
       data: function(term, page) {
         return {
           q: {
-            product_name_or_sku_cont: term
+            name_cont: term
           },
           page: page
         }
       },
       results: function(data, page) {
         return {
-          results: data.variants.map(function(variant) {
+          results: data.products.map(function(product) {
             return {
-              id: variant.id,
-              text: variant.frontend_display
+              id: product.id,
+              text: product.name
             }
           }),
           more: page * data.per_page < data.total_count
         }
       }
     },
-    formatSelection: function(variant) {
-      return variant.text || variant.frontend_display
+    formatSelection: function (product) {
+      return product.text || product.name
     }
   }))
 }
