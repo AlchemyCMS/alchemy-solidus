@@ -1,14 +1,28 @@
+# frozen_string_literal: true
+
 module Alchemy
   class EssenceSpreeProduct < ActiveRecord::Base
-    belongs_to :product, class_name: "Spree::Product", foreign_key: 'spree_product_id'
+    PRODUCT_ID = /\A\d+\z/
 
-    acts_as_essence(
-      ingredient_column: 'spree_product_id',
-      preview_text_method: 'name'
-    )
+    belongs_to :product, class_name: 'Spree::Product',
+      optional: true, foreign_key: 'spree_product_id'
 
-    def ingredient
-      product
+    acts_as_essence(ingredient_column: :product)
+
+    def ingredient=(product_or_id)
+      case product_or_id
+      when PRODUCT_ID
+        self.spree_product_id = product_or_id
+      when Spree::Product
+        self.product = product_or_id
+      else
+        super
+      end
+    end
+
+    def preview_text(_maxlength)
+      return unless product
+      product.name
     end
   end
 end
