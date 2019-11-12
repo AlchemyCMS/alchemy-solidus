@@ -7,9 +7,9 @@ $.fn.alchemyVariantSelect = function(options) {
     ajax: {
       data: function(term, page) {
         return {
-          q: {
+          q: $.extend({
             product_name_or_sku_cont: term
-          },
+          }, options.query_params),
           page: page
         }
       },

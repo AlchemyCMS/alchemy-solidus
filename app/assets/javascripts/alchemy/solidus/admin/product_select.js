@@ -7,9 +7,9 @@ $.fn.alchemyProductSelect = function(options) {
     ajax: {
       data: function(term, page) {
         return {
-          q: {
+          q: $.extend({
             name_cont: term
-          },
+          }, options.query_params),
           page: page
         }
       },
