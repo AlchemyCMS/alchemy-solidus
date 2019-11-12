@@ -12,6 +12,7 @@
   $('#<%= content.form_field_id %>').alchemyVariantSelect({
     placeholder: "<%= Alchemy.t(:search_variant, scope: 'solidus') %>",
     apiToken: "<%= current_alchemy_user.spree_api_key %>",
-    baseUrl: "<%= spree.api_variants_path %>"
+    baseUrl: "<%= spree.api_variants_path %>",
+    query_params: <%== content.settings[:query_params].to_json %>
   })
 </script>
