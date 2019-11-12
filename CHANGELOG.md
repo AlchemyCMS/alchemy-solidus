@@ -1,5 +1,18 @@
 # Changelog
 
+## [v2.5.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v2.5.0) (2019-11-12)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.4.0...v2.5.0)
+
+**Merged pull requests:**
+
+- Use Select2 ajax for Taxon select [\#52](https://github.com/AlchemyCMS/alchemy-solidus/pull/52) ([tvdeyen](https://github.com/tvdeyen))
+- Add support for Ransack query params [\#51](https://github.com/AlchemyCMS/alchemy-solidus/pull/51) ([tvdeyen](https://github.com/tvdeyen))
+- Use Select2 Ajax feature for Essence Product [\#50](https://github.com/AlchemyCMS/alchemy-solidus/pull/50) ([tvdeyen](https://github.com/tvdeyen))
+- Use Select2 for variant search [\#49](https://github.com/AlchemyCMS/alchemy-solidus/pull/49) ([tvdeyen](https://github.com/tvdeyen))
+- Add essence variants [\#48](https://github.com/AlchemyCMS/alchemy-solidus/pull/48) ([tvdeyen](https://github.com/tvdeyen))
+- CI build fixes [\#47](https://github.com/AlchemyCMS/alchemy-solidus/pull/47) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v2.4.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v2.4.0) (2019-08-09)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.3.2...v2.4.0)
