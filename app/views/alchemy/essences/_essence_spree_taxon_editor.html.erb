@@ -1,15 +1,24 @@
-<div class="content_editor essence_spree_taxon essence_select">
+<div class="content_editor essence_spree_taxon" id="<%= content.dom_id %>" data-content-id="<%= content.id %>">
   <%= content_label(content) %>
-  <%= select_tag(
+  <%= text_field_tag(
     content.form_field_name,
-    options_from_collection_for_select(
-      local_assigns.fetch(:options, {})[:taxons] || Spree::Taxon.all,
-      :id,
-      :pretty_name,
-      content.essence.taxon_id
-    ),
-    include_blank: t(".none"),
-    class: ["alchemy_selectbox", "essence_editor_select", html_options[:class]].join(' '),
-    style: html_options[:style]
+    content.essence.taxon_id,
+    id: content.form_field_id,
+    class: 'alchemy_selectbox full_width'
   ) %>
 </div>
+
+<script>
+  $('#<%= content.form_field_id %>').alchemyTaxonSelect({
+    placeholder: "<%= Alchemy.t(:search_taxon, scope: 'solidus') %>",
+    apiToken: "<%= current_alchemy_user.spree_api_key %>",
+    baseUrl: "<%= spree.api_taxons_path %>",
+    query_params: <%== content.settings[:query_params].to_json %>,
+    <% if content.essence.taxon %>
+    initialSelection: {
+      id: <%= content.essence.taxon_id %>,
+      text: "<%= content.essence.taxon.name %>"
+    }
+    <% end %>
+  })
+</script>

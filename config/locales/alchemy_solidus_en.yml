@@ -3,6 +3,7 @@ en:
     solidus:
       search_variant: Search a variant by name or sku
       search_product: Search a product by name
+      search_taxon: Search a taxon by name
   spree:
     admin:
       tab:

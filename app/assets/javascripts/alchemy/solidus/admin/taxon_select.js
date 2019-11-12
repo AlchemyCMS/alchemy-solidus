@@ -1,6 +1,6 @@
 //= require alchemy/solidus/admin/select2_config
 
-$.fn.alchemyProductSelect = function(options) {
+$.fn.alchemyTaxonSelect = function(options) {
   var config = Alchemy.Solidus.getSelect2Config(options)
 
   this.select2($.extend(true, config, {
@@ -15,18 +15,18 @@ $.fn.alchemyProductSelect = function(options) {
       },
       results: function(data, page) {
         return {
-          results: data.products.map(function(product) {
+          results: data.taxons.map(function(taxon) {
             return {
-              id: product.id,
-              text: product.name
+              id: taxon.id,
+              text: taxon.name
             }
           }),
           more: page * data.per_page < data.total_count
         }
       }
     },
-    formatSelection: function(product) {
-      return product.text || product.name
+    formatSelection: function(taxon) {
+      return taxon.text || taxon.name
     }
   }))
 }

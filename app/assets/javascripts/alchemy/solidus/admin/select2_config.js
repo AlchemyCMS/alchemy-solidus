@@ -9,15 +9,10 @@ Alchemy.Solidus.getSelect2Config = function(options) {
   return {
     placeholder: options.placeholder,
     minimumInputLength: 3,
-    initSelection: function($element, callback) {
-      $.ajax({
-        url: options.baseUrl + '/' + $element.val(),
-        headers: headers,
-        success: callback,
-        error: function (_xhr, _textStatus, errorThrown) {
-          console.error(errorThrown)
-        }
-      })
+    initSelection: function(_$el, callback) {
+      if (options.initialSelection) {
+        callback(options.initialSelection)
+      }
     },
     ajax: {
       url: options.baseUrl,
