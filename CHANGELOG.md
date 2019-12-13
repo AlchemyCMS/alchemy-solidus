@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.5.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v2.5.1) (2019-12-13)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.5.0...v2.5.1)
+
+**Merged pull requests:**
+
+- Ensure we load controller patches after they load [\#55](https://github.com/AlchemyCMS/alchemy-solidus/pull/55) ([tvdeyen](https://github.com/tvdeyen))
+- Disable ActionView partial path prefixing [\#53](https://github.com/AlchemyCMS/alchemy-solidus/pull/53) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v2.5.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v2.5.0) (2019-11-12)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.4.0...v2.5.0)
