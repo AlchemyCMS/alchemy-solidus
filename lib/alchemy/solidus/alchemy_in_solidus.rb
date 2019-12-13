@@ -1,14 +1,14 @@
-##
-# If there is the Devise Constant loaded, we can assume that we use it as the authentication method
-# then we set the ParentController of device as the Spree::BaseController
-# https://github.com/AlchemyCMS/alchemy-solidus/issues/10
-if Object.const_defined?("Devise")
-  Devise.setup do |config|
-    config.parent_controller = "Spree::BaseController"
+# Make sure we have everything loaded before patching classes
+Rails.application.config.to_prepare do
+  # Allows to render Alchemy content within Solidus' controller views
+  Spree::BaseController.include Alchemy::ControllerActions
+  Spree::BaseController.include Alchemy::ConfigurationMethods
+
+  # Hook into SolidusAuthDevise controllers if present
+  if defined? Spree::Auth::Engine
+    Spree::UserPasswordsController.include Alchemy::ControllerActions
+    Spree::UserConfirmationsController.include Alchemy::ControllerActions
+    Spree::UserRegistrationsController.include Alchemy::ControllerActions
+    Spree::UserSessionsController.include Alchemy::ControllerActions
   end
 end
-
-# Allow Alchemy content within Solidus views
-Spree::BaseController.send :include, Alchemy::ControllerActions
-Spree::UserSessionsController.send :include, Alchemy::ControllerActions if defined? Spree::UserSessionsController
-Spree::BaseController.send :include, Alchemy::ConfigurationMethods
