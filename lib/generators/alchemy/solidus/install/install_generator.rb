@@ -25,36 +25,34 @@ module Alchemy
       class_option :auto_accept, default: false, type: :boolean,
         desc: 'Set true if run from a automated script (ie. on a CI)'
 
-      source_root File.expand_path('templates', __dir__)
+      source_root File.expand_path('files', __dir__)
 
       def run_alchemy_installer
         unless options[:skip_alchemy_installer]
           arguments = options[:auto_accept] ? ['--skip-demo-files', '--force'] : []
           Alchemy::Generators::InstallGenerator.start(arguments)
+          rake('railties:install:migrations', abort_on_failure: true)
+          rake('db:migrate', abort_on_failure: true)
         end
       end
 
       def run_alchemy_devise_installer
-        if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_alchemy_devise_installer]
+        if alchemy_devise_present? && !options[:skip_alchemy_devise_installer]
           arguments = options[:auto_accept] ? ['--force'] : []
           Alchemy::Devise::Generators::InstallGenerator.start(arguments)
         end
       end
 
       def run_spree_custom_user_generator
-        if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_spree_custom_user_generator]
+        if alchemy_devise_present? && !options[:skip_spree_custom_user_generator]
           arguments = options[:auto_accept] ? ['Alchemy::User', '--force'] : ['Alchemy::User']
           Spree::CustomUserGenerator.start(arguments)
           gsub_file 'lib/spree/authentication_helpers.rb', /main_app\./, 'Alchemy.'
           if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.0')
             gsub_file 'config/initializers/spree.rb', /Spree\.user_class.?=.?.+$/, 'Spree.user_class = "Alchemy::User"'
           end
-          rake 'db:migrate'
+          rake('db:migrate', abort_on_failure: true)
         end
-      end
-
-      def copy_alchemy_initializer
-        template "alchemy.rb.tt", "config/initializers/alchemy.rb"
       end
 
       def inject_admin_tab
@@ -75,7 +73,7 @@ module Alchemy
       end
 
       def create_admin_user
-        if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_alchemy_user_generator] && Alchemy::User.count.zero?
+        if alchemy_devise_present? && !options[:skip_alchemy_user_generator] && Alchemy::User.count.zero?
           login = ENV.fetch('ALCHEMY_ADMIN_USER_LOGIN', 'admin')
           email = ENV.fetch('ALCHEMY_ADMIN_USER_EMAIL', 'admin@example.com')
           password = ENV.fetch('ALCHEMY_ADMIN_USER_PASSWORD', 'test1234')
@@ -114,27 +112,29 @@ module Alchemy
 
       def set_root_route
         routes_file_path = Rails.root.join('config', 'routes.rb')
-        if options[:auto_accept] || ask("\nDo you want Alchemy to handle the root route ('/')?", default: true)
-          if File.read(routes_file_path).match SPREE_MOUNT_REGEXP
-            sentinel = SPREE_MOUNT_REGEXP
-          else
-            sentinel = "Rails.application.routes.draw do\n"
-          end
+        if options[:auto_accept] || yes?("\nDo you want Alchemy to handle the root route '/'? (y/n)")
+          sentinel = "Rails.application.routes.draw do\n"
           inject_into_file routes_file_path, {after: sentinel} do
             <<~ROOT_ROUTE
-              \n
               \  # Let AlchemyCMS handle the root route
-              \  Spree::Core::Engine.routes.draw do
-              \    root to: '/alchemy/pages#index'
-              \  end
+              \  root to: 'alchemy/pages#index'
             ROOT_ROUTE
           end
+          copy_file('db/seeds/alchemy/pages.yml')
+          append_file(Rails.root.join('db', 'seeds.rb'), "Alchemy::Seeder.seed!\n")
+          rake('alchemy:db:seed', abort_on_failure: true)
         end
       end
 
       def append_assets
         append_file "vendor/assets/javascripts/alchemy/admin/all.js",
           "//= require alchemy/solidus/admin.js"
+      end
+
+      private
+
+      def alchemy_devise_present?
+        defined?(Alchemy::Devise::Engine)
       end
     end
   end

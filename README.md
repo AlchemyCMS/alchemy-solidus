@@ -41,6 +41,8 @@ $ bundle install
 
 ## Automated setup
 
+**Recommended**
+
 We ship a Rails generator that helps you to install this gem into your existing application.
 
 ```bash
@@ -61,9 +63,11 @@ To upgrade update the Gemfile and run the install generator again
 $ bin/rails g alchemy:solidus:install
 ```
 
-## Manual setup
+**NOTE** Please make sure to remove the `Alchemy::Modules.register_module` part from your `config/initializer/alchemy.rb` file if upgrading from 2.5.
 
-If you want to have full control over the integration you can also set this up manually.
+## Manual setup (for advanced users)
+
+For regular setups we recommend the [automated installer](#automated-setup) mentioned above. But if you know what you are doing and want to have full control over the integration you can also set this up manually.
 
 ### Authentication system installation
 
