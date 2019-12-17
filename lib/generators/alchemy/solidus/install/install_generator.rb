@@ -25,7 +25,7 @@ module Alchemy
       class_option :auto_accept, default: false, type: :boolean,
         desc: 'Set true if run from a automated script (ie. on a CI)'
 
-      source_root File.expand_path('templates', __dir__)
+      source_root File.expand_path('files', __dir__)
 
       def run_alchemy_installer
         unless options[:skip_alchemy_installer]
@@ -120,6 +120,9 @@ module Alchemy
               \  root to: 'alchemy/pages#index'
             ROOT_ROUTE
           end
+          copy_file('db/seeds/alchemy/pages.yml')
+          append_file(Rails.root.join('db', 'seeds.rb'), "Alchemy::Seeder.seed!\n")
+          rake('alchemy:db:seed', abort_on_failure: true)
         end
       end
 
