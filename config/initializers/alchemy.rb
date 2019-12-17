@@ -42,6 +42,8 @@ if defined?(Spree::Auth::Engine)
       name: 'Users'
     }
   )
+  Alchemy.user_class_name = 'Spree::User'
+  Alchemy.current_user_method = :spree_current_user
 end
 
 Alchemy::Modules.register_module(alchemy_module)
