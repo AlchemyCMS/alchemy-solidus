@@ -55,10 +55,6 @@ module Alchemy
         end
       end
 
-      def copy_alchemy_initializer
-        template "alchemy.rb.tt", "config/initializers/alchemy.rb"
-      end
-
       def inject_admin_tab
         inject_into_file 'config/initializers/spree.rb', {after: "Spree::Backend::Config.configure do |config|\n"} do
           <<~ADMIN_TAB
