@@ -1,5 +1,21 @@
 # Changelog
 
+## [v3.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.0.0) (2019-12-17)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.5.1...v3.0.0)
+
+**Closed issues:**
+
+- Automated install fails on existing Solidus install [\#54](https://github.com/AlchemyCMS/alchemy-solidus/issues/54)
+- Cannot use solidus layout when using Puma workers [\#37](https://github.com/AlchemyCMS/alchemy-solidus/issues/37)
+- Solidus nav items \(modules\) not appearing in Alchemy CMS  [\#32](https://github.com/AlchemyCMS/alchemy-solidus/issues/32)
+
+**Merged pull requests:**
+
+- Install solidus\_frontend during tests [\#58](https://github.com/AlchemyCMS/alchemy-solidus/pull/58) ([tvdeyen](https://github.com/tvdeyen))
+- Update automated installer [\#57](https://github.com/AlchemyCMS/alchemy-solidus/pull/57) ([tvdeyen](https://github.com/tvdeyen))
+- Move controller patches into Engines config.to\_prepare block [\#56](https://github.com/AlchemyCMS/alchemy-solidus/pull/56) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v2.5.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v2.5.1) (2019-12-13)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.5.0...v2.5.1)
