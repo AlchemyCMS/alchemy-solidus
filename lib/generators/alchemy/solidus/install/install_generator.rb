@@ -116,7 +116,7 @@ module Alchemy
 
       def set_root_route
         routes_file_path = Rails.root.join('config', 'routes.rb')
-        if options[:auto_accept] || ask("\nDo you want Alchemy to handle the root route ('/')?", default: true)
+        if options[:auto_accept] || yes?("\nDo you want Alchemy to handle the root route '/'? (y/n)")
           if File.read(routes_file_path).match SPREE_MOUNT_REGEXP
             sentinel = SPREE_MOUNT_REGEXP
           else
