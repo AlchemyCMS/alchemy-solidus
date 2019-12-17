@@ -1,18 +1,19 @@
-# Make sure we have everything loaded before patching classes
-Rails.application.config.to_prepare do
-  # Allows to use Solidus helpers within Alchemys controller views
-  Alchemy::BaseHelper.include Spree::BaseHelper
-  Alchemy::BaseHelper.include Spree::CheckoutHelper
-  Alchemy::BaseHelper.include Spree::ProductsHelper
-  Alchemy::BaseHelper.include Spree::StoreHelper
-  Alchemy::BaseHelper.include Spree::TaxonsHelper
+# Allows to use Solidus helpers within Alchemys controller views
+Alchemy::BaseHelper.include(
+  Spree::BaseHelper,
+  Spree::CheckoutHelper,
+  Spree::ProductsHelper,
+  Spree::StoreHelper,
+  Spree::TaxonsHelper
+)
 
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::Auth
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::Common
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::Order
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::PaymentParameters
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::Pricing
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::Search
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::Store
-  Alchemy::BaseController.include Spree::Core::ControllerHelpers::StrongParameters
-end
+Alchemy::BaseController.include(
+  Spree::Core::ControllerHelpers::Auth,
+  Spree::Core::ControllerHelpers::Common,
+  Spree::Core::ControllerHelpers::Order,
+  Spree::Core::ControllerHelpers::PaymentParameters,
+  Spree::Core::ControllerHelpers::Pricing,
+  Spree::Core::ControllerHelpers::Search,
+  Spree::Core::ControllerHelpers::Store,
+  Spree::Core::ControllerHelpers::StrongParameters
+)

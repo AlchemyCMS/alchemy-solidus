@@ -27,6 +27,14 @@ module Alchemy
           require 'alchemy/solidus/spree_custom_user_generator_fix'
           require 'alchemy/solidus/spree_install_generator_fix'
         end
+
+        if SolidusSupport.frontend_available?
+          # Allows to render Alchemy content within Solidus' controller views
+          require_dependency 'alchemy/solidus/alchemy_in_solidus'
+        end
+
+        # Allows to use Solidus helpers within Alchemys controller views
+        require_dependency 'alchemy/solidus/use_solidus_layout'
       end
 
       # Fix for +belongs_to :bill_address+ in {Spree::UserAddressBook}
@@ -38,7 +46,7 @@ module Alchemy
           end
         end
       end
-      
+
       # In versions of Solidus prior to 2.8, we override the tabs partial
       # to pass a match_path value to each tab. (Version 2.8 is already
       # passing this option.) This option is used to configure the paths
