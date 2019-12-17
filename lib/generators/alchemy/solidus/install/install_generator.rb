@@ -31,6 +31,8 @@ module Alchemy
         unless options[:skip_alchemy_installer]
           arguments = options[:auto_accept] ? ['--skip-demo-files', '--force'] : []
           Alchemy::Generators::InstallGenerator.start(arguments)
+          rake('railties:install:migrations', abort_on_failure: true)
+          rake('db:migrate', abort_on_failure: true)
         end
       end
 
@@ -49,7 +51,7 @@ module Alchemy
           if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5.0')
             gsub_file 'config/initializers/spree.rb', /Spree\.user_class.?=.?.+$/, 'Spree.user_class = "Alchemy::User"'
           end
-          rake 'db:migrate'
+          rake('db:migrate', abort_on_failure: true)
         end
       end
 
