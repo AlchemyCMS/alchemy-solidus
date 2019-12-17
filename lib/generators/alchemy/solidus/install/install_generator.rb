@@ -35,14 +35,14 @@ module Alchemy
       end
 
       def run_alchemy_devise_installer
-        if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_alchemy_devise_installer]
+        if alchemy_devise_present? && !options[:skip_alchemy_devise_installer]
           arguments = options[:auto_accept] ? ['--force'] : []
           Alchemy::Devise::Generators::InstallGenerator.start(arguments)
         end
       end
 
       def run_spree_custom_user_generator
-        if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_spree_custom_user_generator]
+        if alchemy_devise_present? && !options[:skip_spree_custom_user_generator]
           arguments = options[:auto_accept] ? ['Alchemy::User', '--force'] : ['Alchemy::User']
           Spree::CustomUserGenerator.start(arguments)
           gsub_file 'lib/spree/authentication_helpers.rb', /main_app\./, 'Alchemy.'
@@ -75,7 +75,7 @@ module Alchemy
       end
 
       def create_admin_user
-        if Kernel.const_defined?('Alchemy::Devise') && !options[:skip_alchemy_user_generator] && Alchemy::User.count.zero?
+        if alchemy_devise_present? && !options[:skip_alchemy_user_generator] && Alchemy::User.count.zero?
           login = ENV.fetch('ALCHEMY_ADMIN_USER_LOGIN', 'admin')
           email = ENV.fetch('ALCHEMY_ADMIN_USER_EMAIL', 'admin@example.com')
           password = ENV.fetch('ALCHEMY_ADMIN_USER_PASSWORD', 'test1234')
@@ -135,6 +135,12 @@ module Alchemy
       def append_assets
         append_file "vendor/assets/javascripts/alchemy/admin/all.js",
           "//= require alchemy/solidus/admin.js"
+      end
+
+      private
+
+      def alchemy_devise_present?
+        defined?(Alchemy::Devise::Engine)
       end
     end
   end
