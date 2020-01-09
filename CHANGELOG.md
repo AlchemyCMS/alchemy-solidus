@@ -1,5 +1,13 @@
 # Changelog
 
+## [v3.0.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.0.1) (2020-01-09)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.0.0...v3.0.1)
+
+**Merged pull requests:**
+
+- Set Alchemy.logout\_method [\#59](https://github.com/AlchemyCMS/alchemy-solidus/pull/59) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v3.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.0.0) (2019-12-17)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.5.1...v3.0.0)
