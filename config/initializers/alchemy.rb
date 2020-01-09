@@ -44,6 +44,12 @@ if defined?(Spree::Auth::Engine)
   )
   Alchemy.user_class_name = 'Spree::User'
   Alchemy.current_user_method = :spree_current_user
+
+  if Alchemy.respond_to?(:logout_method)
+    Rails.application.config.after_initialize do
+      Alchemy.logout_method = Devise.sign_out_via
+    end
+  end
 end
 
 Alchemy::Modules.register_module(alchemy_module)
