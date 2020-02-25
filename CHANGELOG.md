@@ -1,5 +1,13 @@
 # Changelog
 
+## [v3.0.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.0.2) (2020-02-25)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.0.1...v3.0.2)
+
+**Merged pull requests:**
+
+- Use user\_class\#name [\#60](https://github.com/AlchemyCMS/alchemy-solidus/pull/60) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v3.0.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.0.1) (2020-01-09)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.0.0...v3.0.1)
