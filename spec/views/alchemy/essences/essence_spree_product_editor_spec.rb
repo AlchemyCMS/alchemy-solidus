@@ -3,12 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe 'alchemy/essences/_essence_spree_product_editor' do
-  let(:content) { Alchemy::Content.new(essence: essence) }
+  let(:content) do
+    content = Alchemy::Content.new(essence: essence)
+    if Alchemy.gem_version >= Gem::Version.new("4.9")
+      Alchemy::ContentEditor.new(content)
+    else
+      content
+    end
+  end
+
   let(:essence) { Alchemy::EssenceSpreeProduct.new }
 
   before do
-    view.class.send(:include, Alchemy::Admin::EssencesHelper)
-    allow(view).to receive(:content_label) { content.name }
+    view.class.send(:include, Alchemy::Admin::ElementsHelper)
+    expect(view).to receive(:content_label) { content.name }
   end
 
   subject do

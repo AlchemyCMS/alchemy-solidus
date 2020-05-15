@@ -3,11 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe 'alchemy/essences/_essence_spree_taxon_editor' do
-  let(:content) { Alchemy::Content.new(essence: essence) }
+  let(:content) do
+    content = Alchemy::Content.new(essence: essence)
+    if Alchemy.gem_version >= Gem::Version.new("4.9")
+      Alchemy::ContentEditor.new(content)
+    else
+      content
+    end
+  end
   let(:essence) { Alchemy::EssenceSpreeTaxon.new }
 
   before do
-    view.class.send(:include, Alchemy::Admin::EssencesHelper)
+    view.class.send(:include,Alchemy::Admin::ElementsHelper)
     allow(view).to receive(:content_label) { content.name }
   end
 
