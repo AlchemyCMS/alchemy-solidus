@@ -3,3 +3,4 @@ log/*.log
 pkg/
 /spec/dummy/
 Gemfile.lock
+.ruby-version
