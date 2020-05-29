@@ -1,7 +1,7 @@
 require 'rails/generators'
 require 'alchemy/version'
 
-if Alchemy.gem_version >= Gem::Version.new("5.0.0a")
+if Alchemy.gem_version >= Gem::Version.new("5.0.0.a")
   require 'generators/alchemy/install/install_generator'
 else
   require 'rails/generators/alchemy/install/install_generator'
