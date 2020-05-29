@@ -20,7 +20,7 @@ task :test_setup do
     system <<-SETUP.strip_heredoc
       export RAILS_ENV=test && \
       bin/rake db:environment:set db:drop && \
-      bin/rails g spree:install --force --quiet --auto-accept --no-seed --no-sample && \
+      bin/rails g spree:install --force --auto-accept --no-seed --no-sample && \
       bin/rails g alchemy:solidus:install --auto-accept --force
     SETUP
     exit($?.exitstatus) unless $?.success?

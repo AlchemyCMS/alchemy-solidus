@@ -1,20 +1,19 @@
 language: ruby
-dist: trusty
+dist: bionic
 sudo: false
 cache:
   bundler: true
 rvm:
-  - 2.5.5
+  - 2.6
 env:
   matrix:
-    - ALCHEMY_BRANCH=4.1-stable
-    - ALCHEMY_BRANCH=4.2-stable
-    - ALCHEMY_BRANCH=4.3-stable
+    - ALCHEMY_BRANCH=4.4-stable
+    - ALCHEMY_BRANCH=4.5-stable
+    - ALCHEMY_BRANCH=4.6-stable
     - ALCHEMY_BRANCH=master
-    - SOLIDUS_BRANCH=v2.6
-    - SOLIDUS_BRANCH=v2.7
     - SOLIDUS_BRANCH=v2.8
     - SOLIDUS_BRANCH=v2.9
+    - SOLIDUS_BRANCH=v2.10
     - SOLIDUS_BRANCH=master
 matrix:
   fast_finish: true

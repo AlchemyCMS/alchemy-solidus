@@ -1,5 +1,12 @@
 require 'rails/generators'
-require 'rails/generators/alchemy/install/install_generator'
+require 'alchemy/version'
+
+if Alchemy.gem_version >= Gem::Version.new("5.0.0.a")
+  require 'generators/alchemy/install/install_generator'
+else
+  require 'rails/generators/alchemy/install/install_generator'
+end
+
 require 'generators/spree/custom_user/custom_user_generator'
 require 'solidus_support'
 
@@ -83,14 +90,17 @@ module Alchemy
             password = ask("Enter the password for the admin user", default: password)
           end
 
+          # This is a bit strange, but without the double save this fails with a failed validation.
           Alchemy::User.create!(
             login: login,
             email: email,
             password: password,
             password_confirmation: password,
-            alchemy_roles: 'admin',
-            spree_roles: [Spree::Role.find_or_create_by!(name: 'admin')]
-          )
+            alchemy_roles: 'admin'
+          ).tap do |user|
+            user.spree_roles = [Spree::Role.find_or_create_by!(name: 'admin')]
+            user.save!
+          end
         end
       end
 
