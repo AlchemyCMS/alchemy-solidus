@@ -1,5 +1,13 @@
 # Changelog
 
+## [v3.1.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.1.1) (2020-06-11)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.1.0...v3.1.1)
+
+**Merged pull requests:**
+
+- Fix essence editor partials for elements w/o editor [\#65](https://github.com/AlchemyCMS/alchemy-solidus/pull/65) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v3.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.1.0) (2020-06-11)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.0.2...v3.1.0)
