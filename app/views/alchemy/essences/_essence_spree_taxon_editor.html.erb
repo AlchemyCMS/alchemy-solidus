@@ -1,3 +1,5 @@
+<% content ||= local_assigns[:content] || local_assigns[:essence_spree_taxon_editor] %>
+
 <div class="content_editor essence_spree_taxon" id="<%= content.dom_id %>" data-content-id="<%= content.id %>">
   <%= content_label(content) %>
   <%= text_field_tag(
