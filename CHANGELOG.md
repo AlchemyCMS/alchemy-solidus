@@ -1,5 +1,14 @@
 # Changelog
 
+## [v3.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.1.0) (2020-06-11)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.0.2...v3.1.0)
+
+**Merged pull requests:**
+
+- Ignore .ruby-version [\#63](https://github.com/AlchemyCMS/alchemy-solidus/pull/63) ([mamhoff](https://github.com/mamhoff))
+- Build fixes [\#62](https://github.com/AlchemyCMS/alchemy-solidus/pull/62) ([mamhoff](https://github.com/mamhoff))
+
 ## [v3.0.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.0.2) (2020-02-25)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.0.1...v3.0.2)
