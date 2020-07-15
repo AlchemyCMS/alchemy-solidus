@@ -36,7 +36,7 @@ module Alchemy
 
       def run_alchemy_installer
         unless options[:skip_alchemy_installer]
-          arguments = options[:auto_accept] ? ['--skip-demo-files', '--force'] : []
+          arguments = options[:auto_accept] ? ['--skip-demo-files', '--force', '--auto-accept'] : []
           Alchemy::Generators::InstallGenerator.start(arguments)
           rake('railties:install:migrations', abort_on_failure: true)
           rake('db:migrate', abort_on_failure: true)

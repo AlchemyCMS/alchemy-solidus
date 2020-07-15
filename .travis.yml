@@ -10,6 +10,7 @@ env:
     - ALCHEMY_BRANCH=4.4-stable
     - ALCHEMY_BRANCH=4.5-stable
     - ALCHEMY_BRANCH=4.6-stable
+    - ALCHEMY_BRANCH=5.0-stable
     - ALCHEMY_BRANCH=master
     - SOLIDUS_BRANCH=v2.8
     - SOLIDUS_BRANCH=v2.9
