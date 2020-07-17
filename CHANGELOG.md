@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.2.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.2.0) (2020-07-17)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.1.1...v3.2.0)
+
+- Allow Alchemy 5.x ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v3.1.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.1.1) (2020-06-11)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.1.0...v3.1.1)
