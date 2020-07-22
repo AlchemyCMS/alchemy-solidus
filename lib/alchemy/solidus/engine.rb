@@ -23,7 +23,7 @@ module Alchemy
           require 'alchemy/solidus/spree_admin_unauthorized_redirect'
         end
 
-        if SolidusSupport.solidus_gem_version < Gem::Version.new('2.5')
+        if Spree.solidus_gem_version < Gem::Version.new('2.5')
           require 'alchemy/solidus/spree_custom_user_generator_fix'
           require 'alchemy/solidus/spree_install_generator_fix'
         end
