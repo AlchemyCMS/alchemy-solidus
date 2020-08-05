@@ -2,5 +2,6 @@
 log/*.log
 pkg/
 /spec/dummy/
+!/spec/dummy/app/models/spree/user.rb
 Gemfile.lock
 .ruby-version
