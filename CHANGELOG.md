@@ -1,5 +1,14 @@
 # Changelog
 
+## [v3.2.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.2.1) (2020-08-06)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.2.0...v3.2.1)
+
+**Merged pull requests:**
+
+- Add has\_many folded\_pages association to Spree::User [\#67](https://github.com/AlchemyCMS/alchemy-solidus/pull/67) ([tvdeyen](https://github.com/tvdeyen))
+- Fix deprecated solidus\_gem\_version references [\#66](https://github.com/AlchemyCMS/alchemy-solidus/pull/66) ([pelargir](https://github.com/pelargir))
+
 ## [v3.2.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.2.0) (2020-07-17)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.1.1...v3.2.0)
