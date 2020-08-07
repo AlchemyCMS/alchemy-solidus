@@ -2,7 +2,7 @@ alchemy_module = {
   engine_name: 'spree',
   name: 'solidus',
   navigation: {
-    controller: 'spree/admin/orders',
+    controller: '/spree/admin/orders',
     action: 'index',
     name: 'Store',
     inline_image: '<svg version="1.1" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle">
@@ -11,22 +11,22 @@ alchemy_module = {
     data: { turbolinks: false },
     sub_navigation: [
       {
-        controller: 'spree/admin/orders',
+        controller: '/spree/admin/orders',
         action: 'index',
         name: 'Orders'
       },
       {
-        controller: 'spree/admin/products',
+        controller: '/spree/admin/products',
         action: 'index',
         name: 'Products'
       },
       {
-        controller: 'spree/admin/promotions',
+        controller: '/spree/admin/promotions',
         action: 'index',
         name: 'Promotions'
       },
       {
-        controller: 'spree/admin/stock_items',
+        controller: '/spree/admin/stock_items',
         action: 'index',
         name: 'Stock'
       }
@@ -37,7 +37,7 @@ alchemy_module = {
 if defined?(Spree::Auth::Engine)
   alchemy_module[:navigation][:sub_navigation].push(
     {
-      controller: 'spree/admin/users',
+      controller: '/spree/admin/users',
       action: 'index',
       name: 'Users'
     }
