@@ -21,4 +21,5 @@ matrix:
   allow_failures:
     - env: ALCHEMY_BRANCH=master
     - env: SOLIDUS_BRANCH=master
+before_script: nvm use 12
 script: bundle exec rake
