@@ -1,5 +1,13 @@
 # Changelog
 
+## [v3.2.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.2.2) (2020-08-22)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.2.1...v3.2.2)
+
+**Merged pull requests:**
+
+- Use absolute paths in Alchemy module definition [\#68](https://github.com/AlchemyCMS/alchemy-solidus/pull/68) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v3.2.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.2.1) (2020-08-06)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.2.0...v3.2.1)
