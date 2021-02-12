@@ -5,7 +5,6 @@ require 'alchemy/test_support/essence_shared_examples'
 require 'alchemy/test_support/factories/page_factory'
 require 'alchemy/test_support/factories/element_factory'
 require 'alchemy/test_support/factories/content_factory'
-require 'spree/testing_support/factories/variant_factory'
 
 require_dependency 'alchemy/site'
 

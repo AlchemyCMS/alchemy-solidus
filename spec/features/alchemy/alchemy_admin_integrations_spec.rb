@@ -1,10 +1,5 @@
 require 'alchemy/version'
 require 'rails_helper'
-begin
-  require 'factory_girl'
-rescue LoadError
-end
-require 'spree/testing_support/factories/address_factory'
 
 RSpec.feature "Admin Integration", type: :feature do
   it 'gets redirected to login if accessing admin' do
