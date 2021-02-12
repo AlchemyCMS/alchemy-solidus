@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/AlchemyCMS/alchemy-solidus.svg?branch=master)](https://travis-ci.com/AlchemyCMS/alchemy-solidus)
+[![CI](https://github.com/AlchemyCMS/alchemy-solidus/workflows/CI/badge.svg?branch=main)](https://github.com/AlchemyCMS/alchemy-solidus/actions?query=workflow%3ACI+branch%3Amain)
 [![Gem Version](https://badge.fury.io/rb/alchemy-solidus.svg)](https://badge.fury.io/rb/alchemy-solidus)
 
 # Alchemy-Solidus
