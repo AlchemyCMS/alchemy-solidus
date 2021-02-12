@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Rspec:
+
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        ruby-version:
+          - 2.6
+          - 2.7
+          - 3.0
+        alchemy:
+          - 5.0-stable
+          - 5.1-stable
+          - 5.2-stable
+        solidus:
+          - v2.9
+          - v2.10
+          - v2.11
+    env:
+      ALCHEMY_BRANCH: ${{ matrix.alchemy }}
+      SOLIDUS_BRANCH: ${{ matrix.solidus }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Run tests
+        run: bundle exec rake
