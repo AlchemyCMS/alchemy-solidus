@@ -13,9 +13,7 @@ jobs:
     strategy:
       matrix:
         ruby-version:
-          - 2.6
           - 2.7
-          - 3.0
         alchemy:
           - 5.0-stable
           - 5.1-stable
