@@ -41,6 +41,15 @@ end
 
 require 'spree/testing_support/factories'
 
+if Alchemy.gem_version >= Gem::Version.new("5.2.0")
+  require 'alchemy/test_support'
+
+  FactoryBot.definition_file_paths.concat(Alchemy::TestSupport.factory_paths)
+  FactoryBot.reload
+else
+  require 'alchemy/test_support/factories'
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
