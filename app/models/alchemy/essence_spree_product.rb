@@ -13,7 +13,7 @@ module Alchemy
 
     def ingredient=(product_or_id)
       case product_or_id
-      when PRODUCT_ID
+      when PRODUCT_ID, ""
         self.spree_product_id = product_or_id
       when Spree::Product
         self.product = product_or_id
