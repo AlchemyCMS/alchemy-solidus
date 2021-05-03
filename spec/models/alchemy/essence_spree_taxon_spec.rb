@@ -14,6 +14,18 @@ RSpec.describe Alchemy::EssenceSpreeTaxon, type: :model do
   end
 
   describe "ingredient=" do
+    context "when String is empty" do
+      let(:value) { "" }
+
+      before do
+        essence.ingredient = value
+      end
+
+      it "sets taxon_id to nil" do
+        expect(essence.taxon_id).to eq(nil)
+      end
+    end
+
     context "when String value is only a number" do
       let(:value) { "101" }
 

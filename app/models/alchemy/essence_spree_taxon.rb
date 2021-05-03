@@ -13,7 +13,7 @@ module Alchemy
 
     def ingredient=(taxon_or_id)
       case taxon_or_id
-      when TAXON_ID
+      when TAXON_ID, ""
         self.taxon_id = taxon_or_id
       when Spree::Taxon
         self.taxon = taxon_or_id
