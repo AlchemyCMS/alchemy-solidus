@@ -12,7 +12,7 @@ module Alchemy
 
     def ingredient=(variant_or_id)
       case variant_or_id
-      when VARIANT_ID
+      when VARIANT_ID, ""
         self.variant_id = variant_or_id
       when Spree::Variant
         self.variant = variant_or_id
