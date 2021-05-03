@@ -4,8 +4,10 @@ module Alchemy
   class EssenceSpreeProduct < ActiveRecord::Base
     PRODUCT_ID = /\A\d+\z/
 
-    belongs_to :product, class_name: 'Spree::Product',
-      optional: true, foreign_key: 'spree_product_id'
+    belongs_to :product,
+      class_name: "Spree::Product",
+      optional: true,
+      foreign_key: "spree_product_id"
 
     acts_as_essence(ingredient_column: :product)
 
