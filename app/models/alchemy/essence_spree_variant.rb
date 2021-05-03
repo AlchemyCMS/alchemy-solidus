@@ -4,7 +4,9 @@ module Alchemy
   class EssenceSpreeVariant < ActiveRecord::Base
     VARIANT_ID = /\A\d+\z/
 
-    belongs_to :variant, class_name: 'Spree::Variant', optional: true
+    belongs_to :variant,
+      class_name: "Spree::Variant",
+      optional: true
 
     acts_as_essence(ingredient_column: :variant)
 
