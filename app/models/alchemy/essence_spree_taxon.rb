@@ -4,8 +4,10 @@ module Alchemy
   class EssenceSpreeTaxon < ActiveRecord::Base
     TAXON_ID = /\A\d+\z/
 
-    belongs_to :taxon, class_name: 'Spree::Taxon',
-      optional: true, foreign_key: 'taxon_id'
+    belongs_to :taxon,
+      class_name: "Spree::Taxon",
+      optional: true,
+      foreign_key: "taxon_id"
 
     acts_as_essence(ingredient_column: :taxon)
 
