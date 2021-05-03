@@ -41,11 +41,12 @@ end
 
 require "spree/testing_support/factories"
 
+require "alchemy/version"
 if Alchemy.gem_version >= Gem::Version.new("5.2.0")
   require "alchemy/test_support"
 
-  FactoryBot.definition_file_paths.concat(Alchemy::TestSupport.factory_paths)
-  FactoryBot.reload
+  FactoryBot.definition_file_paths.prepend(Alchemy::TestSupport.factories_path)
+  FactoryBot.find_definitions
 else
   require "alchemy/test_support/factories"
 end
