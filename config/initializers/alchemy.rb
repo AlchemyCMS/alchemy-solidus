@@ -52,4 +52,6 @@ if defined?(Spree::Auth::Engine)
   end
 end
 
-Alchemy::Modules.register_module(alchemy_module)
+Rails.application.config.after_initialize do
+  Alchemy::Modules.register_module(alchemy_module)
+end
