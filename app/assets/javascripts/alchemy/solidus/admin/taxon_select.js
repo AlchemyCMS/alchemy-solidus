@@ -18,7 +18,7 @@ $.fn.alchemyTaxonSelect = function(options) {
           results: data.taxons.map(function(taxon) {
             return {
               id: taxon.id,
-              text: taxon.name
+              text: taxon.pretty_name
             }
           }),
           more: page * data.per_page < data.total_count
