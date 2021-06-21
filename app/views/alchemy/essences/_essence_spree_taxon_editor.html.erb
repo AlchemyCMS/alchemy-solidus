@@ -19,7 +19,7 @@
     <% if content.essence.taxon %>
     initialSelection: {
       id: <%= content.essence.taxon_id %>,
-      text: "<%= content.essence.taxon.name %>"
+      text: "<%= content.essence.taxon.pretty_name %>"
     }
     <% end %>
   })
