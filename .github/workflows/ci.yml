@@ -21,6 +21,7 @@ jobs:
         solidus:
           - v2.10
           - v2.11
+          - v3.0
     env:
       ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}
