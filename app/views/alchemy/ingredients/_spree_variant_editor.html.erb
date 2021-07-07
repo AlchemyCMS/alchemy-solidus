@@ -1,0 +1,25 @@
+<%= content_tag :div,
+  class: spree_variant_editor.css_classes,
+  data: spree_variant_editor.data_attributes do %>
+  <%= element_form.fields_for(:ingredients, spree_variant_editor.ingredient) do |f| %>
+    <%= ingredient_label(spree_variant_editor, :variant_id) %>
+    <%= f.text_field :variant_id,
+      value: spree_variant_editor.variant&.id,
+      class: 'alchemy_selectbox full_width' %>
+  <% end %>
+<% end %>
+
+<script>
+  $('#<%= spree_variant_editor.form_field_id(:variant_id) %>').alchemyVariantSelect({
+    placeholder: "<%= Alchemy.t(:search_variant, scope: 'solidus') %>",
+    apiToken: "<%= current_alchemy_user.spree_api_key %>",
+    baseUrl: "<%= spree.api_variants_path %>",
+    query_params: <%== spree_variant_editor.settings[:query_params].to_json %>,
+    <% if spree_variant_editor.variant %>
+    initialSelection: {
+      id: <%= spree_variant_editor.variant.id %>,
+      text: "<%= spree_variant_editor.variant.name %>"
+    }
+    <% end %>
+  })
+</script>
