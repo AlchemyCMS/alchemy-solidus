@@ -1,5 +1,18 @@
 # Changelog
 
+## [v4.0.0-b1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0-b1) (2021-07-07)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v1.1.1...v4.0.0-b1)
+
+**Merged pull requests:**
+
+- Add ingredients [\#78](https://github.com/AlchemyCMS/alchemy-solidus/pull/78) ([tvdeyen](https://github.com/tvdeyen))
+- Use pretty name in taxon select [\#77](https://github.com/AlchemyCMS/alchemy-solidus/pull/77) ([mamhoff](https://github.com/mamhoff))
+- Fix ExecJS to 2.7.0 for development and test [\#75](https://github.com/AlchemyCMS/alchemy-solidus/pull/75) ([mamhoff](https://github.com/mamhoff))
+- Register modules after app initialization [\#74](https://github.com/AlchemyCMS/alchemy-solidus/pull/74) ([mamhoff](https://github.com/mamhoff))
+- Allow to save empty taxons, products and variants [\#73](https://github.com/AlchemyCMS/alchemy-solidus/pull/73) ([tvdeyen](https://github.com/tvdeyen))
+- Load alchemy factories the propper way [\#72](https://github.com/AlchemyCMS/alchemy-solidus/pull/72) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v3.3.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.3.0) (2020-10-21)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.2.2...v3.3.0)
@@ -28,8 +41,6 @@
 ## [v3.2.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.2.0) (2020-07-17)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.1.1...v3.2.0)
-
-- Allow Alchemy 5.x ([tvdeyen](https://github.com/tvdeyen))
 
 ## [v3.1.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v3.1.1) (2020-06-11)
 
@@ -179,6 +190,24 @@
 **Merged pull requests:**
 
 - Solidus 2.0 and Alchemy 4.0 support [\#16](https://github.com/AlchemyCMS/alchemy-solidus/pull/16) ([tvdeyen](https://github.com/tvdeyen))
+- set the correct devise parent controller when use the devise authentication system in solidus [\#12](https://github.com/AlchemyCMS/alchemy-solidus/pull/12) ([oniram88](https://github.com/oniram88))
+- introduce localization to menu tab [\#11](https://github.com/AlchemyCMS/alchemy-solidus/pull/11) ([oniram88](https://github.com/oniram88))
+- Integration Alchemy in Solidus [\#9](https://github.com/AlchemyCMS/alchemy-solidus/pull/9) ([oniram88](https://github.com/oniram88))
+- Better integration [\#8](https://github.com/AlchemyCMS/alchemy-solidus/pull/8) ([oniram88](https://github.com/oniram88))
+- Reduce the friction in getting these engines talking to each other. [\#6](https://github.com/AlchemyCMS/alchemy-solidus/pull/6) ([eric1234](https://github.com/eric1234))
+- Use non-animiated PNG. [\#5](https://github.com/AlchemyCMS/alchemy-solidus/pull/5) ([eric1234](https://github.com/eric1234))
+- include spree storehelper in alchemy [\#3](https://github.com/AlchemyCMS/alchemy-solidus/pull/3) ([harin](https://github.com/harin))
+
+
+## [v1.1.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v1.1.1) (2021-04-13)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.3.0...v1.1.1)
+
+**Closed issues:**
+
+- Rails 6 support? [\#70](https://github.com/AlchemyCMS/alchemy-solidus/issues/70)
+- Javascript Pack Tag Missing In Edit [\#64](https://github.com/AlchemyCMS/alchemy-solidus/issues/64)
+- Alchemy pages helper disappears on checkout, 500 error [\#61](https://github.com/AlchemyCMS/alchemy-solidus/issues/61)
 
 ## [v1.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v1.1.0) (2017-12-22)
 
@@ -191,16 +220,6 @@
 - Error with CanCan when entering solidus backend [\#4](https://github.com/AlchemyCMS/alchemy-solidus/issues/4)
 - undefined local variable or method `cart\_link\_url'  [\#2](https://github.com/AlchemyCMS/alchemy-solidus/issues/2)
 - undefined local variable or method `cache\_key\_for\_taxons' [\#1](https://github.com/AlchemyCMS/alchemy-solidus/issues/1)
-
-**Merged pull requests:**
-
-- set the correct devise parent controller when use the devise authentication system in solidus [\#12](https://github.com/AlchemyCMS/alchemy-solidus/pull/12) ([oniram88](https://github.com/oniram88))
-- introduce localization to menu tab [\#11](https://github.com/AlchemyCMS/alchemy-solidus/pull/11) ([oniram88](https://github.com/oniram88))
-- Integration Alchemy in Solidus [\#9](https://github.com/AlchemyCMS/alchemy-solidus/pull/9) ([oniram88](https://github.com/oniram88))
-- Better integration [\#8](https://github.com/AlchemyCMS/alchemy-solidus/pull/8) ([oniram88](https://github.com/oniram88))
-- Reduce the friction in getting these engines talking to each other. [\#6](https://github.com/AlchemyCMS/alchemy-solidus/pull/6) ([eric1234](https://github.com/eric1234))
-- Use non-animiated PNG. [\#5](https://github.com/AlchemyCMS/alchemy-solidus/pull/5) ([eric1234](https://github.com/eric1234))
-- include spree storehelper in alchemy [\#3](https://github.com/AlchemyCMS/alchemy-solidus/pull/3) ([harin](https://github.com/harin))
 
 ## [v1.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v1.0.0) (2015-12-09)
 
