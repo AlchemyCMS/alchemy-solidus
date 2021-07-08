@@ -4,6 +4,12 @@ module Alchemy
   module Ingredients
     class SpreeProduct < Alchemy::Ingredient
       related_object_alias :product, class_name: "Spree::Product"
+
+      def preview_text(maxlength)
+        return unless product
+
+        product.name[0..maxlength - 1]
+      end
     end
   end
 end
