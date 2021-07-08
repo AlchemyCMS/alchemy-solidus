@@ -1,8 +1,20 @@
 # Changelog
 
+## [v4.0.0-b2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0-b2) (2021-07-08)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v4.0.0.pre.b1...v4.0.0-b2)
+
+**Closed issues:**
+
+- Unable to load application: NameError: uninitialized constant Alchemy::Ingredient [\#79](https://github.com/AlchemyCMS/alchemy-solidus/issues/79)
+
+**Merged pull requests:**
+
+- Only load ingredients if Alchemy v6 is used [\#80](https://github.com/AlchemyCMS/alchemy-solidus/pull/80) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v4.0.0-b1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0-b1) (2021-07-07)
 
-[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v1.1.1...v4.0.0-b1)
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.3.0...v4.0.0-b1)
 
 **Merged pull requests:**
 
