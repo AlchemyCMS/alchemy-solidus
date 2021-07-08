@@ -1,4 +1,5 @@
 require 'alchemy_cms'
+require 'alchemy/version'
 require 'solidus_core'
 require 'solidus_backend'
 require 'solidus_support'
@@ -54,6 +55,9 @@ module Alchemy
       #
       if Spree.solidus_gem_version < Gem::Version.new('2.8')
         paths['app/views'] << 'lib/views'
+      end
+      if Alchemy.gem_version >= Gem::Version.new('6.0.0.b1')
+        paths['app/models'] << 'lib/models'
       end
     end
   end
