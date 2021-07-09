@@ -14,8 +14,8 @@ Gem::Specification.new do |gem|
   gem.version       = Alchemy::Solidus::VERSION
 
   gem.add_dependency('alchemy_cms', ['>= 5.0.0', '< 6.1'])
-  gem.add_dependency('solidus_core', ['>= 2.10.0', '< 3.0'])
-  gem.add_dependency('solidus_backend', ['>= 2.10.0', '< 3.0'])
+  gem.add_dependency('solidus_core', ['>= 2.10.0', '< 4.0'])
+  gem.add_dependency('solidus_backend', ['>= 2.10.0', '< 4.0'])
   gem.add_dependency('solidus_support', ['>= 0.1.1'])
   gem.add_dependency('deface', ['~> 1.0'])
 
