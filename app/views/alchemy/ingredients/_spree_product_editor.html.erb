@@ -5,6 +5,7 @@
     <%= ingredient_label(spree_product_editor, :product_id) %>
     <%= f.text_field :product_id,
       value: spree_product_editor.product&.id,
+      id: spree_product_editor.form_field_id(:product_id),
       class: 'alchemy_selectbox full_width' %>
   <% end %>
 <% end %>

@@ -5,6 +5,7 @@
     <%= ingredient_label(spree_taxon_editor, :taxon_id) %>
     <%= f.text_field :taxon_id,
       value: spree_taxon_editor.taxon&.id,
+      id: spree_taxon_editor.form_field_id(:taxon_id),
       class: 'alchemy_selectbox full_width' %>
   <% end %>
 <% end %>
