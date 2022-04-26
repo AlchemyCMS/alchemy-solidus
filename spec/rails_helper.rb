@@ -39,7 +39,12 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-require "spree/testing_support/factories"
+if Spree.solidus_gem_version >= Gem::Version.new("2.11.0")
+  require "spree/testing_support/factory_bot"
+  Spree::TestingSupport::FactoryBot.add_paths_and_load!
+else
+  require "spree/testing_support/factories"
+end
 
 require "alchemy/test_support"
 FactoryBot.definition_file_paths.append(Alchemy::TestSupport.factories_path)
