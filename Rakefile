@@ -22,7 +22,7 @@ task :test_setup do
       bin/rake db:environment:set db:drop && \
       bin/rake gutentag:install:migrations && \
       bin/rails g gutentag:migration_versions && \
-      bin/rails g spree:install --force --auto-accept --no-seed --no-sample && \
+      bin/rails g #{ENV["SOLIDUS_BRANCH"].match?(/^2.+/) ? "spree" : "solidus"}:install --force --auto-accept --no-seed --no-sample && \
       bin/rails g alchemy:solidus:install --auto-accept --force
     SETUP
     exit($?.exitstatus) unless $?.success?
