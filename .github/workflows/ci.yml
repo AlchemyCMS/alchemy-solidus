@@ -1,15 +1,12 @@
 name: CI
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
   Rspec:
     runs-on: ubuntu-18.04
     strategy:
+      fail-fast: false
       matrix:
         ruby-version:
           - 2.7
