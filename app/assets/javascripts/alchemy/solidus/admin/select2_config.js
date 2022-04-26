@@ -3,7 +3,7 @@ Alchemy.Solidus = Alchemy.Solidus || {}
 
 Alchemy.Solidus.getSelect2Config = function(options) {
   var headers = {
-    'X-Spree-Token': options.apiToken
+    'Authorization': 'Bearer ' + options.apiToken
   }
 
   return {
