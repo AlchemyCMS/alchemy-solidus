@@ -15,7 +15,6 @@ jobs:
           - 6.0-stable
           - main
         solidus:
-          - v2.10
           - v2.11
           - v3.0
     env:
