@@ -24,11 +24,6 @@ module Alchemy
           require 'alchemy/solidus/spree_admin_unauthorized_redirect'
         end
 
-        if Spree.solidus_gem_version < Gem::Version.new('2.5')
-          require 'alchemy/solidus/spree_custom_user_generator_fix'
-          require 'alchemy/solidus/spree_install_generator_fix'
-        end
-
         if SolidusSupport.frontend_available?
           # Allows to render Alchemy content within Solidus' controller views
           require_dependency 'alchemy/solidus/alchemy_in_solidus'
@@ -48,14 +43,6 @@ module Alchemy
         end
       end
 
-      # In versions of Solidus prior to 2.8, we override the tabs partial
-      # to pass a match_path value to each tab. (Version 2.8 is already
-      # passing this option.) This option is used to configure the paths
-      # for which a given tab is active.
-      #
-      if Spree.solidus_gem_version < Gem::Version.new('2.8')
-        paths['app/views'] << 'lib/views'
-      end
       if Alchemy.gem_version >= Gem::Version.new('6.0.0.b1')
         paths['app/models'] << 'lib/models'
       end
