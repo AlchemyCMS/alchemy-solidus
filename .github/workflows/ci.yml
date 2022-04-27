@@ -17,6 +17,10 @@ jobs:
         solidus:
           - v2.11
           - v3.0
+        exclude:
+          - alchemy: "5.3-stable"
+            solidus: "v3.0"
+            ruby-version: 2.7
     env:
       ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}
