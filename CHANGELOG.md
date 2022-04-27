@@ -1,8 +1,21 @@
 # Changelog
 
-## [v4.0.0-b2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0-b2) (2021-07-08)
+## [v4.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0) (2022-04-27)
 
-[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v4.0.0.pre.b1...v4.0.0-b2)
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v4.0.0.pre.b2...v4.0.0)
+
+**Merged pull requests:**
+
+- Remove old Solidus patches [\#86](https://github.com/AlchemyCMS/alchemy-solidus/pull/86) ([tvdeyen](https://github.com/tvdeyen))
+- Test Alchemy 6 [\#85](https://github.com/AlchemyCMS/alchemy-solidus/pull/85) ([tvdeyen](https://github.com/tvdeyen))
+- Remove deprecated X-Spree-Token  [\#83](https://github.com/AlchemyCMS/alchemy-solidus/pull/83) ([hrdchz](https://github.com/hrdchz))
+- Patch Gutentag migrations during dummy app setup [\#82](https://github.com/AlchemyCMS/alchemy-solidus/pull/82) ([tvdeyen](https://github.com/tvdeyen))
+- Fix DOM ids of ingredient editors [\#81](https://github.com/AlchemyCMS/alchemy-solidus/pull/81) ([tvdeyen](https://github.com/tvdeyen))
+- Allow Solidus v3 [\#76](https://github.com/AlchemyCMS/alchemy-solidus/pull/76) ([afdev82](https://github.com/afdev82))
+
+## [v4.0.0.pre.b2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0.pre.b2) (2021-07-08)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v4.0.0.pre.b1...v4.0.0.pre.b2)
 
 **Closed issues:**
 
@@ -12,9 +25,9 @@
 
 - Only load ingredients if Alchemy v6 is used [\#80](https://github.com/AlchemyCMS/alchemy-solidus/pull/80) ([tvdeyen](https://github.com/tvdeyen))
 
-## [v4.0.0-b1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0-b1) (2021-07-07)
+## [v4.0.0.pre.b1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.0.0.pre.b1) (2021-07-07)
 
-[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v3.3.0...v4.0.0-b1)
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v1.1.1...v4.0.0.pre.b1)
 
 **Merged pull requests:**
 
@@ -142,7 +155,11 @@
 
 ## [v2.3.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v2.3.2) (2019-08-09)
 
-[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.3.1...v2.3.2)
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/show...v2.3.2)
+
+## [show](https://github.com/AlchemyCMS/alchemy-solidus/tree/show) (2019-08-09)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.3.1...show)
 
 **Closed issues:**
 
