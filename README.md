@@ -13,15 +13,19 @@ This is a [AlchemyCMS](https://alchemy-cms.com) and [Solidus](https://solidus.io
 
 ### Solidus
 
-This version runs with Solidus 2.6 and above.
+This version runs with Solidus v2.11 and v3.0.
 
+- For a Solidus < 2.11 compatible version please use the `3.1-stable` branch or `3.3.0` gem version.
 - For a Solidus < 2.6 compatible version please use the `2.3-stable` branch or `2.3.2` gem version.
 - For a Solidus 1.x compatible version please use the `1.0-stable` branch or `1.1.0` gem version.
 
+> **NOTE:** If you are using Solidus v3.0 with Alchemy v5.3, make sure to also use Rails v6.0 and the legacy image attachment adapter (paperclip) and not the active storage adapter, since this needs Rails >= 6.1 and Alchemy v5.3 is not Rails 6.1 compatible. You need Alchemy v6.0 for Rails >= 6.1.
+
 ### Alchemy
 
-This version runs with Alchemy 4.1 and above.
+This version runs with Alchemy v5.x and v6.0.
 
+- For a Alchemy 4.x compatible version please use the `3.1-stable` branch or `3.3.0` gem version.
 - For a Alchemy 4.0 compatible version please use the `2.3-stable` branch or `2.3.2` gem version.
 - For a Alchemy 3.x compatible version please use the `1.0-stable` branch or `1.1.0` gem version.
 
