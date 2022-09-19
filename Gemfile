@@ -16,6 +16,9 @@ gem "sqlite3"
 gem "pry-rails"
 gem "sprockets", "< 4"
 
+# Alchemy 5.3 still supports Rails 6.0 and only Rails >= 6.1 has support for Psych 4
+gem "psych", "< 4" if alchemy_branch == "5.3-stable"
+
 group :development, :test do
   # execjs 2.8 removes deprecation warnings but also breaks a number of dependent projects.
   # in our case the culprit is `handlebars-assets`. The changes between 2.7.0 and 2.8.0 are
