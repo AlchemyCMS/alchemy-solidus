@@ -10,6 +10,7 @@ jobs:
       matrix:
         ruby-version:
           - 2.7
+          - 3.0
         alchemy:
           - 5.3-stable
           - 6.0-stable
@@ -17,10 +18,29 @@ jobs:
         solidus:
           - v2.11
           - v3.0
+          - v3.1
         exclude:
           - alchemy: "5.3-stable"
             solidus: "v3.0"
             ruby-version: 2.7
+          - alchemy: "5.3-stable"
+            solidus: "v3.1"
+            ruby-version: 2.7
+          - alchemy: "5.3-stable"
+            solidus: "v3.0"
+            ruby-version: 3.0
+          - alchemy: "5.3-stable"
+            solidus: "v3.1"
+            ruby-version: 3.0
+          - alchemy: "5.3-stable"
+            solidus: "v2.11"
+            ruby-version: 3.0
+          - alchemy: "6.0-stable"
+            solidus: "v2.11"
+            ruby-version: 3.0
+          - alchemy: "main"
+            solidus: "v2.11"
+            ruby-version: 3.0
     env:
       ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}
@@ -34,6 +54,6 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
       - name: Run tests
         run: bundle exec rake
