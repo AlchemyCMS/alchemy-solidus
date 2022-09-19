@@ -9,8 +9,8 @@ jobs:
       fail-fast: false
       matrix:
         ruby-version:
-          - 2.7
-          - 3.0
+          - "2.7"
+          - "3.0"
         alchemy:
           - 5.3-stable
           - 6.0-stable
@@ -22,25 +22,25 @@ jobs:
         exclude:
           - alchemy: "5.3-stable"
             solidus: "v3.0"
-            ruby-version: 2.7
+            ruby-version: "2.7"
           - alchemy: "5.3-stable"
             solidus: "v3.1"
-            ruby-version: 2.7
+            ruby-version: "2.7"
           - alchemy: "5.3-stable"
             solidus: "v3.0"
-            ruby-version: 3.0
+            ruby-version: "3.0"
           - alchemy: "5.3-stable"
             solidus: "v3.1"
-            ruby-version: 3.0
+            ruby-version: "3.0"
           - alchemy: "5.3-stable"
             solidus: "v2.11"
-            ruby-version: 3.0
+            ruby-version: "3.0"
           - alchemy: "6.0-stable"
             solidus: "v2.11"
-            ruby-version: 3.0
+            ruby-version: "3.0"
           - alchemy: "main"
             solidus: "v2.11"
-            ruby-version: 3.0
+            ruby-version: "3.0"
     env:
       ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}
