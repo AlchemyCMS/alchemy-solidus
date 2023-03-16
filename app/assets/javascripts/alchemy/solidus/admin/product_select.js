@@ -1,32 +1,37 @@
 //= require alchemy/solidus/admin/select2_config
 
-$.fn.alchemyProductSelect = function(options) {
+$.fn.alchemyProductSelect = function (options) {
   var config = Alchemy.Solidus.getSelect2Config(options)
 
-  this.select2($.extend(true, config, {
-    ajax: {
-      data: function(term, page) {
+  function formatResultObject(product) {
+    return {
+      id: product.id,
+      text: product.name,
+    }
+  }
+
+  var select2config = Object.assign(config, {
+    ajax: Object.assign(config.ajax, {
+      data: function (term, page) {
         return {
-          q: $.extend({
-            name_cont: term
-          }, options.query_params),
-          page: page
+          q: Object.assign(
+            {
+              name_cont: term,
+            },
+            options.query_params
+          ),
+          page: page,
         }
       },
-      results: function(data, page) {
+      results: function (data, page) {
         return {
-          results: data.products.map(function(product) {
-            return {
-              id: product.id,
-              text: product.name
-            }
-          }),
-          more: page * data.per_page < data.total_count
+          results: data.products.map(
+            options.formatResultObject || formatResultObject
+          ),
+          more: page * data.per_page < data.total_count,
         }
-      }
-    },
-    formatSelection: function(product) {
-      return product.text || product.name
-    }
-  }))
+      },
+    }),
+  })
+  this.select2(select2config)
 }
