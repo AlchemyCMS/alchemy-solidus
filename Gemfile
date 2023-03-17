@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v2.11")
-gem "solidus_core", github: "solidusio/solidus", branch: solidus_branch
-gem "solidus_frontend", github: "solidusio/solidus", branch: solidus_branch
-gem "solidus_backend", github: "solidusio/solidus", branch: solidus_branch
+solidus_version = ENV.fetch("SOLIDUS_VERSION", "3.2")
+gem "solidus_core", "~> #{solidus_version}.0"
+gem "solidus_frontend", "~> #{solidus_version}.0"
+gem "solidus_backend", "~> #{solidus_version}.0"
 
-alchemy_branch = ENV.fetch("ALCHEMY_BRANCH", "main")
-gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: alchemy_branch
-gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: alchemy_branch
+alchemy_version = ENV.fetch("ALCHEMY_VERSION", "6.1")
+gem "alchemy_cms", "~> #{alchemy_version}.0"
+gem "alchemy-devise", "~> #{alchemy_version}.0"
 
 # Specify your gem's dependencies in alchemy-solidus.gemspec
 gemspec
@@ -15,9 +15,6 @@ gemspec
 gem "sqlite3"
 gem "pry-rails"
 gem "sprockets", "< 4"
-
-# Alchemy 5.3 still supports Rails 6.0 and only Rails >= 6.1 has support for Psych 4
-gem "psych", "< 4" if alchemy_branch == "5.3-stable"
 
 group :development, :test do
   # execjs 2.8 removes deprecation warnings but also breaks a number of dependent projects.
