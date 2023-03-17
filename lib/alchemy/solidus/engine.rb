@@ -42,10 +42,6 @@ module Alchemy
           end
         end
       end
-
-      if Alchemy.gem_version >= Gem::Version.new('6.0.0.b1')
-        paths['app/models'] << 'lib/models'
-      end
     end
   end
 end
