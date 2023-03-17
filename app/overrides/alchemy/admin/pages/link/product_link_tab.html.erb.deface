@@ -1,0 +1,7 @@
+<!-- insert_bottom "#overlay_tabs > ul" -->
+
+<li>
+  <a href="#overlay_tab_product_link">
+    <%= Alchemy.t('link_overlay_tab_label.product') %>
+  </a>
+</li>

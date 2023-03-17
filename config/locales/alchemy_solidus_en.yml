@@ -1,5 +1,8 @@
 en:
   alchemy:
+    choose_product_to_link: Choose a product to link to
+    link_overlay_tab_label:
+      product: Product
     solidus:
       search_variant: Search a variant by name or sku
       search_product: Search a product by name

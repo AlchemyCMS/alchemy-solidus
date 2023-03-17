@@ -2,3 +2,9 @@
 #
 # For further information please see http://guides.alchemy-cms.com/stable/elements.html
 
+- name: article
+  ingredients:
+    - role: headline
+      type: Text
+      settings:
+        linkable: true
