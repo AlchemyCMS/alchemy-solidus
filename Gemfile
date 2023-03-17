@@ -5,9 +5,14 @@ gem "solidus_core", "~> #{solidus_version}.0"
 gem "solidus_frontend", "~> #{solidus_version}.0"
 gem "solidus_backend", "~> #{solidus_version}.0"
 
-alchemy_version = ENV.fetch("ALCHEMY_VERSION", "6.1")
-gem "alchemy_cms", "~> #{alchemy_version}.0"
-gem "alchemy-devise", "~> #{alchemy_version}.0"
+alchemy_version = ENV.fetch("ALCHEMY_VERSION", "main")
+if alchemy_version == "main"
+  gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "main"
+  gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
+else
+  gem "alchemy_cms", "~> #{alchemy_version}.0"
+  gem "alchemy-devise", "~> #{alchemy_version}.0"
+end
 
 # Specify your gem's dependencies in alchemy-solidus.gemspec
 gemspec
