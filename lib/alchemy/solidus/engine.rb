@@ -32,16 +32,6 @@ module Alchemy
         # Allows to use Solidus helpers within Alchemys controller views
         require_dependency 'alchemy/solidus/use_solidus_layout'
       end
-
-      # Fix for +belongs_to :bill_address+ in {Spree::UserAddressBook}
-      # Solidus has this set to +false+ in {Spree::Base}, but {Alchemy::User} does not inherit from it.
-      initializer 'alchemy_solidus.belongs_bill_address_fix' do
-        if Alchemy.user_class_name == '::Alchemy::User'
-          ActiveSupport.on_load(:active_record) do
-            Alchemy::User.belongs_to_required_by_default = false
-          end
-        end
-      end
     end
   end
 end
