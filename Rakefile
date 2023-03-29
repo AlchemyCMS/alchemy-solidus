@@ -22,7 +22,7 @@ task :test_setup do
       bin/rake db:environment:set db:drop && \
       bin/rake gutentag:install:migrations && \
       bin/rails g gutentag:migration_versions && \
-      bin/rails g solidus:install --force --auto-accept --no-seed --no-sample && \
+      bin/rails g solidus:install --force --auto-accept --no-seed --no-sample --authentication none --payment-method none --no-with-authentication && \
       bin/rails g solidus_frontend:install --force --auto-accept && \
       bin/rails g alchemy:solidus:install --auto-accept --force
     SETUP
