@@ -128,7 +128,6 @@ module Alchemy
             ROOT_ROUTE
           end
           copy_file('db/seeds/alchemy/pages.yml')
-          append_file(Rails.root.join('db', 'seeds.rb'), "Alchemy::Seeder.seed!\n")
           rake('alchemy:db:seed', abort_on_failure: true)
         end
       end
