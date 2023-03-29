@@ -15,6 +15,9 @@ gemspec
 gem "sqlite3"
 gem "pry-rails"
 gem "sprockets", "< 4"
+gem "psych", "< 4"
+gem "rails", "~> 6.0.0"
+gem "listen"
 
 group :development, :test do
   # execjs 2.8 removes deprecation warnings but also breaks a number of dependent projects.
