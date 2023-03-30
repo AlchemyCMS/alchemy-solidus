@@ -1,5 +1,13 @@
 # Changelog
 
+## [v5.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v5.0.0) (2023-03-30)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v4.1.0...v5.0.0)
+
+**Merged pull requests:**
+
+- Remove Alchemy 5 support [\#89](https://github.com/AlchemyCMS/alchemy-solidus/pull/89) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v4.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v4.1.0) (2023-02-01)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v4.0.0...v4.1.0)
