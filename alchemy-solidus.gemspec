@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency("solidus_support", [">= 0.1.1"])
   gem.add_dependency("deface", ["~> 1.0"])
 
-  gem.add_development_dependency("rspec-rails", ["~> 5.0"])
+  gem.add_development_dependency("rspec-rails", ["~> 6.0"])
   gem.add_development_dependency("shoulda-matchers", ["~> 4.0"])
   gem.add_development_dependency("capybara", ["~> 2.15"])
   gem.add_development_dependency("capybara-screenshot", ["~> 1.0"])
