@@ -27,8 +27,10 @@ task :test_setup do
       bin/rails g gutentag:migration_versions && \
       bin/rails g solidus:install --force --auto-accept --no-seed --no-sample #{solidus_install_options} && \
       bin/rails g solidus_frontend:install --force --auto-accept && \
+      bin/rails javascript:install:esbuild && \
       bin/rails g alchemy:solidus:install --auto-accept --force && \
-      bin/rake db:test:prepare
+      bin/rake db:test:prepare && \
+      bin/rails javascript:build
     SETUP
     exit($?.exitstatus) unless $?.success?
   end

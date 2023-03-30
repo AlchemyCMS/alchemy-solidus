@@ -19,7 +19,8 @@ gemspec
 
 gem "sqlite3"
 gem "pry-rails"
-gem "sprockets", "< 4"
+gem "sprockets", "~> 4.0"
+gem "jsbundling-rails", "~> 1.1"
 gem "rails", "~> 6.1.0"
 gem "listen"
 gem "puma"
