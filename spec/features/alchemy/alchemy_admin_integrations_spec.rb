@@ -3,7 +3,9 @@ require "rails_helper"
 require "alchemy/devise/test_support/factories"
 
 RSpec.feature "Admin Integration", type: :feature do
-  let!(:user) { create(:alchemy_admin_user) }
+  let!(:user) do
+    create(:alchemy_admin_user, spree_roles: [::Spree::Role.create!(name: "admin")])
+  end
 
   it "gets redirected to login if accessing admin" do
     visit "/admin"
