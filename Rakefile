@@ -16,13 +16,17 @@ require "active_support/core_ext/string"
 
 desc "Setup test app"
 task :test_setup do
+  solidus_version = ENV.fetch("SOLIDUS_VERSION", "3.2")
+  solidus_32_install_options = "--payment-method none --frontend none --no-with-authentication"
+  solidus_33_install_options = "--payment-method none --frontend none --authentication none"
+  solidus_install_options = solidus_version == "3.2" ? solidus_32_install_options : solidus_33_install_options
   Dir.chdir("spec/dummy") do
     system <<-SETUP.strip_heredoc
       export RAILS_ENV=test && \
       bin/rake db:environment:set db:drop && \
       bin/rake gutentag:install:migrations && \
       bin/rails g gutentag:migration_versions && \
-      bin/rails g solidus:install --force --auto-accept --no-seed --no-sample --authentication none --payment-method none --no-with-authentication && \
+      bin/rails g solidus:install --force --auto-accept --no-seed --no-sample #{solidus_install_options} && \
       bin/rails g solidus_frontend:install --force --auto-accept && \
       bin/rails g alchemy:solidus:install --auto-accept --force
     SETUP
