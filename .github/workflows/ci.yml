@@ -31,5 +31,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14
+      - name: Prepare tests
+        run: bundle exec rake test_setup
       - name: Run tests
-        run: bundle exec rake
+        run: bundle exec rspec
