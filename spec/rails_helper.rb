@@ -46,6 +46,9 @@ require "alchemy/test_support"
 FactoryBot.definition_file_paths.append(Alchemy::TestSupport.factories_path)
 FactoryBot.reload
 
+require "alchemy/devise/test_support/factories"
+require "alchemy/test_support/shared_ingredient_editor_examples"
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

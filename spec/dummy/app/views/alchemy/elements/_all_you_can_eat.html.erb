@@ -1,0 +1,13 @@
+<%- cache(all_you_can_eat) do -%>
+  <%= element_view_for(all_you_can_eat) do |el| -%>
+    <div class="product">
+      <%= el.render(:product) %>
+    </div>
+    <div class="variant">
+      <%= el.render(:variant) %>
+    </div>
+    <div class="taxon">
+      <%= el.render(:taxon) %>
+    </div>
+  <%- end -%>
+<%- end -%>

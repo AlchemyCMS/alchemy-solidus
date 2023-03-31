@@ -13,13 +13,13 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version = Alchemy::Solidus::VERSION
 
-  gem.add_dependency("alchemy_cms", [">= 6.0.0", "< 7"])
+  gem.add_dependency("alchemy_cms", [">= 7.0.0.a", "< 8"])
   gem.add_dependency("solidus_core", [">= 3.0.0", "< 4.0"])
   gem.add_dependency("solidus_backend", [">= 3.0.0", "< 4.0"])
   gem.add_dependency("solidus_support", [">= 0.1.1"])
   gem.add_dependency("deface", ["~> 1.0"])
 
-  gem.add_development_dependency("rspec-rails", ["~> 5.0"])
+  gem.add_development_dependency("rspec-rails", ["~> 6.0"])
   gem.add_development_dependency("shoulda-matchers", ["~> 4.0"])
   gem.add_development_dependency("capybara", ["~> 2.15"])
   gem.add_development_dependency("capybara-screenshot", ["~> 1.0"])

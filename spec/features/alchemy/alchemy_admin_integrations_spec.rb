@@ -1,6 +1,5 @@
 require "alchemy/version"
 require "rails_helper"
-require "alchemy/devise/test_support/factories"
 
 RSpec.feature "Admin Integration", type: :feature do
   let!(:user) do
