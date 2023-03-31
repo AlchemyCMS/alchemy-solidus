@@ -21,14 +21,14 @@ jobs:
       ALCHEMY_VERSION: ${{ matrix.alchemy }}
       SOLIDUS_VERSION: ${{ matrix.solidus }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
       - name: Run tests
