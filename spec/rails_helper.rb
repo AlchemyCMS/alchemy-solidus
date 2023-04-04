@@ -3,8 +3,9 @@ require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../dummy/config/environment", __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
-require "rspec/rails"
+if Rails.env.production?
+  abort("The Rails environment is running in production mode!")
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -22,10 +23,12 @@ require "rspec/rails"
 #
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
-require "capybara/rspec"
+require "capybara/rails"
 require "capybara-screenshot/rspec"
 require "factory_bot"
 require "ffaker"
+require "rspec/rails"
+require "webdrivers/chromedriver"
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -43,15 +46,38 @@ require "spree/testing_support/factory_bot"
 Spree::TestingSupport::FactoryBot.add_paths_and_load!
 
 require "alchemy/test_support"
+require "alchemy/test_support/capybara_helpers"
+require "alchemy/test_support/integration_helpers"
+
 FactoryBot.definition_file_paths.append(Alchemy::TestSupport.factories_path)
 FactoryBot.reload
 
 require "alchemy/devise/test_support/factories"
 require "alchemy/test_support/shared_ingredient_editor_examples"
 
+Capybara.register_driver :selenium_chrome_headless do |app|
+  Capybara::Selenium::Driver.load_selenium
+  browser_options =
+    ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+      opts.args << "--headless"
+      opts.args << "--window-size=1280,800"
+    end
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options: browser_options
+  )
+end
+
+Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.asset_host = "http://localhost:3000"
+Capybara.server = :puma, { Silent: true }
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.include Alchemy::TestSupport::IntegrationHelpers, type: :feature
+  config.include Alchemy::TestSupport::CapybaraHelpers, type: :feature
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

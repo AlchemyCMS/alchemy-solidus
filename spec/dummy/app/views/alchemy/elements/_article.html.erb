@@ -1,0 +1,7 @@
+<%- cache(article) do -%>
+  <%= element_view_for(article) do |el| -%>
+    <div class="headline">
+      <%= el.render(:headline) %>
+    </div>
+  <%- end -%>
+<%- end -%>

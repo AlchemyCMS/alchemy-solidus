@@ -10,16 +10,25 @@ require "rspec/core"
 require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
 
-task default: [:test_setup, :spec]
+task default: %i[test_setup spec]
 
 require "active_support/core_ext/string"
 
 desc "Setup test app"
 task :test_setup do
   solidus_version = ENV.fetch("SOLIDUS_VERSION", "3.2")
-  solidus_32_install_options = "--payment-method none --frontend none --no-with-authentication"
-  solidus_33_install_options = "--payment-method none --frontend none --authentication none"
-  solidus_install_options = solidus_version == "3.2" ? solidus_32_install_options : solidus_33_install_options
+  solidus_32_install_options =
+    "--payment-method none --frontend none --no-with-authentication"
+  solidus_33_install_options =
+    "--payment-method none --frontend none --authentication none"
+  solidus_install_options =
+    (
+      if solidus_version == "3.2"
+        solidus_32_install_options
+      else
+        solidus_33_install_options
+      end
+    )
   Dir.chdir("spec/dummy") do
     system <<-SETUP.strip_heredoc
       bin/rake db:environment:set db:drop && \
@@ -28,7 +37,7 @@ task :test_setup do
       bin/rails g solidus:install --force --auto-accept --no-seed --no-sample #{solidus_install_options} && \
       bin/rails g solidus_frontend:install --force --auto-accept && \
       bin/rails javascript:install:esbuild && \
-      bin/rails g alchemy:solidus:install --auto-accept --force && \
+      bin/rails g alchemy:solidus:install --auto-accept --skip && \
       bin/rake db:test:prepare && \
       bin/rails javascript:build
     SETUP

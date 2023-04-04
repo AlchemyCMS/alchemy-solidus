@@ -18,6 +18,7 @@ gem "jsbundling-rails", "~> 1.1"
 gem "rails", "~> 6.1.0"
 gem "listen"
 gem "puma"
+gem "deface"
 
 group :development, :test do
   # execjs 2.8 removes deprecation warnings but also breaks a number of dependent projects.
