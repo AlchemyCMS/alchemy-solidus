@@ -1,5 +1,14 @@
 # Changelog
 
+## [v6.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.0.0) (2023-04-26)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v5.0.0...v6.0.0)
+
+**Merged pull requests:**
+
+- Add a product link to link dialog [\#91](https://github.com/AlchemyCMS/alchemy-solidus/pull/91) ([tvdeyen](https://github.com/tvdeyen))
+- Add Alchemy 7 support: Remove custom essences [\#90](https://github.com/AlchemyCMS/alchemy-solidus/pull/90) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v5.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v5.0.0) (2023-03-30)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v4.1.0...v5.0.0)
