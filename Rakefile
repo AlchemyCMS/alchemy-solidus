@@ -16,7 +16,7 @@ require "active_support/core_ext/string"
 
 desc "Setup test app"
 task :test_setup do
-  solidus_version = ENV.fetch("SOLIDUS_VERSION", "3.2")
+  solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.0")
   solidus_32_install_options =
     "--payment-method none --frontend none --no-with-authentication"
   solidus_33_install_options =

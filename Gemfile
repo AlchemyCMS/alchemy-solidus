@@ -1,9 +1,13 @@
 source "https://rubygems.org"
 
-solidus_version = ENV.fetch("SOLIDUS_VERSION", "3.2")
+solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.0")
 gem "solidus_core", "~> #{solidus_version}.0"
-gem "solidus_frontend", "~> #{solidus_version}.0"
 gem "solidus_backend", "~> #{solidus_version}.0"
+if solidus_version == "4.0"
+  gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
+else
+  gem "solidus_frontend", "~> #{solidus_version}.0"
+end
 
 gem "alchemy_cms", "~> 7.0.0-a"
 gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
@@ -15,7 +19,7 @@ gem "sqlite3"
 gem "pry-rails"
 gem "sprockets", "~> 4.0"
 gem "jsbundling-rails", "~> 1.1"
-gem "rails", "~> 6.1.0"
+gem "rails", ">= 6.1.0"
 gem "listen"
 gem "puma"
 gem "deface"
