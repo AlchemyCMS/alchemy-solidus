@@ -17,6 +17,7 @@ jobs:
         solidus:
           - "3.2"
           - "3.3"
+          - "4.0"
     env:
       ALCHEMY_VERSION: ${{ matrix.alchemy }}
       SOLIDUS_VERSION: ${{ matrix.solidus }}
@@ -30,7 +31,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
       - name: Prepare tests
         run: bundle exec rake test_setup
       - name: Run tests
