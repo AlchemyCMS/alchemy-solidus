@@ -3,9 +3,9 @@
   "private": "true",
   "dependencies": {
     "@alchemy_cms/admin": "~7.0.0-a",
-    "esbuild": "^0.17.14"
+    "esbuild": "^0.18.11"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
   }
 }

@@ -1,1 +1,4 @@
-<%= spree_taxon_view.taxon&.name %>
+<%= render spree_taxon_view.as_view_component(
+  **local_assigns.slice(:options),
+  **local_assigns.slice(:html_options)
+) -%>
