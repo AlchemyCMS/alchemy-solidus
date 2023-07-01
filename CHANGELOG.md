@@ -1,5 +1,18 @@
 # Changelog
 
+## [v6.0.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.0.1) (2023-07-01)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.0.0...v6.0.1)
+
+**Closed issues:**
+
+- Solidus 4.0 compatibility [\#92](https://github.com/AlchemyCMS/alchemy-solidus/issues/92)
+
+**Merged pull requests:**
+
+- Add ingredient view components [\#94](https://github.com/AlchemyCMS/alchemy-solidus/pull/94) ([tvdeyen](https://github.com/tvdeyen))
+- Allow Solidus 4.0 [\#93](https://github.com/AlchemyCMS/alchemy-solidus/pull/93) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v6.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.0.0) (2023-04-26)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v5.0.0...v6.0.0)
