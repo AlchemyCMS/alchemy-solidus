@@ -5,6 +5,10 @@ module Alchemy
     class SpreeProduct < Alchemy::Ingredient
       related_object_alias :product, class_name: "Spree::Product"
 
+      def preload_relations
+        [{ taxons: :taxonomy }, { master: :images }]
+      end
+
       def preview_text(maxlength)
         return unless product
 

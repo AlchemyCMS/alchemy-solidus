@@ -39,5 +39,11 @@ if Alchemy.gem_version >= Gem::Version.new("6.0.0.b1")
         it { is_expected.to be_nil }
       end
     end
+
+    describe "#preload_relations" do
+      subject { ingredient.preload_relations }
+
+      it { is_expected.to eq([{ taxons: :taxonomy }, { master: :images }]) }
+    end
   end
 end
