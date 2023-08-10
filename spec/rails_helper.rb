@@ -28,7 +28,6 @@ require "capybara-screenshot/rspec"
 require "factory_bot"
 require "ffaker"
 require "rspec/rails"
-require "webdrivers/chromedriver"
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
