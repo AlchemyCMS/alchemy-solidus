@@ -1,5 +1,13 @@
 # Changelog
 
+## [v6.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.1.0) (2023-08-11)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.0.1...v6.1.0)
+
+**Merged pull requests:**
+
+- Add Solidus 4.1 support [\#96](https://github.com/AlchemyCMS/alchemy-solidus/pull/96) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v6.0.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.0.1) (2023-07-01)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.0.0...v6.0.1)
