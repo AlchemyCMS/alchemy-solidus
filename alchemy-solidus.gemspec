@@ -15,9 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version = Alchemy::Solidus::VERSION
 
-  gem.add_dependency("alchemy_cms", [">= 7.0.0.b", "< 8"])
-  gem.add_dependency("solidus_core", [">= 3.0.0", "< 4.1"])
-  gem.add_dependency("solidus_backend", [">= 3.0.0", "< 4.1"])
+  gem.add_dependency("alchemy_cms", [">= 7.0.0", "< 8"])
+  gem.add_dependency("solidus_core", [">= 3.0.0", "< 5"])
+  gem.add_dependency("solidus_backend", [">= 3.0.0", "< 5"])
   gem.add_dependency("solidus_support", [">= 0.1.1"])
   gem.add_dependency("deface", ["~> 1.0"])
 
@@ -28,7 +28,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency("factory_bot", ["~> 4.8"])
   gem.add_development_dependency("ffaker", ["~> 2.7"])
   gem.add_development_dependency("github_changelog_generator")
-  gem.add_development_dependency("selenium-webdriver", ["~> 4.8", ">= 4.8.3"])
+  gem.add_development_dependency("selenium-webdriver", ["~> 4.11"])
   gem.add_development_dependency("puma", ["~> 6.0"])
-  gem.add_development_dependency("webdrivers", ["~> 5.0"])
 end
