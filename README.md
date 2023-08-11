@@ -1,6 +1,12 @@
 [![CI](https://github.com/AlchemyCMS/alchemy-solidus/workflows/CI/badge.svg?branch=main)](https://github.com/AlchemyCMS/alchemy-solidus/actions?query=workflow%3ACI+branch%3Amain)
 [![Gem Version](https://badge.fury.io/rb/alchemy-solidus.svg)](https://badge.fury.io/rb/alchemy-solidus)
 
+# Sponsoring
+
+Development and maintenance is sponsored by [Blish](https://blish.cloud/).
+
+[![BLISH Logo](https://blish.cloud/BLISH_Logo.svg)](https://blish.cloud)
+
 # Alchemy-Solidus
 
 This is a [AlchemyCMS](https://alchemy-cms.com) and [Solidus](https://solidus.io) integration gem.
