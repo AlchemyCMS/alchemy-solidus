@@ -1,0 +1,20 @@
+de:
+  alchemy:
+    choose_product_to_link: Wähle ein Produkt zum Verlinken aus
+    link_overlay_tab_label:
+      product: Produkt
+    solidus:
+      search_variant: Suche eine Variante per Name oder SKU
+      search_product: Suche ein Produkt per Name
+      search_taxon: Suche eine Kategorie per Name
+  spree:
+    admin:
+      tab:
+        cms: CMS
+        pages: Seiten
+        sites: Websites
+        languages: Sprachen
+        tags: Tags
+        users: Benutzer
+        pictures: Bilder
+        attachments: Dateien
