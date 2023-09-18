@@ -1,5 +1,13 @@
 # Changelog
 
+## [v6.2.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.2.0) (2023-09-18)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.1.0...v6.2.0)
+
+**Merged pull requests:**
+
+- Create alchemy\_solidus.de.yml [\#97](https://github.com/AlchemyCMS/alchemy-solidus/pull/97) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v6.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.1.0) (2023-08-11)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.0.1...v6.1.0)
