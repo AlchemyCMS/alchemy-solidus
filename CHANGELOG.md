@@ -1,5 +1,13 @@
 # Changelog
 
+## [v6.3.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.3.0) (2023-10-25)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.2.0...v6.3.0)
+
+**Merged pull requests:**
+
+- Add Solidus Alchemy menu items in initializer [\#98](https://github.com/AlchemyCMS/alchemy-solidus/pull/98) ([mamhoff](https://github.com/mamhoff))
+
 ## [v6.2.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.2.0) (2023-09-18)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.1.0...v6.2.0)
@@ -224,11 +232,7 @@
 
 ## [v2.3.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v2.3.2) (2019-08-09)
 
-[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/show...v2.3.2)
-
-## [show](https://github.com/AlchemyCMS/alchemy-solidus/tree/show) (2019-08-09)
-
-[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.3.1...show)
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v2.3.1...v2.3.2)
 
 **Closed issues:**
 
