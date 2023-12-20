@@ -1,0 +1,5 @@
+<!-- insert_bottom "sl-tab-group#overlay_tabs" -->
+
+<sl-tab-panel name="overlay_tab_product_link" id="overlay_tab_product_link">
+  <%= render "product_link" %>
+</sl-tab-panel>

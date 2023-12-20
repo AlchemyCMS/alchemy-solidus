@@ -1,4 +1,4 @@
-<!-- insert_bottom "#overlay_tabs" -->
+<!-- insert_bottom "div#overlay_tabs" -->
 
 <div id="overlay_tab_product_link">
   <%= render "product_link" %>
