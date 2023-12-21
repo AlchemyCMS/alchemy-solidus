@@ -9,7 +9,13 @@ else
   gem "solidus_frontend", "~> #{solidus_version}.0"
 end
 
-gem "alchemy_cms", "~> 7.0.0"
+alchemy_version = ENV.fetch("ALCHEMY_VERSION", "main")
+if alchemy_version == "main"
+  gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "main"
+else
+  gem "alchemy_cms", "~> #{alchemy_version}.0"
+end
+
 gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
 
 # Specify your gem's dependencies in alchemy-solidus.gemspec
