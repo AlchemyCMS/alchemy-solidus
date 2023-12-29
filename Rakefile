@@ -14,8 +14,11 @@ task default: %i[test_setup spec]
 
 desc "Setup test app"
 task :test_setup do
-  solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.2")
-  solidus_install_options = "--payment-method none --frontend none --authentication none"
+  solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.3")
+  solidus_install_options = "--payment-method=none --frontend=none --authentication=none"
+  if solidus_version >= "4.3"
+    solidus_install_options += " --admin-preview=false"
+  end
   Dir.chdir("spec/dummy") do
     system <<~SETUP
       bin/rake db:environment:set db:drop && \
