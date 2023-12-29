@@ -16,9 +16,9 @@ jobs:
         alchemy:
           - "7.0.0"
         solidus:
-          - "3.3"
           - "4.0"
           - "4.1"
+          - "4.2"
     env:
       ALCHEMY_VERSION: ${{ matrix.alchemy }}
       SOLIDUS_VERSION: ${{ matrix.solidus }}
