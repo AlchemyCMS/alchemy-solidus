@@ -1,5 +1,13 @@
 # Changelog
 
+## [v6.3.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.3.2) (2023-12-29)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.3.1...v6.3.2)
+
+**Merged pull requests:**
+
+- Add deface overrides for Alchemy 7.1 [\#100](https://github.com/AlchemyCMS/alchemy-solidus/pull/100) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v6.3.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.3.1) (2023-11-10)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.3.0...v6.3.1)
