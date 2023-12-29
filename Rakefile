@@ -12,25 +12,12 @@ RSpec::Core::RakeTask.new(:spec)
 
 task default: %i[test_setup spec]
 
-require "active_support/core_ext/string"
-
 desc "Setup test app"
 task :test_setup do
   solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.2")
-  solidus_32_install_options =
-    "--payment-method none --frontend none --no-with-authentication"
-  solidus_33_install_options =
-    "--payment-method none --frontend none --authentication none"
-  solidus_install_options =
-    (
-      if solidus_version == "3.2"
-        solidus_32_install_options
-      else
-        solidus_33_install_options
-      end
-    )
+  solidus_install_options = "--payment-method none --frontend none --authentication none"
   Dir.chdir("spec/dummy") do
-    system <<-SETUP.strip_heredoc
+    system <<~SETUP
       bin/rake db:environment:set db:drop && \
       bin/rake gutentag:install:migrations && \
       bin/rails g gutentag:migration_versions && \
