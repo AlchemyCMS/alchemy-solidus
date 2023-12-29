@@ -270,14 +270,14 @@ Please make yourself familiar with AlchemyCMS by [reading the guidelines](https:
 ```yaml
 # config/alchemy/elements.yml
 - name: product
-  contents:
-  - name: spree_product
-    type: EssenceSpreeProduct
+  ingredients:
+    - role: spree_product
+      type: SpreeProduct
 
 - name: product_category
-  contents:
-  - name: spree_taxon
-    type: EssenceSpreeTaxon
+  ingredients:
+    - role: spree_taxon
+      type: SpreeTaxon
 ```
 
 ### Generate the views
@@ -304,7 +304,7 @@ You can mix Alchemy and Solidus content in the same view.
 <!-- app/views/alchemy/elements/_product_view.html.erb -->
 <% cache element do %>
   <%= element_view_for element do |el| %>
-    <% product = el.ingredient(:spree_product) %>
+    <% product = el.value(:spree_product) %>
     <h1><%= product.name %></h1>
     <p><%= product.description %></p>
     <%= el.render :text %>
@@ -322,7 +322,7 @@ Or for a list of taxon products
     <h2><%= el.render :headline %></h2>
     <%= el.render :description %>
 
-    <% taxon = el.ingredient(:spree_taxon) %>
+    <% taxon = el.value(:spree_taxon) %>
     <% taxon.products.each do |product| %>
       <%= link_to product.name, spree.product_path(product) %>
     <% end %>
