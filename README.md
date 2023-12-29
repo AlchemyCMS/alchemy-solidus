@@ -19,8 +19,9 @@ This is a [AlchemyCMS](https://alchemy-cms.com) and [Solidus](https://solidus.io
 
 ### Solidus
 
-This version runs with Solidus v3.0 and up.
+This version runs with Solidus v4.0 and up.
 
+- For a Solidus 3.x compatible version please use the `6.3-stable` branch or `6.3.1` gem version.
 - For a Solidus < 2.11 compatible version please use the `3.1-stable` branch or `3.3.0` gem version.
 - For a Solidus < 2.6 compatible version please use the `2.3-stable` branch or `2.3.2` gem version.
 - For a Solidus 1.x compatible version please use the `1.0-stable` branch or `1.1.0` gem version.
@@ -29,7 +30,7 @@ This version runs with Solidus v3.0 and up.
 
 ### Alchemy
 
-This version runs with Alchemy v7.0
+This version runs with Alchemy v7.0 and v7.1
 
 - For a Alchemy 6.x compatible version please use the `5.0-stable` branch or `5.0` gem version.
 - For a Alchemy 5.x compatible version please use the `4.1-stable` branch or `4.1` gem version.
