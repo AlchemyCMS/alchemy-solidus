@@ -1,5 +1,20 @@
 # Changelog
 
+## [v7.0.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.0.0) (2023-12-29)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.3.2...v7.0.0)
+
+**Merged pull requests:**
+
+- Test Solidus 4.3 [\#103](https://github.com/AlchemyCMS/alchemy-solidus/pull/103) ([tvdeyen](https://github.com/tvdeyen))
+- Update build matrix [\#102](https://github.com/AlchemyCMS/alchemy-solidus/pull/102) ([tvdeyen](https://github.com/tvdeyen))
+- Drop Solidus 3 support [\#101](https://github.com/AlchemyCMS/alchemy-solidus/pull/101) ([tvdeyen](https://github.com/tvdeyen))
+- Add deface overrides for Alchemy 7.1 [\#100](https://github.com/AlchemyCMS/alchemy-solidus/pull/100) ([tvdeyen](https://github.com/tvdeyen))
+
+## [v6.3.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.3.2) (2023-12-29)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.3.1...v6.3.2)
+
 ## [v6.3.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v6.3.1) (2023-11-10)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v6.3.0...v6.3.1)
