@@ -43,7 +43,7 @@ This version runs with Alchemy v7.0 and v7.1
 Add this line to your applications `Gemfile`:
 
 ```ruby
-gem 'alchemy-solidus', '~> 6.0'
+gem 'alchemy-solidus', '~> 7.0'
 ```
 
 Install the gem with:
