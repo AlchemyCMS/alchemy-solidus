@@ -42,11 +42,19 @@ RSpec.describe "Link overlay" do
 
     within "#element_#{element.id}" do
       fill_in "Headline", with: "Link me"
-      click_link "Link text"
+      begin
+        click_link Alchemy.t(:place_link)
+      rescue Capybara::ElementNotFound
+        click_button_with_tooltip Alchemy.t(:place_link)
+      end
     end
 
     within "#overlay_tabs" do
-      click_link "Product"
+      begin
+        find("sl-tab", text: "Product").click
+      rescue Capybara::ElementNotFound
+        click_link "Product"
+      end
     end
 
     within "#overlay_tab_product_link" do

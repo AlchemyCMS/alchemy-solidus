@@ -1,0 +1,5 @@
+<!-- insert_bottom "sl-tab-group#overlay_tabs" -->
+
+<sl-tab slot="nav" panel="overlay_tab_product_link">
+  <%= Alchemy.t("link_overlay_tab_label.product") %>
+</sl-tab>
