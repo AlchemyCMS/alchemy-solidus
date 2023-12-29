@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.2")
+solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.3")
 gem "solidus_core", "~> #{solidus_version}.0"
 gem "solidus_backend", "~> #{solidus_version}.0"
 if Gem::Version.new(solidus_version) >= Gem::Version.new("4.0")
