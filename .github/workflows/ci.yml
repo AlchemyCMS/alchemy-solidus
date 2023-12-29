@@ -29,10 +29,6 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
       - name: Prepare tests
         run: bundle exec rake test_setup
       - name: Run tests
