@@ -13,7 +13,7 @@ alchemy_version = ENV.fetch("ALCHEMY_VERSION", "main")
 if alchemy_version == "main"
   gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "main"
 else
-  gem "alchemy_cms", "~> #{alchemy_version}.0"
+  gem "alchemy_cms", "~> #{alchemy_version}"
 end
 
 gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
