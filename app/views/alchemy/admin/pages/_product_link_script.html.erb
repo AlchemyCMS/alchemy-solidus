@@ -1,5 +1,7 @@
 <script>
-  $("#overlay_tabs").on("SelectLinkTab.Alchemy", function(event, data) {
+  var $tabs = $("#overlay_tabs")
+
+  $tabs.on("SelectLinkTab.Alchemy", function(event, data) {
     $("#product_link").select2("val", data.link.attr("href"))
   })
   $("#product_link").alchemyProductSelect({
@@ -31,9 +33,13 @@
             id: Spree.mountedAt() + "products/"+ product.slug,
             text: product.name
           })
-          $("#overlay_tabs").tabs("option", "active",
-            $("#overlay_tabs > div").index($("#overlay_tab_product_link"))
-          )
+          if (typeof $tabs.tabs === "function") {
+            $tabs.tabs("option", "active",
+              $("#overlay_tabs > div").index($("#overlay_tab_product_link"))
+            )
+          } else {
+            $tabs.get(0).show('overlay_tab_product_link')
+          }
         }
       })
     },
