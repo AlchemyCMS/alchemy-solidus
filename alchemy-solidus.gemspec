@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.summary =
     "The World's Most Flexible E-Commerce Platform meets The World's Most Flexible Content Management System!"
   gem.homepage = "https://github.com/AlchemyCMS/alchemy-solidus"
-  gem.license = "BSD New"
+  gem.license = "BSD-3-Clause"
   gem.files =
     Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   gem.name = "alchemy-solidus"
@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency("alchemy_cms", [">= 7.0.0", "< 8"])
   gem.add_dependency("solidus_core", [">= 4.0.0", "< 5"])
   gem.add_dependency("solidus_backend", [">= 4.0.0", "< 5"])
-  gem.add_dependency("solidus_support", [">= 0.1.1"])
+  gem.add_dependency("solidus_support", [">= 0.1.1", "< 1"])
   gem.add_dependency("deface", ["~> 1.0"])
 
   gem.add_development_dependency("rspec-rails", ["~> 6.0"])
@@ -27,7 +27,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency("capybara-screenshot", ["~> 1.0"])
   gem.add_development_dependency("factory_bot", ["~> 4.8"])
   gem.add_development_dependency("ffaker", ["~> 2.7"])
-  gem.add_development_dependency("github_changelog_generator")
+  gem.add_development_dependency("github_changelog_generator", "~> 1.16")
   gem.add_development_dependency("selenium-webdriver", ["~> 4.11"])
   gem.add_development_dependency("puma", ["~> 6.0"])
 end
