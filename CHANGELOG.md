@@ -1,5 +1,13 @@
 # Changelog
 
+## [v7.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.1.0) (2024-03-08)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.0.1...v7.1.0)
+
+**Merged pull requests:**
+
+- Use generic shop icon in menu tab [\#105](https://github.com/AlchemyCMS/alchemy-solidus/pull/105) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.0.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.0.1) (2024-01-04)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.0.0...v7.0.1)
