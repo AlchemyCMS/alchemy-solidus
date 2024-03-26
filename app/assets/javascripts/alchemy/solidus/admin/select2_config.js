@@ -9,6 +9,7 @@ Alchemy.Solidus.getSelect2Config = function (options) {
   return {
     placeholder: options.placeholder,
     minimumInputLength: 3,
+    allowClear: true,
     initSelection:
       options.initSelection ||
       function (_$el, callback) {
