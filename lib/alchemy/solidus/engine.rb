@@ -7,6 +7,7 @@ require "solidus_support"
 module Alchemy
   module Solidus
     class Engine < ::Rails::Engine
+      include SolidusSupport::EngineExtensions
       engine_name "alchemy_solidus"
 
       config.to_prepare do
