@@ -1,5 +1,15 @@
 # Changelog
 
+## [v7.2.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.2.0) (2024-05-16)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.1.0...v7.2.0)
+
+**Merged pull requests:**
+
+- Add ingredients relations [\#108](https://github.com/AlchemyCMS/alchemy-solidus/pull/108) ([mamhoff](https://github.com/mamhoff))
+- Restrict SQLite to ~\> 1.4 [\#107](https://github.com/AlchemyCMS/alchemy-solidus/pull/107) ([mamhoff](https://github.com/mamhoff))
+- Allow to clear taxon, product and variant selection [\#106](https://github.com/AlchemyCMS/alchemy-solidus/pull/106) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.1.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.1.0) (2024-03-08)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.0.1...v7.1.0)
