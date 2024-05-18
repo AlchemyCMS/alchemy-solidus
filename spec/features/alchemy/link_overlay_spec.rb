@@ -57,7 +57,7 @@ RSpec.describe "Link overlay" do
       end
     end
 
-    within "#overlay_tab_product_link" do
+    within "[name=overlay_tab_product_link]" do
       expect(page).to have_selector("#s2id_product_link")
       select2_search(product.name, from: "Product")
       click_button "apply"

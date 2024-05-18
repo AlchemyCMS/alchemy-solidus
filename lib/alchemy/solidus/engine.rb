@@ -10,6 +10,17 @@ module Alchemy
       include SolidusSupport::EngineExtensions
       engine_name "alchemy_solidus"
 
+      initializer "alchemy_solidus.assets", before: "alchemy.importmap" do |app|
+        Alchemy.admin_importmaps.add({
+          importmap_path: root.join("config/importmap.rb"),
+          source_paths: [
+            root.join("app/javascript")
+          ],
+          name: engine_name
+        })
+        app.config.assets.precompile << "alchemy_solidus/manifest.js"
+      end
+
       config.to_prepare do
         Alchemy.register_ability ::Spree::Ability
         ::Spree::Ability.register_ability ::Alchemy::Permissions

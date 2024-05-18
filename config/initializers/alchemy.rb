@@ -52,4 +52,5 @@ end
 
 Rails.application.config.after_initialize do
   Alchemy::Modules.register_module(alchemy_module)
+  Alchemy.link_dialog_tabs.add(Alchemy::Admin::LinkDialog::ProductTab)
 end
