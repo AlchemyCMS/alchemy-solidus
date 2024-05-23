@@ -1,5 +1,14 @@
 # Changelog
 
+## [v7.2.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.2.1) (2024-05-23)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.2.0...v7.2.1)
+
+**Merged pull requests:**
+
+- Stay below Alchemy 7.2 [\#111](https://github.com/AlchemyCMS/alchemy-solidus/pull/111) ([tvdeyen](https://github.com/tvdeyen))
+- Touch taxons individually after product update [\#109](https://github.com/AlchemyCMS/alchemy-solidus/pull/109) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.2.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.2.0) (2024-05-16)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.1.0...v7.2.0)
