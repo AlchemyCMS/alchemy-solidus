@@ -53,6 +53,7 @@ FactoryBot.reload
 
 require "alchemy/devise/test_support/factories"
 require "alchemy/test_support/shared_ingredient_editor_examples"
+require "alchemy/test_support/shared_link_tab_examples"
 
 Capybara.register_driver :selenium_chrome_headless do |app|
   Capybara::Selenium::Driver.load_selenium
@@ -78,6 +79,7 @@ RSpec.configure do |config|
   config.include Alchemy::TestSupport::IntegrationHelpers, type: :feature
   config.include Alchemy::TestSupport::CapybaraHelpers, type: :feature
   config.include ActiveSupport::Testing::TimeHelpers, type: :model
+  config.include ViewComponent::TestHelpers, type: :component
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
