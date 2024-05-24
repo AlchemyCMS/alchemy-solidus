@@ -1,5 +1,13 @@
 # Changelog
 
+## [v7.3.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.3.0) (2024-05-24)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.2.1...v7.3.0)
+
+**Merged pull requests:**
+
+- Convert ProductLink tab into web component [\#110](https://github.com/AlchemyCMS/alchemy-solidus/pull/110) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.2.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.2.1) (2024-05-23)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.2.0...v7.2.1)
