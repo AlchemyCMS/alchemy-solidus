@@ -30,8 +30,9 @@ This version runs with Solidus v4.0 and up.
 
 ### Alchemy
 
-This version runs with Alchemy v7.0 and v7.1
+This version runs with Alchemy v7.2
 
+- For a Alchemy 7.0/7.1 compatible version please use the `7.2-stable` branch or `7.2` gem version.
 - For a Alchemy 6.x compatible version please use the `5.0-stable` branch or `5.0` gem version.
 - For a Alchemy 5.x compatible version please use the `4.1-stable` branch or `4.1` gem version.
 - For a Alchemy 4.x compatible version please use the `3.1-stable` branch or `3.3` gem version.
