@@ -1,7 +1,25 @@
 //= require alchemy/solidus/admin/select2_config
 
 $.fn.alchemyVariantSelect = function(options) {
-  var config = Alchemy.Solidus.getSelect2Config(options)
+  const config = Alchemy.Solidus.getSelect2Config(options)
+
+  function formatSelection(variant) {
+    return variant.options_text ? `${variant.name} - ${variant.options_text}` : variant.name
+  }
+
+  function formatResult(variant) {
+    return `
+      <div class="variant-select-result">  
+        <div>
+          <span>${variant.name}</span>
+        </div>
+        <div>
+          <span>${variant.options_text}</span>
+          <span>${variant.sku}</span>
+        </div>
+      </div>       
+    `
+  }
 
   this.select2($.extend(true, config, {
     ajax: {
@@ -15,18 +33,12 @@ $.fn.alchemyVariantSelect = function(options) {
       },
       results: function(data, page) {
         return {
-          results: data.variants.map(function(variant) {
-            return {
-              id: variant.id,
-              text: variant.frontend_display
-            }
-          }),
+          results: data.variants,
           more: page * data.per_page < data.total_count
         }
       }
     },
-    formatSelection: function(variant) {
-      return variant.text || variant.frontend_display
-    }
+    formatSelection,
+    formatResult
   }))
 }
