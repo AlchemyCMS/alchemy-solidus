@@ -9,15 +9,19 @@ $.fn.alchemyVariantSelect = function (options) {
       : variant.name
   }
 
-  function formatResult(variant) {
+  function formatResult(variant, _el, query) {
+    const matchTerm = new RegExp(query.term, "gi")
+    const formatMatch = (match) => `<em>${match}</em>`
+    const name = variant.name.replace(matchTerm, formatMatch)
+    const sku = variant.sku.replace(matchTerm, formatMatch)
     return `
       <div class="variant-select-result">
         <div>
-          <span>${variant.name}</span>
+          <span>${name}</span>
         </div>
         <div>
           <span>${variant.options_text}</span>
-          <span>${variant.sku}</span>
+          <span>${sku}</span>
         </div>
       </div>
     `
