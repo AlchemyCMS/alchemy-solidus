@@ -10,6 +10,25 @@
   <% end %>
 <% end %>
 
+<style>
+  .variant-select-result > * {
+    display: flex;
+    justify-content: space-between;
+    min-height: 16px;
+
+    > span {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &:last-child {
+      color: hsl(224, 8%, 63%);
+    }
+  }
+</style>
+
 <script>
   $('#<%= spree_variant_editor.form_field_id(:variant_id) %>').alchemyVariantSelect({
     placeholder: "<%= Alchemy.t(:search_variant, scope: 'solidus') %>",
@@ -19,7 +38,8 @@
     <% if spree_variant_editor.variant %>
     initialSelection: {
       id: <%= spree_variant_editor.variant.id %>,
-      text: "<%= spree_variant_editor.variant.name %>"
+      name: "<%= spree_variant_editor.variant.name %>",
+      options_text: "<%= spree_variant_editor.variant.options_text %>"
     }
     <% end %>
   })
