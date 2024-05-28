@@ -1,5 +1,13 @@
 # Changelog
 
+## [v7.3.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.3.1) (2024-05-28)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.3.0...v7.3.1)
+
+**Merged pull requests:**
+
+- Fix variant select ingredient [\#112](https://github.com/AlchemyCMS/alchemy-solidus/pull/112) ([sascha-karnatz](https://github.com/sascha-karnatz))
+
 ## [v7.3.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.3.0) (2024-05-24)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.2.1...v7.3.0)
