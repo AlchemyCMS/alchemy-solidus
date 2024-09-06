@@ -59,8 +59,9 @@ Capybara.register_driver :selenium_chrome_headless do |app|
   Capybara::Selenium::Driver.load_selenium
   browser_options =
     ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
-      opts.args << "--headless"
-      opts.args << "--window-size=1280,800"
+      opts.add_argument("--headless")
+      opts.add_argument("--window-size=1280,800")
+      opts.add_argument("--disable-search-engine-choice-screen")
     end
   Capybara::Selenium::Driver.new(
     app,
