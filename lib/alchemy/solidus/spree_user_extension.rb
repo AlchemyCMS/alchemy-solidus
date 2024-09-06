@@ -5,6 +5,10 @@ module Alchemy
         klass.has_many :folded_pages, class_name: "Alchemy::FoldedPage"
       end
 
+      def alchemy_display_name
+        email
+      end
+
       def alchemy_roles
         if has_spree_role?(:admin)
           %w(admin)
