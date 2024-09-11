@@ -1,5 +1,13 @@
 # Changelog
 
+## [v7.3.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.3.2) (2024-09-11)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.3.1...v7.3.2)
+
+**Merged pull requests:**
+
+- Add alchemy\_display\_name to Spree::User [\#113](https://github.com/AlchemyCMS/alchemy-solidus/pull/113) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.3.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.3.1) (2024-05-28)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.3.0...v7.3.1)
