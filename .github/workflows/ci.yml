@@ -15,7 +15,6 @@ jobs:
         alchemy:
           - "7.2-stable"
           - "7.3-stable"
-          - "main"
         solidus:
           - "4.1"
           - "4.2"
