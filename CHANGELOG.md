@@ -1,5 +1,13 @@
 # Changelog
 
+## [v7.4.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.4.0) (2024-11-01)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.3.2...v7.4.0)
+
+**Merged pull requests:**
+
+- Remove navigation deep link to promotions [\#114](https://github.com/AlchemyCMS/alchemy-solidus/pull/114) ([mamhoff](https://github.com/mamhoff))
+
 ## [v7.3.2](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.3.2) (2024-09-11)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.3.1...v7.3.2)
