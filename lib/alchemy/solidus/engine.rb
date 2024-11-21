@@ -31,11 +31,6 @@ module Alchemy
         Alchemy.register_ability ::Spree::Ability
         ::Spree::Ability.register_ability ::Alchemy::Permissions
 
-        if Alchemy.user_class_name == "::Spree::User"
-          require "alchemy/solidus/spree_user_extension"
-          Spree::User.include Alchemy::Solidus::SpreeUserExtension
-        end
-
         if Alchemy.user_class_name == "::Alchemy::User"
           require "alchemy/solidus/alchemy_user_extension"
           require "alchemy/solidus/current_user_helpers"

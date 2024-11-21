@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Alchemy
   module Solidus
-    module SpreeUserExtension
-      def self.included(klass)
-        klass.has_many :folded_pages, class_name: "Alchemy::FoldedPage"
+    module SpreeUserPatch
+      def self.prepended(base)
+        base.has_many :folded_pages, class_name: "Alchemy::FoldedPage"
       end
 
       def alchemy_display_name
@@ -15,6 +17,10 @@ module Alchemy
         else
           []
         end
+      end
+
+      if defined?(::Spree::User)
+        ::Spree::User.prepend self
       end
     end
   end

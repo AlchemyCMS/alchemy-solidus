@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-require "alchemy/solidus/spree_user_extension"
 
-RSpec.describe Alchemy::Solidus::SpreeUserExtension, type: :model do
+RSpec.describe Alchemy::Solidus::SpreeUserPatch, type: :model do
   let(:spree_user) do
     Class.new(ActiveRecord::Base) do
       def self.name
@@ -14,7 +13,7 @@ RSpec.describe Alchemy::Solidus::SpreeUserExtension, type: :model do
         false
       end
 
-      include Alchemy::Solidus::SpreeUserExtension
+      include Alchemy::Solidus::SpreeUserPatch
     end
   end
 
