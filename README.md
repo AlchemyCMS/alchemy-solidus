@@ -194,18 +194,6 @@ $ bundle exec rake alchemy:install
 
 and follow the on screen instructions.
 
-### Render Alchemy Content in Solidus Layout
-
-~~If you plan to render the Alchemy site in the Solidus layout add the following
-to your initializer:~~
-
-```ruby
-# config/initializers/alchemy.rb
-require 'alchemy/solidus/use_solidus_layout'
-```
-
-**NOTE:** Since v2.5.2 this is done automatically for you. If you upgraded from an older version you can safely remove this from your initializers.
-
 ### Routing
 
 For routing you have a few options.
