@@ -1,9 +1,3 @@
-# Allows to render Alchemy content within Solidus' controller views
-Spree::StoreController.include(
-  Alchemy::ControllerActions,
-  Alchemy::ConfigurationMethods
-)
-
 # Hook into SolidusAuthDevise controllers if present
 if defined? Spree::Auth::Engine
   Spree::UserPasswordsController.include Alchemy::ControllerActions
