@@ -4,7 +4,7 @@ module Alchemy
   module Solidus
     module SpreeProductDecorator
       def self.prepended(base)
-        base.include AlchemySolidus::TouchAlchemyIngredients
+        base.include Alchemy::Solidus::TouchAlchemyIngredients
         base.has_many :alchemy_ingredients, class_name: "Alchemy::Ingredients::SpreeProduct", as: :related_object, dependent: :nullify
       end
 
