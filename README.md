@@ -206,20 +206,6 @@ require 'alchemy/solidus/use_solidus_layout'
 
 **NOTE:** Since v2.5.2 this is done automatically for you. If you upgraded from an older version you can safely remove this from your initializers.
 
-### Render Alchemy Content in Solidus views
-
-~~If you plan to render Alchemy content in your Solidus views (ie. a global header
-or footer section), you need to include the Alchemy view helpers and language
-store in your Solidus controllers with the following addition to your
-initializer:~~
-
-```ruby
-# config/initializers/alchemy.rb
-require 'alchemy/solidus/alchemy_in_solidus'
-```
-
-**NOTE:** Since v2.5.2 this is done automatically for you. If you upgraded from an older version you can safely remove this from your initializers.
-
 ### Routing
 
 For routing you have a few options.
