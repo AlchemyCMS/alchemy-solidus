@@ -4,6 +4,12 @@ require "solidus_core"
 require "solidus_backend"
 require "solidus_support"
 
+begin
+  require "solidus_frontend"
+rescue LoadError
+  # Solidus frontend is not available, but we can still load the engine
+end
+
 module Alchemy
   module Solidus
     class Engine < ::Rails::Engine
