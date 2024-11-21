@@ -42,9 +42,6 @@ module Alchemy
           # See https://github.com/AlchemyCMS/alchemy_cms/issues/1626
           ActionView::Base.prefix_partial_path_with_controller_namespace = false
         end
-
-        # Allows to use Solidus helpers within Alchemys controller views
-        require_dependency "alchemy/solidus/use_solidus_layout"
       end
     end
   end
