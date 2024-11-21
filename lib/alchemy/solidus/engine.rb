@@ -31,10 +31,6 @@ module Alchemy
         Alchemy.register_ability ::Spree::Ability
         ::Spree::Ability.register_ability ::Alchemy::Permissions
 
-        if Alchemy.user_class_name == "::Alchemy::User"
-          require "alchemy/solidus/spree_admin_unauthorized_redirect"
-        end
-
         if SolidusSupport.frontend_available?
           # Allows to render Alchemy content within Solidus' controller views
 
