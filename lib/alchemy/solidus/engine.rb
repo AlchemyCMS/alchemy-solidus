@@ -26,8 +26,6 @@ module Alchemy
         ::Spree::Ability.register_ability ::Alchemy::Permissions
 
         if Alchemy.user_class_name == "::Alchemy::User"
-          require "alchemy/solidus/current_user_helpers"
-          ApplicationController.include Alchemy::Solidus::CurrentUserHelpers
           require "alchemy/solidus/spree_admin_unauthorized_redirect"
         end
 
