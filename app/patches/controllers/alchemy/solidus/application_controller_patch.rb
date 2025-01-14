@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module ApplicationControllerDecorator
+    module ApplicationControllerPatch
       def spree_current_user
         if Alchemy.user_class_name == "::Alchemy::User"
           current_user

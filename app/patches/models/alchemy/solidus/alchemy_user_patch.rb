@@ -1,6 +1,6 @@
 module Alchemy
   module Solidus
-    module AlchemyUserDecorator
+    module AlchemyUserPatch
       def self.prepended(klass)
         klass.include Spree::UserMethods
       end

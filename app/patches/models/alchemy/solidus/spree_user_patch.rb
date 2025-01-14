@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module SpreeUserDecorator
+    module SpreeUserPatch
       def self.prepended(base)
         base.has_many :folded_pages, class_name: "Alchemy::FoldedPage"
       end

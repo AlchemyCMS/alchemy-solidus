@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Alchemy::Solidus::SpreeUserDecorator, type: :model do
+RSpec.describe Alchemy::Solidus::SpreeUserPatch, type: :model do
   let(:spree_user) do
     Class.new(ActiveRecord::Base) do
       def self.name
@@ -13,7 +13,7 @@ RSpec.describe Alchemy::Solidus::SpreeUserDecorator, type: :model do
         false
       end
 
-      include Alchemy::Solidus::SpreeUserDecorator
+      include Alchemy::Solidus::SpreeUserPatch
     end
   end
 
