@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module AlchemyBaseHelperDecorator
+    module AlchemyBaseHelperPatch
       def self.prepended(base)
         base.include Spree::BaseHelper
         base.include Spree::CheckoutHelper

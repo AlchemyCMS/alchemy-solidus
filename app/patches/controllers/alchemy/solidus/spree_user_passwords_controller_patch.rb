@@ -2,13 +2,13 @@
 
 module Alchemy
   module Solidus
-    module SpreeUserSessionsControllerDecorator
+    module SpreeUserPasswordsControllerPatch
       def self.prepended(base)
         base.include Alchemy::ControllerActions
       end
 
-      if defined?(::Spree::UserSessionsController)
-        ::Spree::UserSessionsController.prepend self
+      if defined?(::Spree::UserPasswordsController)
+        ::Spree::UserPasswordsController.prepend self
       end
     end
   end

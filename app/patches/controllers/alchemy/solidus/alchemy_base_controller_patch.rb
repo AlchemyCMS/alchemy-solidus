@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module AlchemyBaseControllerDecorator
+    module AlchemyBaseControllerPatch
       def self.prepended(base)
         base.include Spree::Core::ControllerHelpers::Auth
         base.include Spree::Core::ControllerHelpers::Common

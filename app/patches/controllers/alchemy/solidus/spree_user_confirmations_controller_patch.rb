@@ -2,13 +2,13 @@
 
 module Alchemy
   module Solidus
-    module SpreeUserRegistrationsControllerDecorator
+    module SpreeUserConfirmationsControllerPatch
       def self.prepended(base)
         base.include Alchemy::ControllerActions
       end
 
-      if defined?(::Spree::UserRegistrationsController)
-        ::Spree::UserRegistrationsController.prepend self
+      if defined?(::Spree::UserConfirmationsController)
+        ::Spree::UserConfirmationsController.prepend self
       end
     end
   end
