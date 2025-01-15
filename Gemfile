@@ -1,10 +1,9 @@
 source "https://rubygems.org"
 
-solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.4")
-gem "solidus_core", "~> #{solidus_version}.0"
-gem "solidus_backend", "~> #{solidus_version}.0"
+solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.4")
+gem "solidus_core", github: "solidusio/solidus", branch: solidus_branch
+gem "solidus_backend", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
-
 
 alchemy_version = ENV.fetch("ALCHEMY_VERSION", "main")
 if alchemy_version == "main"
