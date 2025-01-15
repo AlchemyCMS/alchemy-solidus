@@ -21,7 +21,7 @@ jobs:
           - "v4.3"
           - "v4.4"
     env:
-      ALCHEMY_VERSION: ${{ matrix.alchemy }}
+      ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}
     steps:
       - uses: actions/checkout@v4

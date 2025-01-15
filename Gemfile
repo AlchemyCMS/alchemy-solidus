@@ -5,12 +5,8 @@ gem "solidus_core", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_backend", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
 
-alchemy_version = ENV.fetch("ALCHEMY_VERSION", "main")
-if alchemy_version == "main"
-  gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "main"
-else
-  gem "alchemy_cms", "~> #{alchemy_version}"
-end
+alchemy_branch = ENV.fetch("ALCHEMY_BRANCH", "main")
+gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: alchemy_branch
 
 gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
 
