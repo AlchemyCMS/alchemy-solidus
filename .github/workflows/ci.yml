@@ -16,13 +16,13 @@ jobs:
           - "7.2-stable"
           - "7.3-stable"
         solidus:
-          - "4.1"
-          - "4.2"
-          - "4.3"
-          - "4.4"
+          - "v4.1"
+          - "v4.2"
+          - "v4.3"
+          - "v4.4"
     env:
       ALCHEMY_VERSION: ${{ matrix.alchemy }}
-      SOLIDUS_VERSION: ${{ matrix.solidus }}
+      SOLIDUS_BRANCH: ${{ matrix.solidus }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Ruby
