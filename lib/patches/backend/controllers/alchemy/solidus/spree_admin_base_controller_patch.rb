@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module SpreeAdminBaseControllerDecorator
+    module SpreeAdminBaseControllerPatch
       def self.prepended(base)
         if Alchemy.user_class_name == "::Alchemy::User"
           base.unauthorized_redirect = -> do
