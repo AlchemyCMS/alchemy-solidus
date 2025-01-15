@@ -3,11 +3,8 @@ source "https://rubygems.org"
 solidus_version = ENV.fetch("SOLIDUS_VERSION", "4.4")
 gem "solidus_core", "~> #{solidus_version}.0"
 gem "solidus_backend", "~> #{solidus_version}.0"
-if Gem::Version.new(solidus_version) >= Gem::Version.new("4.0")
-  gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
-else
-  gem "solidus_frontend", "~> #{solidus_version}.0"
-end
+gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
+
 
 alchemy_version = ENV.fetch("ALCHEMY_VERSION", "main")
 if alchemy_version == "main"
