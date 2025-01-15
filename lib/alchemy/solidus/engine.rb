@@ -39,6 +39,14 @@ module Alchemy
           ActionView::Base.prefix_partial_path_with_controller_namespace = false
         end
       end
+
+      initializer "alchemy_solidus.patches" do |app|
+        if Alchemy.gem_version < Gem::Version.new("7.4.0") && SolidusSupport.backend_available?
+          app.config.to_prepare do
+            Alchemy::Solidus::SpreeAdminBaseControllerPatch
+          end
+        end
+      end
     end
   end
 end
