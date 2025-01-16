@@ -22,6 +22,10 @@ gem "listen"
 gem "puma"
 gem "deface"
 
+if ["v4.1", "v4.2"].include?(solidus_branch)
+  gem "concurrent-ruby", "< 1.3.5"
+end
+
 group :development, :test do
   # execjs 2.8 removes deprecation warnings but also breaks a number of dependent projects.
   # in our case the culprit is `handlebars-assets`. The changes between 2.7.0 and 2.8.0 are
