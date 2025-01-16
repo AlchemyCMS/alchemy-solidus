@@ -25,6 +25,8 @@ gem "deface"
 if ["v4.1", "v4.2"].include?(solidus_branch)
   gem "concurrent-ruby", "< 1.3.5"
 end
+# Temporarily load solidus_support
+gem "solidus_support", github: "mamhoff/solidus_support", branch: "re-enable-flickwerk"
 
 group :development, :test do
   # execjs 2.8 removes deprecation warnings but also breaks a number of dependent projects.
