@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module SpreeStoreControllerDecorator
+    module SpreeStoreControllerPatch
       # Allows to render Alchemy content within Solidus' controller views
       def self.prepended(base)
         base.include Alchemy::ControllerActions
