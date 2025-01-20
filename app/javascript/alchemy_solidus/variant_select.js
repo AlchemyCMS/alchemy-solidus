@@ -1,7 +1,7 @@
-//= require alchemy/solidus/admin/select2_config
+import { getSelect2Config } from "alchemy_solidus/select2_config"
 
 $.fn.alchemyVariantSelect = function (options) {
-  const config = Alchemy.Solidus.getSelect2Config(options)
+  const config = getSelect2Config(options)
 
   function formatSelection(variant) {
     return variant.options_text
@@ -30,7 +30,7 @@ $.fn.alchemyVariantSelect = function (options) {
   this.select2(
     $.extend(true, config, {
       ajax: {
-        data: function (term, page) {
+        data(term, page) {
           return {
             q: $.extend(
               {
@@ -41,7 +41,7 @@ $.fn.alchemyVariantSelect = function (options) {
             page: page,
           }
         },
-        results: function (data, page) {
+        results(data, page) {
           return {
             results: data.variants,
             more: page * data.per_page < data.total_count,

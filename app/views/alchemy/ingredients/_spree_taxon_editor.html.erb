@@ -10,7 +10,9 @@
   <% end %>
 <% end %>
 
-<script>
+<script type="module">
+  import "alchemy_solidus/taxon_select"
+
   $('#<%= spree_taxon_editor.form_field_id(:taxon_id) %>').alchemyTaxonSelect({
     placeholder: "<%= Alchemy.t(:search_taxon, scope: 'solidus') %>",
     apiToken: "<%= current_alchemy_user.spree_api_key %>",

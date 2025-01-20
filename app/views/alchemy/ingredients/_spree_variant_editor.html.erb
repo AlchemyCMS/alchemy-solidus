@@ -29,7 +29,9 @@
   }
 </style>
 
-<script>
+<script type="module">
+  import "alchemy_solidus/variant_select"
+
   $('#<%= spree_variant_editor.form_field_id(:variant_id) %>').alchemyVariantSelect({
     placeholder: "<%= Alchemy.t(:search_variant, scope: 'solidus') %>",
     apiToken: "<%= current_alchemy_user.spree_api_key %>",

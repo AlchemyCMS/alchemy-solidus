@@ -1,7 +1,7 @@
-//= require alchemy/solidus/admin/select2_config
+import { getSelect2Config } from "alchemy_solidus/select2_config"
 
 $.fn.alchemyProductSelect = function (options) {
-  var config = Alchemy.Solidus.getSelect2Config(options)
+  const config = getSelect2Config(options)
 
   function formatResultObject(product) {
     return {
@@ -10,9 +10,9 @@ $.fn.alchemyProductSelect = function (options) {
     }
   }
 
-  var select2config = Object.assign(config, {
+  const select2config = Object.assign(config, {
     ajax: Object.assign(config.ajax, {
-      data: function (term, page) {
+      data(term, page) {
         return {
           q: Object.assign(
             {
@@ -23,7 +23,7 @@ $.fn.alchemyProductSelect = function (options) {
           page: page,
         }
       },
-      results: function (data, page) {
+      results(data, page) {
         return {
           results: data.products.map(
             options.formatResultObject || formatResultObject
