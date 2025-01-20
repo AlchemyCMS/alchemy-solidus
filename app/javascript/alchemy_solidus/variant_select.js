@@ -1,4 +1,4 @@
-//= require alchemy/solidus/admin/select2_config
+import "alchemy_solidus/select2_config"
 
 $.fn.alchemyVariantSelect = function (options) {
   const config = Alchemy.Solidus.getSelect2Config(options)

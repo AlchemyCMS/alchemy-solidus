@@ -1,3 +1,5 @@
+import "alchemy_solidus/product_select"
+
 export default class ProductSelect extends HTMLElement {
   connectedCallback() {
     const input = this.querySelector("#product_link")
