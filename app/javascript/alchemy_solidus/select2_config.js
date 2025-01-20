@@ -1,7 +1,4 @@
-Alchemy = window.Alchemy || {}
-Alchemy.Solidus = Alchemy.Solidus || {}
-
-Alchemy.Solidus.getSelect2Config = function (options) {
+export function getSelect2Config(options) {
   var headers = {
     Authorization: "Bearer " + options.apiToken,
   }

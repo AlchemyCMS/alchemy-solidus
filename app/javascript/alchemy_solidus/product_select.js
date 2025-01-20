@@ -1,7 +1,7 @@
-import "alchemy_solidus/select2_config"
+import { getSelect2Config } from "alchemy_solidus/select2_config"
 
 $.fn.alchemyProductSelect = function (options) {
-  var config = Alchemy.Solidus.getSelect2Config(options)
+  var config = getSelect2Config(options)
 
   function formatResultObject(product) {
     return {
