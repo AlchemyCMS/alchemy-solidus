@@ -1,5 +1,5 @@
 export function getSelect2Config(options) {
-  var headers = {
+  const headers = {
     Authorization: "Bearer " + options.apiToken,
   }
 

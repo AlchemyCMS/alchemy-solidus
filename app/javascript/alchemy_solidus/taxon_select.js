@@ -1,12 +1,12 @@
 import { getSelect2Config } from "alchemy_solidus/select2_config"
 
 $.fn.alchemyTaxonSelect = function (options) {
-  var config = getSelect2Config(options)
+  const config = getSelect2Config(options)
 
   this.select2(
     $.extend(true, config, {
       ajax: {
-        data: function (term, page) {
+        data(term, page) {
           return {
             q: $.extend(
               {
@@ -17,7 +17,7 @@ $.fn.alchemyTaxonSelect = function (options) {
             page: page,
           }
         },
-        results: function (data, page) {
+        results(data, page) {
           return {
             results: data.taxons.map(function (taxon) {
               return {
@@ -29,7 +29,7 @@ $.fn.alchemyTaxonSelect = function (options) {
           }
         },
       },
-      formatSelection: function (taxon) {
+      formatSelection(taxon) {
         return taxon.text || taxon.name
       },
     })

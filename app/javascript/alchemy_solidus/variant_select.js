@@ -30,7 +30,7 @@ $.fn.alchemyVariantSelect = function (options) {
   this.select2(
     $.extend(true, config, {
       ajax: {
-        data: function (term, page) {
+        data(term, page) {
           return {
             q: $.extend(
               {
@@ -41,7 +41,7 @@ $.fn.alchemyVariantSelect = function (options) {
             page: page,
           }
         },
-        results: function (data, page) {
+        results(data, page) {
           return {
             results: data.variants,
             more: page * data.per_page < data.total_count,
