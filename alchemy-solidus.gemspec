@@ -25,7 +25,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency("shoulda-matchers", ["~> 4.0"])
   gem.add_development_dependency("capybara", ["~> 3.0"])
   gem.add_development_dependency("capybara-screenshot", ["~> 1.0"])
-  gem.add_development_dependency("factory_bot", ["~> 4.8"])
+  gem.add_development_dependency("factory_bot", ["~> 6.4"])
   gem.add_development_dependency("ffaker", ["~> 2.7"])
   gem.add_development_dependency("github_changelog_generator", "~> 1.16")
   gem.add_development_dependency("selenium-webdriver", ["~> 4.11"])
