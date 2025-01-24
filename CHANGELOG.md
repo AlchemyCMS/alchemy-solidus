@@ -1,5 +1,17 @@
 # Changelog
 
+## [v7.5.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.5.0) (2025-01-24)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.4.0...v7.5.0)
+
+**Merged pull requests:**
+
+- Add Alchemy 7.4 support [\#121](https://github.com/AlchemyCMS/alchemy-solidus/pull/121) ([tvdeyen](https://github.com/tvdeyen))
+- Lock concurrent-ruby to 1.3.4 on Rails \< 7.2 [\#120](https://github.com/AlchemyCMS/alchemy-solidus/pull/120) ([mamhoff](https://github.com/mamhoff))
+- Use branches for CI [\#119](https://github.com/AlchemyCMS/alchemy-solidus/pull/119) ([mamhoff](https://github.com/mamhoff))
+- CI: Test Solidus 4.4 [\#117](https://github.com/AlchemyCMS/alchemy-solidus/pull/117) ([tvdeyen](https://github.com/tvdeyen))
+- Use our namespace for decorator constant [\#115](https://github.com/AlchemyCMS/alchemy-solidus/pull/115) ([mamhoff](https://github.com/mamhoff))
+
 ## [v7.4.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.4.0) (2024-11-01)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.3.2...v7.4.0)
