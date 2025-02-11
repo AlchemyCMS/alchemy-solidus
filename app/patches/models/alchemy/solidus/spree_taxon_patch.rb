@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module SpreeTaxonDecorator
+    module SpreeTaxonPatch
       def self.prepended(base)
         base.include Alchemy::Solidus::TouchAlchemyIngredients
         base.has_many :alchemy_ingredients, class_name: "Alchemy::Ingredients::SpreeTaxon", as: :related_object, dependent: :nullify
