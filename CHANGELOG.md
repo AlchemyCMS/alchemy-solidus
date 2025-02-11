@@ -1,5 +1,13 @@
 # Changelog
 
+## [v7.5.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.5.1) (2025-02-11)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.5.0...v7.5.1)
+
+**Merged pull requests:**
+
+- Fix module icon for Alchemy 7.4 [\#122](https://github.com/AlchemyCMS/alchemy-solidus/pull/122) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.5.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.5.0) (2025-01-24)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.4.0...v7.5.0)
