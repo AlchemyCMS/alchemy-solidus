@@ -36,7 +36,7 @@ RSpec.describe "alchemy/ingredients/_spree_taxon_editor" do
   it_behaves_like "an alchemy ingredient editor"
 
   it "renders a taxon input" do
-    is_expected.to have_css("input.alchemy_selectbox.full_width")
+    is_expected.to have_css("alchemy-taxon-select input.full_width")
   end
 
   context "with a taxon related to ingredient" do
@@ -47,7 +47,7 @@ RSpec.describe "alchemy/ingredients/_spree_taxon_editor" do
     end
 
     it "sets taxon id as value" do
-      is_expected.to have_css('input.alchemy_selectbox[value="1"]')
+      is_expected.to have_css('alchemy-taxon-select input[value="1"]')
     end
   end
 end
