@@ -19,7 +19,6 @@ gem "sprockets", "~> 4.0"
 gem "jsbundling-rails", "~> 1.1"
 gem "rails", ">= 6.1.0"
 gem "listen"
-gem "puma"
 gem "deface"
 
 if ["v4.1", "v4.2"].include?(solidus_branch)
