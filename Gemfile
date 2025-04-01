@@ -31,3 +31,8 @@ group :development, :test do
   # minimal, but breaking.
   gem "execjs", "= 2.7.0"
 end
+
+group :lint do
+  gem "rubocop", require: false
+  gem "standard", "~> 1.25", require: false
+end
