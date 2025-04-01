@@ -8,7 +8,7 @@ gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
 alchemy_branch = ENV.fetch("ALCHEMY_BRANCH", "7.4-stable")
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: alchemy_branch
 
-gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
+gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "7.4-stable"
 
 # Specify your gem's dependencies in alchemy-solidus.gemspec
 gemspec
