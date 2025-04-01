@@ -1,27 +1,27 @@
 alchemy_module = {
-  engine_name: 'spree',
-  name: 'solidus',
+  engine_name: "spree",
+  name: "solidus",
   navigation: {
-    controller: '/spree/admin/orders',
-    action: 'index',
-    name: 'Store',
-    icon: Alchemy.gem_version >= Gem::Version.new("7.4.0.a") ? 'shopping-cart' : 'shopping-cart-line',
-    data: { turbolinks: false },
+    controller: "/spree/admin/orders",
+    action: "index",
+    name: "Store",
+    icon: (Alchemy.gem_version >= Gem::Version.new("7.4.0.a")) ? "shopping-cart" : "shopping-cart-line",
+    data: {turbolinks: false},
     sub_navigation: [
       {
-        controller: '/spree/admin/orders',
-        action: 'index',
-        name: 'Orders'
+        controller: "/spree/admin/orders",
+        action: "index",
+        name: "Orders"
       },
       {
-        controller: '/spree/admin/products',
-        action: 'index',
-        name: 'Products'
+        controller: "/spree/admin/products",
+        action: "index",
+        name: "Products"
       },
       {
-        controller: '/spree/admin/stock_items',
-        action: 'index',
-        name: 'Stock'
+        controller: "/spree/admin/stock_items",
+        action: "index",
+        name: "Stock"
       }
     ]
   }
@@ -30,12 +30,12 @@ alchemy_module = {
 if defined?(Spree::Auth::Engine)
   alchemy_module[:navigation][:sub_navigation].push(
     {
-      controller: '/spree/admin/users',
-      action: 'index',
-      name: 'Users'
+      controller: "/spree/admin/users",
+      action: "index",
+      name: "Users"
     }
   )
-  Alchemy.user_class_name = 'Spree::User'
+  Alchemy.user_class_name = "Spree::User"
   Alchemy.current_user_method = :spree_current_user
 
   if Alchemy.respond_to?(:logout_method)

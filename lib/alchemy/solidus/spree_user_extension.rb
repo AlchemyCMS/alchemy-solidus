@@ -11,7 +11,7 @@ module Alchemy
 
       def alchemy_roles
         if has_spree_role?(:admin)
-          %w(admin)
+          %w[admin]
         else
           []
         end

@@ -24,13 +24,13 @@ Rails.application.config.after_initialize do
             match_path: "/languages"
           ),
           (if defined?(Alchemy::Devise::Engine)
-              config.class::MenuItem.new(
-                label: :users,
-                condition: -> { can?(:index, :alchemy_admin_users) },
-                url: -> { Alchemy::Engine.routes.url_helpers.admin_users_path },
-                match_path: "/users"
-              )
-            end),
+             config.class::MenuItem.new(
+               label: :users,
+               condition: -> { can?(:index, :alchemy_admin_users) },
+               url: -> { Alchemy::Engine.routes.url_helpers.admin_users_path },
+               match_path: "/users"
+             )
+           end),
           config.class::MenuItem.new(
             label: :tags,
             condition: -> { can?(:index, :alchemy_admin_tags) },

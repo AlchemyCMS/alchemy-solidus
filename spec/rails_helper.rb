@@ -72,7 +72,7 @@ end
 
 Capybara.javascript_driver = :selenium_chrome_headless
 Capybara.asset_host = "http://localhost:3000"
-Capybara.server = :puma, { Silent: true }
+Capybara.server = :puma, {Silent: true}
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
