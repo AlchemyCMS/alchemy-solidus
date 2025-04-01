@@ -15,29 +15,29 @@ module Alchemy
       desc "Installs Alchemy Solidus into your App."
 
       class_option :skip_alchemy_installer,
-                   default: false,
-                   type: :boolean,
-                   desc:
-                     "Set true if you don't want to run the Alchemy installer"
+        default: false,
+        type: :boolean,
+        desc:
+          "Set true if you don't want to run the Alchemy installer"
       class_option :skip_alchemy_devise_installer,
-                   default: false,
-                   type: :boolean,
-                   desc:
-                     "Set true if you don't want to run the Alchemy Devise installer. NOTE: Automatically skipped if Alchemy::Devise is not available."
+        default: false,
+        type: :boolean,
+        desc:
+          "Set true if you don't want to run the Alchemy Devise installer. NOTE: Automatically skipped if Alchemy::Devise is not available."
       class_option :skip_spree_custom_user_generator,
-                   default: false,
-                   type: :boolean,
-                   desc:
-                     "Set true if you don't want to run the Solidus custom user generator. NOTE: Automatically skipped if Alchemy::Devise is not available."
+        default: false,
+        type: :boolean,
+        desc:
+          "Set true if you don't want to run the Solidus custom user generator. NOTE: Automatically skipped if Alchemy::Devise is not available."
       class_option :skip_alchemy_user_generator,
-                   default: false,
-                   type: :boolean,
-                   desc:
-                     "Set true if you don't want to generate an admin user. NOTE: Automatically skipped if Alchemy::Devise is not available."
+        default: false,
+        type: :boolean,
+        desc:
+          "Set true if you don't want to generate an admin user. NOTE: Automatically skipped if Alchemy::Devise is not available."
       class_option :auto_accept,
-                   default: false,
-                   type: :boolean,
-                   desc: "Set true if run from a automated script (ie. on a CI)"
+        default: false,
+        type: :boolean,
+        desc: "Set true if run from a automated script (ie. on a CI)"
 
       source_root File.expand_path("files", __dir__)
 
@@ -66,7 +66,7 @@ module Alchemy
 
       def run_spree_custom_user_generator
         if alchemy_devise_present? &&
-             !options[:skip_spree_custom_user_generator]
+            !options[:skip_spree_custom_user_generator]
           arguments =
             (
               if options[:auto_accept]
@@ -77,15 +77,15 @@ module Alchemy
             )
           Spree::CustomUserGenerator.start(arguments)
           gsub_file "lib/spree/authentication_helpers.rb",
-                    /main_app\./,
-                    "Alchemy."
+            /main_app\./,
+            "Alchemy."
           rake("db:migrate", abort_on_failure: true)
         end
       end
 
       def create_admin_user
         if alchemy_devise_present? && !options[:skip_alchemy_user_generator] &&
-             Alchemy::User.count.zero?
+            Alchemy::User.count.zero?
           login = ENV.fetch("ALCHEMY_ADMIN_USER_LOGIN", "admin")
           email = ENV.fetch("ALCHEMY_ADMIN_USER_EMAIL", "admin@example.com")
           password = ENV.fetch("ALCHEMY_ADMIN_USER_PASSWORD", "test1234")
@@ -123,12 +123,12 @@ module Alchemy
               default: mountpoint
             )
         end
-        if File.read(routes_file_path).match SPREE_MOUNT_REGEXP
-          sentinel = SPREE_MOUNT_REGEXP
+        sentinel = if File.read(routes_file_path).match SPREE_MOUNT_REGEXP
+          SPREE_MOUNT_REGEXP
         else
-          sentinel = "Rails.application.routes.draw do\n"
+          "Rails.application.routes.draw do\n"
         end
-        inject_into_file routes_file_path, { after: sentinel } do
+        inject_into_file routes_file_path, {after: sentinel} do
           "\n  mount Alchemy::Engine, at: '/#{mountpoint.chomp("/")}'\n"
         end
       end
@@ -136,12 +136,12 @@ module Alchemy
       def set_root_route
         routes_file_path = Rails.root.join("config", "routes.rb")
         if options[:auto_accept] ||
-             yes?("\nDo you want Alchemy to handle the root route '/'? (y/n)")
+            yes?("\nDo you want Alchemy to handle the root route '/'? (y/n)")
           sentinel = "Rails.application.routes.draw do\n"
-          inject_into_file routes_file_path, { after: sentinel } do
+          inject_into_file routes_file_path, {after: sentinel} do
             <<~ROOT_ROUTE
-              \  # Let AlchemyCMS handle the root route
-              \  root to: 'alchemy/pages#index'
+              # Let AlchemyCMS handle the root route
+              root to: 'alchemy/pages#index'
             ROOT_ROUTE
           end
           copy_file("db/seeds/alchemy/pages.yml")
@@ -151,7 +151,7 @@ module Alchemy
 
       def append_assets
         append_file "vendor/assets/javascripts/alchemy/admin/all.js",
-                    "//= require alchemy/solidus/admin.js"
+          "//= require alchemy/solidus/admin.js"
       end
 
       private

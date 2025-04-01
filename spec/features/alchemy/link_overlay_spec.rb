@@ -29,7 +29,7 @@ RSpec.describe "Link overlay" do
       {
         name: "article",
         ingredients: [
-          { role: "headline", type: "Text", settings: { linkable: true } }
+          {role: "headline", type: "Text", settings: {linkable: true}}
         ]
       }
     end
@@ -50,11 +50,9 @@ RSpec.describe "Link overlay" do
     end
 
     within "#overlay_tabs" do
-      begin
-        find("sl-tab", text: "Product").click
-      rescue Capybara::ElementNotFound
-        click_link "Product"
-      end
+      find("sl-tab", text: "Product").click
+    rescue Capybara::ElementNotFound
+      click_link "Product"
     end
 
     within "[name=overlay_tab_product_link]" do

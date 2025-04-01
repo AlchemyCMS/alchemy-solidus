@@ -12,13 +12,13 @@ RSpec.describe "alchemy/ingredients/_spree_variant_editor" do
       {
         name: "all_you_can_eat",
         ingredients: [
-          { role: "product",
-            type: "SpreeProduct" },
-          { role: "variant",
-            type: "SpreeVariant" },
-          { role: "taxon",
-            type: "SpreeTaxon" },
-        ],
+          {role: "product",
+           type: "SpreeProduct"},
+          {role: "variant",
+           type: "SpreeVariant"},
+          {role: "taxon",
+           type: "SpreeTaxon"}
+        ]
       }
     end
 

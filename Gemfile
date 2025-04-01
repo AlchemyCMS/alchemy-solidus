@@ -8,7 +8,7 @@ gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
 alchemy_branch = ENV.fetch("ALCHEMY_BRANCH", "7.4-stable")
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: alchemy_branch
 
-gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
+gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "7.4-stable"
 
 # Specify your gem's dependencies in alchemy-solidus.gemspec
 gemspec
@@ -19,7 +19,6 @@ gem "sprockets", "~> 4.0"
 gem "jsbundling-rails", "~> 1.1"
 gem "rails", ">= 6.1.0"
 gem "listen"
-gem "puma"
 gem "deface"
 
 if ["v4.1", "v4.2"].include?(solidus_branch)
@@ -31,4 +30,9 @@ group :development, :test do
   # in our case the culprit is `handlebars-assets`. The changes between 2.7.0 and 2.8.0 are
   # minimal, but breaking.
   gem "execjs", "= 2.7.0"
+end
+
+group :lint do
+  gem "rubocop", require: false
+  gem "standard", "~> 1.25", require: false
 end
