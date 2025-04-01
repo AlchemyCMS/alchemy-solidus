@@ -36,7 +36,7 @@ RSpec.describe "alchemy/ingredients/_spree_product_editor" do
   it_behaves_like "an alchemy ingredient editor"
 
   it "renders a product input" do
-    is_expected.to have_css("input.alchemy_selectbox.full_width")
+    is_expected.to have_css("alchemy-product-select input.full_width")
   end
 
   context "with a product related to ingredient" do
@@ -47,7 +47,7 @@ RSpec.describe "alchemy/ingredients/_spree_product_editor" do
     end
 
     it "sets product id as value" do
-      is_expected.to have_css('input.alchemy_selectbox[value="1"]')
+      is_expected.to have_css('alchemy-product-select[selection] input[value="1"]')
     end
   end
 end

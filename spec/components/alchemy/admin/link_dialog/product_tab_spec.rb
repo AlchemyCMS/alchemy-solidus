@@ -22,6 +22,10 @@ RSpec.describe Alchemy::Admin::LinkDialog::ProductTab, type: :component do
     expect(page).to have_selector("alchemy-product-select [name=product_link]")
   end
 
+  it "sets the value-attribute to slug" do
+    expect(page).to have_selector("alchemy-product-select[value-attribute=slug]")
+  end
+
   context "with product found by url" do
     it "has value set" do
       expect(page).to have_selector("alchemy-product-select [value='#{url}']")
