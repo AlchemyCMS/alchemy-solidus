@@ -36,7 +36,7 @@ RSpec.describe "alchemy/ingredients/_spree_variant_editor" do
   it_behaves_like "an alchemy ingredient editor"
 
   it "renders a variant input" do
-    is_expected.to have_css("input.alchemy_selectbox.full_width")
+    is_expected.to have_css("alchemy-variant-select input.full_width")
   end
 
   context "with a variant related to ingredient" do
@@ -47,7 +47,7 @@ RSpec.describe "alchemy/ingredients/_spree_variant_editor" do
     end
 
     it "sets variant id as value" do
-      is_expected.to have_css('input.alchemy_selectbox[value="1"]')
+      is_expected.to have_css('alchemy-variant-select input[value="1"]')
     end
   end
 end

@@ -1,15 +1,9 @@
 import { RemoteSelect } from "alchemy_admin/components/remote_select"
+import ajaxConfig from "alchemy_solidus/components/ajax_config"
 
 export default class TaxonSelect extends RemoteSelect {
   get ajaxConfig() {
-    return {
-      ...super.ajaxConfig,
-      params: {
-        headers: {
-          Authorization: `Bearer ${this.apiKey}`,
-        },
-      },
-    }
+    return ajaxConfig(super.ajaxConfig, this.apiKey)
   }
 
   get apiKey() {
