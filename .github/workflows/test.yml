@@ -2,6 +2,10 @@ name: Test
 
 on: [push, pull_request]
 
+concurrency:
+  group: test-${{ github.ref_name }}
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
+
 jobs:
   Rspec:
     runs-on: ubuntu-22.04
