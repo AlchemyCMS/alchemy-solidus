@@ -1,5 +1,16 @@
 # Changelog
 
+## [v7.6.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.6.0) (2025-04-08)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.5.1...v7.6.0)
+
+**Merged pull requests:**
+
+- Use alchemy remote-select for product select [\#126](https://github.com/AlchemyCMS/alchemy-solidus/pull/126) ([tvdeyen](https://github.com/tvdeyen))
+- Add alchemy-variant-select component [\#125](https://github.com/AlchemyCMS/alchemy-solidus/pull/125) ([tvdeyen](https://github.com/tvdeyen))
+- Add a alchemy-taxon-select component [\#124](https://github.com/AlchemyCMS/alchemy-solidus/pull/124) ([tvdeyen](https://github.com/tvdeyen))
+- Use Standard for linting [\#123](https://github.com/AlchemyCMS/alchemy-solidus/pull/123) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.5.1](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.5.1) (2025-02-11)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.5.0...v7.5.1)
