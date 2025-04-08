@@ -1,42 +1,71 @@
-import "alchemy_solidus/product_select"
+import { RemoteSelect } from "alchemy_admin/components/remote_select"
+import ajaxConfig from "alchemy_solidus/components/ajax_config"
 
-export default class ProductSelect extends HTMLElement {
-  connectedCallback() {
-    const input = this.querySelector("#product_link")
-    input.classList.add("alchemy_selectbox")
-
-    $(input).alchemyProductSelect({
-      baseUrl: this.url,
-      apiToken: this.apiToken,
-      initSelection: this._initSelection.bind(this),
-      formatResultObject: this._formatResult.bind(this),
-    })
+export default class ProductSelect extends RemoteSelect {
+  get ajaxConfig() {
+    return ajaxConfig(super.ajaxConfig, this.apiKey)
   }
 
-  get url() {
-    return this.getAttribute("url")
-  }
-
-  get apiToken() {
+  get apiKey() {
     return this.getAttribute("api-key")
   }
 
-  _initSelection(_$el, callback) {
-    const selection = this.getAttribute("selection")
-    const product = JSON.parse(selection)
-    callback(this._formatResult(product))
+  get valueAttribute() {
+    return this.getAttribute("value-attribute") || "id"
   }
 
-  _formatResult(product) {
+  /**
+   * Parses server response into select2 results object
+   * @param {object} response
+   * @returns {object}
+   * @private
+   */
+  _parseResponse(response) {
     return {
-      id: `${Spree.mountedAt()}products/${product.slug}`,
-      text: product.name,
+      results: response.products.map((product) => {
+        return {
+          id: this._parsedValue(product),
+          name: product.name,
+        }
+      }),
+      more: response.current_page * response.per_page < response.total_count,
     }
   }
 
-  _searchQuery(value) {
-    const slug = value.replace(`${Spree.mountedAt()}products/`, "")
-    return `q[slug_eq]=${slug}`
+  /**
+   * The value used for the select send to the server
+   * after submitting the form this select is placed in.
+   *
+   * Note: Returning an url if the `value-attribute` is "slug".
+   *
+   * @param {object} product
+   * @returns {string}
+   */
+  _parsedValue(product) {
+    return this.valueAttribute === "slug"
+      ? `${Spree.mountedAt()}products/${product.slug}`
+      : product.id
+  }
+
+  /**
+   * result which is visible if a product was selected
+   * @param {object} product
+   * @returns {string}
+   * @private
+   */
+  _renderResult(product) {
+    return product.name
+  }
+
+  /**
+   * html template for each list entry
+   * @param {object} product
+   * @param {string} term
+   * @returns {string}
+   * @private
+   */
+  _renderListEntry(product, term) {
+    return this._hightlightTerm(product.name, term)
   }
 }
 

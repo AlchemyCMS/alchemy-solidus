@@ -47,7 +47,8 @@ module Alchemy
           select = render self.class.product_select_class.new(
             current_alchemy_user.spree_api_key,
             product: product,
-            url: spree.api_products_path
+            url: spree.api_products_path,
+            value_attribute: :slug
           ).with_content(input)
           content_tag("div", label + select, class: "input select")
         end
