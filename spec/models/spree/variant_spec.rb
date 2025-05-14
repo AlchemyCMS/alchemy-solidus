@@ -13,23 +13,19 @@ RSpec.describe Spree::Variant, type: :model do
     let(:variant) { create(:variant) }
 
     it "invalidates the cache on update" do
-      travel_to 5.minutes.from_now do
-        current_time = Time.current
-        expect { variant.reload.update!(price: 30) }.to change { ingredient.reload.updated_at }.to(current_time)
-        expect(element.reload.updated_at).to eq(current_time)
-        expect(page_version.reload.updated_at).to eq(current_time)
-        expect(page.reload.updated_at).to eq(current_time)
-      end
+      expect {
+        variant.update!(sku: "New sku")
+      }.to enqueue_job(Alchemy::Solidus::InvalidateElementsCacheJob).with("SpreeVariant", variant.id).and(
+        enqueue_job(Alchemy::Solidus::InvalidateElementsCacheJob).with("SpreeProduct", variant.product.id)
+      )
     end
 
     it "invalidates the cache on touch" do
-      travel_to 5.minutes.from_now do
-        current_time = Time.current
-        expect { variant.reload.touch }.to change { ingredient.reload.updated_at }.to(current_time)
-        expect(element.reload.updated_at).to eq(current_time)
-        expect(page_version.reload.updated_at).to eq(current_time)
-        expect(page.reload.updated_at).to eq(current_time)
-      end
+      expect {
+        variant.touch
+      }.to enqueue_job(Alchemy::Solidus::InvalidateElementsCacheJob).with("SpreeVariant", variant.id).and(
+        enqueue_job(Alchemy::Solidus::InvalidateElementsCacheJob).with("SpreeProduct", variant.product.id)
+      )
     end
   end
 end

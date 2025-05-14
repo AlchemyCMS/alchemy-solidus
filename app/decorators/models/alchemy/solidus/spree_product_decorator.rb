@@ -4,7 +4,8 @@ module Alchemy
   module Solidus
     module SpreeProductDecorator
       def self.prepended(base)
-        base.include Alchemy::Solidus::TouchAlchemyIngredients
+        # Solidus runs touch callbacks on product after_save
+        base.after_touch :touch_alchemy_ingredients
         base.has_many :alchemy_ingredients, class_name: "Alchemy::Ingredients::SpreeProduct", as: :related_object, dependent: :nullify
       end
 
@@ -21,6 +22,12 @@ module Alchemy
       #
       def touch_taxons
         taxons.each(&:touch)
+      end
+
+      # Touch all elements that have this product assigned to one of its ingredients.
+      # This cascades to all parent elements and pages as well.
+      def touch_alchemy_ingredients
+        InvalidateElementsCacheJob.perform_later("SpreeProduct", id)
       end
 
       ::Spree::Product.prepend self
