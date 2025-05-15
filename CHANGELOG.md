@@ -1,5 +1,15 @@
 # Changelog
 
+## [v7.7.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.7.0) (2025-05-15)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.6.0...v7.7.0)
+
+**Merged pull requests:**
+
+- Remove essence table migrations [\#128](https://github.com/AlchemyCMS/alchemy-solidus/pull/128) ([tvdeyen](https://github.com/tvdeyen))
+- Add InvalidateElementsCacheJob [\#127](https://github.com/AlchemyCMS/alchemy-solidus/pull/127) ([tvdeyen](https://github.com/tvdeyen))
+- Autoload patches with flickwerk [\#116](https://github.com/AlchemyCMS/alchemy-solidus/pull/116) ([mamhoff](https://github.com/mamhoff))
+
 ## [v7.6.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.6.0) (2025-04-08)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.5.1...v7.6.0)
