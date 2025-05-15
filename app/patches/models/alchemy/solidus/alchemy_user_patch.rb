@@ -1,7 +1,7 @@
 module Alchemy
   module Solidus
-    module AlchemyUserExtension
-      def self.included(klass)
+    module AlchemyUserPatch
+      def self.prepended(klass)
         klass.include Spree::UserMethods
       end
 
@@ -11,6 +11,10 @@ module Alchemy
         else
           ::Spree::Role.none
         end
+      end
+
+      if defined?(::Alchemy::User)
+        ::Alchemy::User.prepend self
       end
     end
   end

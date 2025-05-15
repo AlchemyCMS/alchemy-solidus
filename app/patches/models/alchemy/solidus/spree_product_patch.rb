@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module SpreeProductDecorator
+    module SpreeProductPatch
       def self.prepended(base)
         # Solidus runs touch callbacks on product after_save
         base.after_touch :touch_alchemy_ingredients

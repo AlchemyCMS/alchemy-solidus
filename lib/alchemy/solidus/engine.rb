@@ -4,6 +4,12 @@ require "solidus_core"
 require "solidus_backend"
 require "solidus_support"
 
+begin
+  require "solidus_frontend"
+rescue LoadError
+  # Solidus frontend is not available, but we can still load the engine
+end
+
 module Alchemy
   module Solidus
     class Engine < ::Rails::Engine
@@ -25,26 +31,21 @@ module Alchemy
         Alchemy.register_ability ::Spree::Ability
         ::Spree::Ability.register_ability ::Alchemy::Permissions
 
-        if Alchemy.user_class_name == "::Spree::User"
-          require "alchemy/solidus/spree_user_extension"
-          Spree::User.include Alchemy::Solidus::SpreeUserExtension
-        end
-
-        if Alchemy.user_class_name == "::Alchemy::User"
-          require "alchemy/solidus/alchemy_user_extension"
-          require "alchemy/solidus/current_user_helpers"
-          Alchemy::User.include Alchemy::Solidus::AlchemyUserExtension
-          ApplicationController.include Alchemy::Solidus::CurrentUserHelpers
-          require "alchemy/solidus/spree_admin_unauthorized_redirect"
-        end
-
         if SolidusSupport.frontend_available?
           # Allows to render Alchemy content within Solidus' controller views
-          require_dependency "alchemy/solidus/alchemy_in_solidus"
-        end
 
-        # Allows to use Solidus helpers within Alchemys controller views
-        require_dependency "alchemy/solidus/use_solidus_layout"
+          # Do not prefix element view partials with `spree` namespace.
+          # See https://github.com/AlchemyCMS/alchemy_cms/issues/1626
+          ActionView::Base.prefix_partial_path_with_controller_namespace = false
+        end
+      end
+
+      initializer "alchemy_solidus.patches" do |app|
+        if Alchemy.gem_version < Gem::Version.new("7.4.0") && SolidusSupport.backend_available?
+          app.config.to_prepare do
+            Alchemy::Solidus::SpreeAdminBaseControllerPatch
+          end
+        end
       end
     end
   end

@@ -2,7 +2,7 @@
 
 module Alchemy
   module Solidus
-    module SpreeTaxonDecorator
+    module SpreeTaxonPatch
       def self.prepended(base)
         base.after_update :touch_alchemy_ingredients
         base.after_touch :touch_alchemy_ingredients
