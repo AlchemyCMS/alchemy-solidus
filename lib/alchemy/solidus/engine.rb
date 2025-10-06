@@ -17,7 +17,7 @@ module Alchemy
       engine_name "alchemy_solidus"
 
       initializer "alchemy_solidus.assets", before: "alchemy.importmap" do |app|
-        Alchemy.admin_importmaps.add({
+        Alchemy.config.admin_importmaps.add({
           importmap_path: root.join("config/importmap.rb"),
           source_paths: [
             root.join("app/javascript")
