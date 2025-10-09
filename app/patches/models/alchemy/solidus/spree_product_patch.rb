@@ -9,6 +9,10 @@ module Alchemy
         base.has_many :alchemy_ingredients, class_name: "Alchemy::Ingredients::SpreeProduct", as: :related_object, dependent: :nullify
       end
 
+      def url_path
+        Spree::Core::Engine.routes.url_helpers.try(:product_path, self)
+      end
+
       private
 
       # Overwritten Solidus' default behavior
