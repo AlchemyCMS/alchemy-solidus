@@ -12,7 +12,7 @@ gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: alchemy_branc
 # Specify your gem's dependencies in alchemy-solidus.gemspec
 gemspec
 
-gem "sqlite3", "~> 1.4"
+gem "sqlite3", "~> 2.7"
 gem "pry-rails"
 gem "sprockets", "~> 4.0"
 gem "jsbundling-rails", "~> 1.1"
