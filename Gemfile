@@ -35,3 +35,5 @@ group :lint do
   gem "rubocop", require: false
   gem "standard", "~> 1.25", require: false
 end
+
+gem "ruby-lsp-rspec", "~> 0.1.28"
