@@ -1,5 +1,6 @@
 require "alchemy_cms"
 require "alchemy/version"
+require "solidus_api"
 require "solidus_core"
 require "solidus_backend"
 require "solidus_support"
