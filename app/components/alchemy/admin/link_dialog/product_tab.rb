@@ -33,10 +33,7 @@ module Alchemy
         private
 
         def product
-          slug = url&.match(/products\/(?<slug>[\w-]+)/)&.captures
-          return unless slug
-
-          @_product ||= Spree::Product.find_by(slug: slug)
+          @_product ||= Alchemy::Solidus.config.product_finder.call(url)
         end
 
         def product_select
@@ -48,7 +45,7 @@ module Alchemy
             current_alchemy_user.spree_api_key,
             product: product,
             url: spree.api_products_path,
-            value_attribute: :slug
+            value_attribute: Alchemy::Solidus.config.product_url_attribute
           ).with_content(input)
           content_tag("div", label + select, class: "input select")
         end

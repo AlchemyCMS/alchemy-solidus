@@ -5,6 +5,14 @@ require "rails_helper"
 RSpec.describe Spree::Product, type: :model do
   it { is_expected.to have_many(:alchemy_ingredients) }
 
+  describe "#url_path" do
+    let(:product) { create(:product) }
+
+    it "returns the product path" do
+      expect(product.url_path).to eq(Spree::Core::Engine.routes.url_helpers.product_path(product))
+    end
+  end
+
   describe "cache invalidation" do
     let(:page) { create(:alchemy_page) }
     let(:page_version) { create(:alchemy_page_version, page: page) }

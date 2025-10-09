@@ -1,11 +1,9 @@
 module Alchemy
   module Admin
     class ProductSelect < ViewComponent::Base
-      VALUE_ATTRIBUTES = %i[id slug].freeze
-
       delegate :spree, to: :helpers
 
-      attr_reader :api_key, :product, :url, :query_params, :placeholder
+      attr_reader :api_key, :product, :url, :query_params, :placeholder, :value_attribute
 
       def initialize(api_key, product: nil, url: nil, query_params: nil, placeholder: nil, value_attribute: nil)
         @api_key = api_key
@@ -13,7 +11,7 @@ module Alchemy
         @url = url
         @query_params = query_params
         @placeholder = placeholder
-        @value_attribute = value_attribute
+        @value_attribute = value_attribute || :id
       end
 
       def call
@@ -21,10 +19,6 @@ module Alchemy
       end
 
       private
-
-      def value_attribute
-        @value_attribute.in?(VALUE_ATTRIBUTES) ? @value_attribute : :id
-      end
 
       def attributes
         attrs = {
@@ -45,7 +39,7 @@ module Alchemy
 
       def serialized_selection
         {
-          id: product.send(value_attribute),
+          id: product.public_send(value_attribute),
           name: product.name
         }.to_json
       end

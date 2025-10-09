@@ -67,8 +67,8 @@ RSpec.describe Alchemy::Admin::ProductSelect, type: :component do
     end
   end
 
-  context "with value_attribute set to evil" do
-    let(:value_attribute) { :evil }
+  context "with value_attribute set to nil" do
+    let(:value_attribute) { nil }
 
     it "sets value-attribute to 'id'" do
       expect(page).to have_selector(

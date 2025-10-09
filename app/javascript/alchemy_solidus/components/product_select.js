@@ -36,15 +36,11 @@ export default class ProductSelect extends RemoteSelect {
    * The value used for the select send to the server
    * after submitting the form this select is placed in.
    *
-   * Note: Returning an url if the `value-attribute` is "slug".
-   *
    * @param {object} product
    * @returns {string}
    */
   _parsedValue(product) {
-    return this.valueAttribute === "slug"
-      ? `${Spree.mountedAt()}products/${product.slug}`
-      : product.id
+    return product[this.valueAttribute]
   }
 
   /**

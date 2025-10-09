@@ -3,6 +3,7 @@ if defined?(Alchemy::Devise::Engine)
 end
 
 Rails.application.config.after_initialize do
+  Spree::Api::Config.product_attributes << :url_path
   Spree::Backend::Config.configure do |config|
     alchemy_menu_item = if Spree.solidus_gem_version >= Gem::Version.new("4.2.0")
       config.class::MenuItem.new(
