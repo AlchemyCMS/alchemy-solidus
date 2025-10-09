@@ -15,6 +15,7 @@ module Alchemy
   module Solidus
     class Engine < ::Rails::Engine
       include SolidusSupport::EngineExtensions
+
       engine_name "alchemy_solidus"
 
       initializer "alchemy_solidus.assets", before: "alchemy.importmap" do |app|
