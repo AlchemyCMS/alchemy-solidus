@@ -27,6 +27,7 @@ jobs:
     env:
       ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}
+      SOLIDUS_SKIP_MIGRATIONS_CHECK: true
     steps:
       - uses: actions/checkout@v4
       - name: Set up Ruby
