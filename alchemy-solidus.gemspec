@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version = Alchemy::Solidus::VERSION
 
-  gem.add_dependency("alchemy_cms", [">= 7.2.0", "< 8"])
+  gem.add_dependency("alchemy_cms", [">= 7.2.0", "< 9"])
   gem.add_dependency("solidus_core", [">= 4.0.0", "< 5"])
   gem.add_dependency("solidus_backend", [">= 4.0.0", "< 5"])
   gem.add_dependency("solidus_support", [">= 0.14.0", "< 1"])

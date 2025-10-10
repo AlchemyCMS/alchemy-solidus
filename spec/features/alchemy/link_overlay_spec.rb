@@ -26,12 +26,12 @@ RSpec.describe "Link overlay" do
     authorize_user admin_user
 
     allow(element).to receive(:definition) do
-      {
+      Alchemy::ElementDefinition.new(
         name: "article",
         ingredients: [
           {role: "headline", type: "Text", settings: {linkable: true}}
         ]
-      }
+      )
     end
 
     element.save!
