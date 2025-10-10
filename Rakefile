@@ -16,7 +16,7 @@ desc "Setup test app"
 task :test_setup do
   solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.4")
   solidus_install_options = "--payment-method=none --frontend=none --authentication=none"
-  if ["v4.3", "v4.4", "main"].include?(solidus_branch)
+  if ["v4.5", "v4.6", "main"].include?(solidus_branch)
     solidus_install_options += " --admin-preview=false"
   end
   Dir.chdir("spec/dummy") do

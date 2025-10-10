@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.4")
+solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.6")
 gem "solidus_core", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_backend", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
