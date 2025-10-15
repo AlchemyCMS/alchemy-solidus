@@ -1,5 +1,6 @@
 require "alchemy_cms"
 require "alchemy/version"
+require "solidus_api"
 require "solidus_core"
 require "solidus_backend"
 require "solidus_support"
@@ -14,10 +15,11 @@ module Alchemy
   module Solidus
     class Engine < ::Rails::Engine
       include SolidusSupport::EngineExtensions
+
       engine_name "alchemy_solidus"
 
       initializer "alchemy_solidus.assets", before: "alchemy.importmap" do |app|
-        Alchemy.admin_importmaps.add({
+        Alchemy.config.admin_importmaps.add({
           importmap_path: root.join("config/importmap.rb"),
           source_paths: [
             root.join("app/javascript")

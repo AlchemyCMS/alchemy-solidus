@@ -9,7 +9,7 @@ RSpec.describe "alchemy/ingredients/_spree_variant_editor" do
 
   before do
     allow(element).to receive(:definition) do
-      {
+      Alchemy::ElementDefinition.new(
         name: "all_you_can_eat",
         ingredients: [
           {role: "product",
@@ -19,7 +19,7 @@ RSpec.describe "alchemy/ingredients/_spree_variant_editor" do
           {role: "taxon",
            type: "SpreeTaxon"}
         ]
-      }
+      )
     end
 
     allow(element_editor).to receive(:ingredients) { [Alchemy::IngredientEditor.new(ingredient)] }

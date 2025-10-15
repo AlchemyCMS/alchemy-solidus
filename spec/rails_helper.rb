@@ -75,8 +75,6 @@ Capybara.asset_host = "http://localhost:3000"
 Capybara.server = :puma, {Silent: true}
 
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Alchemy::TestSupport::IntegrationHelpers, type: :feature
   config.include Alchemy::TestSupport::CapybaraHelpers, type: :feature
   config.include ActiveSupport::Testing::TimeHelpers, type: :model
