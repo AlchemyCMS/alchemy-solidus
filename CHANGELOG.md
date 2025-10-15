@@ -1,5 +1,13 @@
 # Changelog
 
+## [v8.0.0.b](https://github.com/AlchemyCMS/alchemy-solidus/tree/v8.0.0.b) (2025-10-15)
+
+[Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.7.0...v8.0.0.b)
+
+**Merged pull requests:**
+
+- Update to Alchemy 8.0 [\#129](https://github.com/AlchemyCMS/alchemy-solidus/pull/129) ([tvdeyen](https://github.com/tvdeyen))
+
 ## [v7.7.0](https://github.com/AlchemyCMS/alchemy-solidus/tree/v7.7.0) (2025-05-15)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.6.0...v7.7.0)
