@@ -24,6 +24,7 @@ task :test_setup do
       bin/rake db:environment:set db:drop && \
       bin/rake gutentag:install:migrations && \
       bin/rails g gutentag:migration_versions && \
+      bin/rails g alchemy:devise:install --auto-accept --skip && \
       bin/rails g solidus:install --force --auto-accept --no-seed --no-sample #{solidus_install_options} && \
       bin/rails g solidus_frontend:install --force --auto-accept && \
       bin/rails javascript:install:esbuild && \
