@@ -16,7 +16,7 @@ desc "Setup test app"
 task :test_setup do
   solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.4")
   solidus_install_options = "--payment-method=none --frontend=none --authentication=none"
-  if ["v4.3", "v4.4", "main"].include?(solidus_branch)
+  if ["v4.5", "v4.6", "main"].include?(solidus_branch)
     solidus_install_options += " --admin-preview=false"
   end
   Dir.chdir("spec/dummy") do
@@ -24,6 +24,7 @@ task :test_setup do
       bin/rake db:environment:set db:drop && \
       bin/rake gutentag:install:migrations && \
       bin/rails g gutentag:migration_versions && \
+      bin/rails g alchemy:devise:install --auto-accept --skip && \
       bin/rails g solidus:install --force --auto-accept --no-seed --no-sample #{solidus_install_options} && \
       bin/rails g solidus_frontend:install --force --auto-accept && \
       bin/rails javascript:install:esbuild && \

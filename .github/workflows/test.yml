@@ -23,7 +23,8 @@ jobs:
         alchemy:
           - "8.0-stable"
         solidus:
-          - "v4.4"
+          - "v4.5"
+          - "v4.6"
     env:
       ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}
