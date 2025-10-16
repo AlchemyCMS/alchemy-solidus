@@ -1,5 +1,6 @@
 if defined?(Alchemy::Devise::Engine)
   Spree.user_class = "Alchemy::User"
+  Spree::PermittedAttributes.user_attributes << :login
 end
 
 Rails.application.config.after_initialize do
