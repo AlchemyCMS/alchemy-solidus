@@ -1,5 +1,5 @@
 module Alchemy
   module Solidus
-    VERSION = "8.0.0.b"
+    VERSION = "8.0.0.c"
   end
 end
