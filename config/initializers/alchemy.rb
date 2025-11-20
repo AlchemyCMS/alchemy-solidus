@@ -6,7 +6,7 @@ alchemy_module = {
     action: "index",
     name: "Store",
     icon: (Alchemy.gem_version >= Gem::Version.new("7.4.0.a")) ? "shopping-cart" : "shopping-cart-line",
-    data: {turbolinks: false},
+    data: {turbolinks: false, turbo: false},
     sub_navigation: [
       {
         controller: "/spree/admin/orders",
