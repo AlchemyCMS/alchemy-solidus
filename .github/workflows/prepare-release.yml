@@ -4,11 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       bump:
-        description: 'Version bump type'
+        description: 'Version bump type. Choose "release" for finalizing a pre-release (8.0.0.dev → 8.0.0), or patch/minor/major to simply bump version.'
         required: true
         type: choice
         default: 'patch'
         options:
+          - release
           - patch
           - minor
           - major
@@ -36,11 +37,18 @@ jobs:
           CURRENT=$(grep VERSION lib/alchemy/solidus/version.rb | sed 's/.*"\(.*\)".*/\1/')
           echo "Current version: $CURRENT"
 
+          # Strip any pre-release suffix (e.g., .alpha, .beta, .rc1, .a, .b, .c)
+          BASE_VERSION=$(echo "$CURRENT" | sed 's/\.[a-zA-Z][a-zA-Z0-9]*$//')
+          echo "Base version: $BASE_VERSION"
+
           # Split into major.minor.patch
-          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$BASE_VERSION"
 
           # Bump based on input
           case "${{ inputs.bump }}" in
+            release)
+              # Just use the base version (strips pre-release suffix)
+              ;;
             major)
               MAJOR=$((MAJOR + 1))
               MINOR=0
