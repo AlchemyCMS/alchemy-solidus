@@ -5,3 +5,4 @@ pkg/
 !/spec/dummy/app/models/spree/user.rb
 Gemfile.lock
 .ruby-version
+.claude/
