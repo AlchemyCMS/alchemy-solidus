@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.0.0 (2025-12-09)
+
+## What's Changed
+* fix(Main Navigation): Disable Turbo on Solidus Tab by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/133
+* Fix(ProductTab): Use `Alchemy.configure` to set tab by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/134
+
+
+**Full Changelog**: https://github.com/AlchemyCMS/alchemy-solidus/compare/v8.0.0.c...v8.0.0
 ## [v8.0.0.c](https://github.com/AlchemyCMS/alchemy-solidus/tree/v8.0.0.c) (2025-11-19)
 
 [Full Changelog](https://github.com/AlchemyCMS/alchemy-solidus/compare/v8.0.0.b...v8.0.0.c)
