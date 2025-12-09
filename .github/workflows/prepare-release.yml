@@ -129,9 +129,8 @@ jobs:
             echo ""
             echo "## ${{ steps.version.outputs.version }} ($DATE)"
             echo ""
-            cat /tmp/release-notes.md
-            echo ""
-            tail -n +3 CHANGELOG.md
+            cat /tmp/release-notes.md | head -c -1
+            tail -n +2 CHANGELOG.md
           } > /tmp/changelog-new.md
           mv /tmp/changelog-new.md CHANGELOG.md
 
