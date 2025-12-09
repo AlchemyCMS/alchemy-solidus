@@ -45,7 +45,10 @@ if defined?(Spree::Auth::Engine)
   end
 end
 
-Rails.application.config.after_initialize do
+Rails.application.config.to_prepare do
   Alchemy::Modules.register_module(alchemy_module)
+end
+
+Alchemy.configure do |config|
   Alchemy.config.link_dialog_tabs.add("Alchemy::Admin::LinkDialog::ProductTab")
 end
