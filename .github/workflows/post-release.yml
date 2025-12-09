@@ -9,48 +9,9 @@ on:
 jobs:
   bump-dev-version:
     if: github.event.workflow_run.conclusion == 'success'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Generate token
-        id: generate-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ vars.ALCHEMY_BOT_APP_ID }}
-          private-key: ${{ secrets.ALCHEMY_BOT_APP_PRIVATE_KEY }}
-
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ steps.generate-token.outputs.token }}
-          ref: main
-
-      - name: Calculate next dev version
-        id: version
-        run: |
-          # Read current version
-          CURRENT=$(grep VERSION lib/alchemy/solidus/version.rb | sed 's/.*"\(.*\)".*/\1/')
-          echo "Current version: $CURRENT"
-
-          # Split into major.minor.patch
-          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
-
-          # Bump minor version and add .dev suffix
-          MINOR=$((MINOR + 1))
-          NEW_VERSION="$MAJOR.$MINOR.0.dev"
-          echo "New dev version: $NEW_VERSION"
-          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
-
-      - name: Configure git
-        run: |
-          git config user.name "alchemycms-bot"
-          git config user.email "alchemycms-bot@users.noreply.github.com"
-
-      - name: Bump to dev version
-        run: |
-          sed -i 's/VERSION = "[^"]*"/VERSION = "${{ steps.version.outputs.version }}"/' lib/alchemy/solidus/version.rb
-
-      - name: Commit and push
-        run: |
-          git add lib/alchemy/solidus/version.rb
-          git commit -m "Start development of version ${{ steps.version.outputs.version }}"
-          git push origin main
+    uses: AlchemyCMS/.github/.github/workflows/post-release.yml@main
+    with:
+      version_file_path: lib/alchemy/solidus/version.rb
+    secrets:
+      app_id: ${{ vars.ALCHEMY_BOT_APP_ID }}
+      app_private_key: ${{ secrets.ALCHEMY_BOT_APP_PRIVATE_KEY }}
