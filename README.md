@@ -99,8 +99,8 @@ To use Solidus Auth Devise, instruct Alchemy to use the `Spree::User` class:
 
 ```ruby
 # config/initializers/alchemy.rb
-Alchemy.user_class_name = 'Spree::User'
-Alchemy.current_user_method = :spree_current_user
+Alchemy.config.user_class = 'Spree::User'
+Alchemy.config.current_user_method = :spree_current_user
 ```
 
 If you put Spree in it's own routing namespace (see below) you will want to
@@ -108,8 +108,8 @@ let Alchemy know these paths:
 
 ```ruby
 # config/initializers/alchemy.rb
-Alchemy.login_path = '/store/login'
-Alchemy.logout_path = '/store/logout'
+Alchemy.config.login_path = '/store/login'
+Alchemy.config.logout_path = '/store/logout'
 ```
 
 #### 2. Option: Use [Alchemy Devise](https://github.com/AlchemyCMS/alchemy-devise)
@@ -161,15 +161,15 @@ and tell Solidus about Alchemy's path helpers:
 # lib/spree/authentication_helpers.rb
     ...
     def spree_login_path
-      Alchemy.login_path
+      Alchemy.config.login_path
     end
 
     def spree_signup_path
-      Alchemy.signup_path
+      Alchemy.config.signup_path
     end
 
     def spree_logout_path
-      Alchemy.logout_path
+      Alchemy.config.logout_path
     end
     ...
 ```

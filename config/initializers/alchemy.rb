@@ -35,9 +35,8 @@ if defined?(Spree::Auth::Engine)
       name: "Users"
     }
   )
-  Alchemy.user_class_name = "Spree::User"
-  Alchemy.current_user_method = :spree_current_user
-
+  Alchemy.config.user_class = "Spree::User"
+  Alchemy.config.current_user_method = :spree_current_user
   Rails.application.config.after_initialize do
     Alchemy.logout_method = Devise.sign_out_via.to_s
   end
