@@ -30,7 +30,7 @@ module Alchemy
       end
 
       config.to_prepare do
-        Alchemy.register_ability ::Spree::Ability
+        Alchemy.config.abilities.add("Spree::Ability")
         ::Spree::Ability.register_ability ::Alchemy::Permissions
 
         if SolidusSupport.frontend_available?
