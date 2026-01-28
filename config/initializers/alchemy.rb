@@ -5,7 +5,7 @@ alchemy_module = {
     controller: "/spree/admin/orders",
     action: "index",
     name: "Store",
-    icon: (Alchemy.gem_version >= Gem::Version.new("7.4.0.a")) ? "shopping-cart" : "shopping-cart-line",
+    icon: "shopping-cart",
     data: {turbolinks: false, turbo: false},
     sub_navigation: [
       {
