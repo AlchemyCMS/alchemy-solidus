@@ -2,35 +2,29 @@
 
 require "rails_helper"
 
-RSpec.describe "alchemy/ingredients/_spree_taxon_editor" do
+RSpec.describe Alchemy::Ingredients::SpreeTaxonEditor, type: :component do
   let(:element) { build_stubbed(:alchemy_element, name: "all_you_can_eat") }
-  let(:element_editor) { Alchemy::ElementEditor.new(element) }
-  let(:ingredient) { Alchemy::Ingredients::SpreeTaxon.new(element: element, role: "taxon") }
+  let(:ingredient_editor) { described_class.new(ingredient) }
+  let(:ingredient) { Alchemy::Ingredients::SpreeTaxon.new(id: 1234, element: element, role: "taxon") }
 
   before do
     allow(element).to receive(:definition) do
       Alchemy::ElementDefinition.new(
         name: "all_you_can_eat",
         ingredients: [
-          {role: "product",
-           type: "SpreeProduct"},
-          {role: "variant",
-           type: "SpreeVariant"},
           {role: "taxon",
            type: "SpreeTaxon"}
         ]
       )
     end
-
-    allow(element_editor).to receive(:ingredients) { [Alchemy::IngredientEditor.new(ingredient)] }
-    view.class.send(:include, Alchemy::Admin::IngredientsHelper)
-    view.class.define_method(:current_alchemy_user) { nil } # trick rspec-mocks to allow this method to be stubbed
-    allow(view).to receive(:current_alchemy_user) { build_stubbed(:alchemy_admin_user) }
+    vc_test_view_context.class.include Alchemy::Admin::BaseHelper
+    vc_test_view_context.class.define_method(:current_alchemy_user) { nil } # trick rspec-mocks to allow this method to be stubbed
+    allow(vc_test_view_context).to receive(:current_alchemy_user) { build_stubbed(:alchemy_admin_user) }
   end
 
   subject do
-    render element_editor
-    rendered
+    render_inline ingredient_editor
+    page
   end
 
   it_behaves_like "an alchemy ingredient editor"
@@ -47,7 +41,7 @@ RSpec.describe "alchemy/ingredients/_spree_taxon_editor" do
     end
 
     it "sets taxon id as value" do
-      is_expected.to have_css('alchemy-taxon-select input[value="1"]')
+      is_expected.to have_css('alchemy-taxon-select[selection] input[value="1"]')
     end
   end
 end
