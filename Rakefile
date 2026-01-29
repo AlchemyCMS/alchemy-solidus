@@ -19,6 +19,7 @@ task :test_setup do
   if ["v4.5", "v4.6", "main"].include?(solidus_branch)
     solidus_install_options += " --admin-preview=false"
   end
+  ENV["SKIP_SOLIDUS_BOLT"] = "1" # solidus_frontend defaults to installing solidus_bolt if auto-accept is used
   Dir.chdir("spec/dummy") do
     system <<~SETUP
       bin/rake db:environment:set db:drop && \
