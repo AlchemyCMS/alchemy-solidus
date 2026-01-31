@@ -5,7 +5,7 @@ alchemy_module = {
     controller: "/spree/admin/orders",
     action: "index",
     name: "Store",
-    icon: (Alchemy.gem_version >= Gem::Version.new("7.4.0.a")) ? "shopping-cart" : "shopping-cart-line",
+    icon: "shopping-cart",
     data: {turbolinks: false, turbo: false},
     sub_navigation: [
       {
@@ -35,13 +35,10 @@ if defined?(Spree::Auth::Engine)
       name: "Users"
     }
   )
-  Alchemy.user_class_name = "Spree::User"
-  Alchemy.current_user_method = :spree_current_user
-
-  if Alchemy.respond_to?(:logout_method)
-    Rails.application.config.after_initialize do
-      Alchemy.logout_method = Devise.sign_out_via
-    end
+  Alchemy.config.user_class = "Spree::User"
+  Alchemy.config.current_user_method = :spree_current_user
+  Rails.application.config.after_initialize do
+    Alchemy.logout_method = Devise.sign_out_via.to_s
   end
 end
 

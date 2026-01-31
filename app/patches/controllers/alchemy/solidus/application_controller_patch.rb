@@ -4,7 +4,7 @@ module Alchemy
   module Solidus
     module ApplicationControllerPatch
       def spree_current_user
-        if Alchemy.user_class_name == "::Alchemy::User"
+        if Alchemy.config.user_class_name == "::Alchemy::User"
           current_user
         else
           super

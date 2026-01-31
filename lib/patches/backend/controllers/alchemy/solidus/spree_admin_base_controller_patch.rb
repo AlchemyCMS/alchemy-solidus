@@ -4,14 +4,14 @@ module Alchemy
   module Solidus
     module SpreeAdminBaseControllerPatch
       def self.prepended(base)
-        if Alchemy.user_class_name == "::Alchemy::User"
+        if Alchemy.config.user_class_name == "::Alchemy::User"
           base.unauthorized_redirect = -> do
             if spree_current_user
               flash[:error] = I18n.t("spree.authorization_failure")
               redirect_to spree.root_path
             else
               store_location
-              redirect_to Alchemy.login_path
+              redirect_to Alchemy.config.login_path
             end
           end
         end

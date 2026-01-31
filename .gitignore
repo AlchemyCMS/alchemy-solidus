@@ -3,6 +3,7 @@ log/*.log
 pkg/
 /spec/dummy/
 !/spec/dummy/app/models/spree/user.rb
+!/spec/dummy/Gemfile
 Gemfile.lock
 .ruby-version
 .claude/

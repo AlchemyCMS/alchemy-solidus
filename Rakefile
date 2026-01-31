@@ -14,11 +14,12 @@ task default: %i[test_setup spec]
 
 desc "Setup test app"
 task :test_setup do
-  solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.4")
+  solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.6")
   solidus_install_options = "--payment-method=none --frontend=none --authentication=none"
   if ["v4.5", "v4.6", "main"].include?(solidus_branch)
     solidus_install_options += " --admin-preview=false"
   end
+  ENV["SKIP_SOLIDUS_BOLT"] = "1" # solidus_frontend defaults to installing solidus_bolt if auto-accept is used
   Dir.chdir("spec/dummy") do
     system <<~SETUP
       bin/rake db:environment:set db:drop && \
