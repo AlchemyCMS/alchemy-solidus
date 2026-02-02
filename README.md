@@ -12,7 +12,7 @@ Development and maintenance is sponsored by [Blish](https://blish.cloud/).
 This is a [AlchemyCMS](https://alchemy-cms.com) and [Solidus](https://solidus.io) integration gem.
 
 1. It provides tabs in Alchemy and Solidus menus to easily switch between both backends
-2. It offers two new Essences for Alchemy called `EssenceSpreeProduct` and `EssenceSpreeTaxon` that you can use to place Spree products and/or Taxons on your pages.
+2. It offers new Ingredients for Alchemy called `SpreeProduct`, `SpreeVariant` and `SpreeTaxon` that you can use to place Solidus products and/or Taxons on your pages.
 3. Shares admin sessions and user abilities between Alchemy and Solidus.
 
 ## Compatibility
