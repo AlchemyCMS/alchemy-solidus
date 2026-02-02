@@ -1,5 +1,21 @@
 # Changelog
 
+## 8.1.0 (2026-02-02)
+
+<!-- Release notes generated using configuration in .github/release.yml at 8.1-stable -->
+
+## What's Changed
+### Breaking Changes
+* Update to Alchemy 8.1 by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/141
+### Other Changes
+* Pass rubygems_api_key secret to release workflow by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/138
+* chore(CI): Test Alchemy 8.1-stable branch by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/142
+* chore: Use `Alchemy.config.logout_method` by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/144
+
+
+**Full Changelog**: https://github.com/AlchemyCMS/alchemy-solidus/compare/v8.0.0...v8.1.0
+
+
 ## 8.0.0 (2025-12-09)
 
 ## What's Changed
