@@ -30,8 +30,10 @@ This version runs with Solidus v4.0 and up.
 
 ### Alchemy
 
-This version runs with Alchemy v7.2
+This version runs with Alchemy v8.1
 
+- For a Alchemy 8.0 compatible version please use the `8.0-stable` branch or `8.0` gem version.
+- For a Alchemy 7.4 compatible version please use the `7.4-stable` branch or `7.4` gem version.
 - For a Alchemy 7.0/7.1 compatible version please use the `7.2-stable` branch or `7.2` gem version.
 - For a Alchemy 6.x compatible version please use the `5.0-stable` branch or `5.0` gem version.
 - For a Alchemy 5.x compatible version please use the `4.1-stable` branch or `4.1` gem version.
@@ -44,7 +46,7 @@ This version runs with Alchemy v7.2
 Add this line to your applications `Gemfile`:
 
 ```ruby
-gem 'alchemy-solidus', '~> 7.0'
+gem 'alchemy-solidus', '~> 8.0'
 ```
 
 Install the gem with:
@@ -122,7 +124,7 @@ Add `alchemy-devise` to your `Gemfile`
 
 ```ruby
 # Gemfile
-gem 'alchemy-devise', '~> 4.1'
+gem 'alchemy-devise', '~> 5.0'
 ```
 
 and install it:
