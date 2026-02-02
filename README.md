@@ -1,4 +1,4 @@
-[![CI](https://github.com/AlchemyCMS/alchemy-solidus/actions/workflows/ci.yml/badge.svg)](https://github.com/AlchemyCMS/alchemy-solidus/actions/workflows/ci.yml)
+[![Test](https://github.com/AlchemyCMS/alchemy-solidus/actions/workflows/test.yml/badge.svg)](https://github.com/AlchemyCMS/alchemy-solidus/actions/workflows/test.yml)
 [![Gem Version](https://badge.fury.io/rb/alchemy-solidus.svg)](https://badge.fury.io/rb/alchemy-solidus)
 
 # Sponsoring
