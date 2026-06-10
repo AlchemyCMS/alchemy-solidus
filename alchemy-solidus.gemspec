@@ -29,5 +29,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency("ffaker", ["~> 2.7"])
   gem.add_development_dependency("github_changelog_generator", "~> 1.16")
   gem.add_development_dependency("selenium-webdriver", ["~> 4.11"])
-  gem.add_development_dependency("puma", ["~> 6.0"])
+  gem.add_development_dependency("puma", ["~> 8.0"])
 end
