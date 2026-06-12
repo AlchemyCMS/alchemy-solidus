@@ -17,14 +17,17 @@ jobs:
       fail-fast: false
       matrix:
         ruby-version:
-          - "3.2"
           - "3.3"
           - "3.4"
+          - "4.0"
         alchemy:
           - "8.1-stable"
+          - "8.2-stable"
+          - "main"
         solidus:
           - "v4.5"
           - "v4.6"
+          - "v4.7"
     env:
       ALCHEMY_BRANCH: ${{ matrix.alchemy }}
       SOLIDUS_BRANCH: ${{ matrix.solidus }}

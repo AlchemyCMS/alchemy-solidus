@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.6")
+solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "v4.7")
 gem "solidus_core", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_backend", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_frontend", github: "solidusio/solidus_frontend", branch: "main"
 
-alchemy_branch = ENV.fetch("ALCHEMY_BRANCH", "8.1-stable")
+alchemy_branch = ENV.fetch("ALCHEMY_BRANCH", "8.2-stable")
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: alchemy_branch
-gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "main"
+gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: alchemy_branch
 
 # Specify your gem's dependencies in alchemy-solidus.gemspec
 gemspec
