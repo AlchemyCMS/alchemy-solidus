@@ -1,5 +1,26 @@
 # Changelog
 
+## 8.3.0 (2026-06-29)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### Breaking Changes
+* Update to Alchemy 8.1 by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/141
+### Other Changes
+* Update to Alchemy 8.0 by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/129
+* Test Solidus 4.5 and 4.6 by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/132
+* fix(Main Navigation): Disable Turbo on Solidus Tab by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/133
+* Fix(ProductTab): Use `Alchemy.configure` to set tab by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/134
+* Release v8.0.0 by @alchemycms-bot[bot] in https://github.com/AlchemyCMS/alchemy-solidus/pull/136
+* Pass rubygems_api_key secret to release workflow by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/138
+* chore(CI): Test Alchemy 8.1-stable branch by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/142
+* chore: Use `Alchemy.config.logout_method` by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/144
+* Use Alchemy::RelatableResource by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/147
+
+
+**Full Changelog**: https://github.com/AlchemyCMS/alchemy-solidus/compare/v7.7.0...v8.3.0
+
 ## 8.1.0 (2026-02-02)
 
 <!-- Release notes generated using configuration in .github/release.yml at 8.1-stable -->
