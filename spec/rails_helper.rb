@@ -49,6 +49,7 @@ require "alchemy/test_support/capybara_helpers"
 require "alchemy/test_support/integration_helpers"
 
 FactoryBot.definition_file_paths.append(Alchemy::TestSupport.factories_path)
+FactoryBot.definition_file_paths.append(Alchemy::Solidus::Engine.root.join("lib", "alchemy", "solidus", "test_support", "factories"))
 FactoryBot.reload
 
 require "alchemy/devise/test_support/factories"

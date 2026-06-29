@@ -4,6 +4,11 @@ module Alchemy
       queue_as :default
 
       def perform(model_name, id)
+        Alchemy::Deprecation.warn <<~WARN
+          Alchemy::Solidus::InvalidateElementsCacheJob is deprecated and will be removed in 9.0.
+          Please use Alchemy::InvalidateElementsCacheJob instead.
+        WARN
+
         now = Time.current
 
         element_ids = model(model_name)
