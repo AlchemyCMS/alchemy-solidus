@@ -1,5 +1,16 @@
 # Changelog
 
+## 8.3.0 (2026-06-29)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### Other Changes
+* Use Alchemy::RelatableResource by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/147
+
+
+**Full Changelog**: https://github.com/AlchemyCMS/alchemy-solidus/compare/v8.1.0...v8.3.0
+
 ## 8.1.0 (2026-02-02)
 
 <!-- Release notes generated using configuration in .github/release.yml at 8.1-stable -->
