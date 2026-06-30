@@ -32,6 +32,9 @@ module Alchemy
       config.to_prepare do
         Alchemy.config.abilities.add("Spree::Ability")
         ::Spree::Ability.register_ability ::Alchemy::Permissions
+        Alchemy.registered_abilities.reject { _1 == Spree::Ability }.each do |ability|
+          ::Spree::Ability.register_ability ability
+        end
 
         if SolidusSupport.frontend_available?
           # Allows to render Alchemy content within Solidus' controller views
