@@ -6,7 +6,7 @@ module Alchemy
       end
 
       def spree_roles
-        if admin?
+        if alchemy_admin?
           ::Spree::Role.where(name: "admin")
         else
           ::Spree::Role.none

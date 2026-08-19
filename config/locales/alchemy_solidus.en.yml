@@ -18,3 +18,16 @@ en:
         users: Users
         pictures: Pictures
         attachments: Attachments
+      users:
+        form:
+          alchemy_roles: Alchemy Roles
+    hints:
+      spree/user:
+        alchemy_roles_html: |
+          <p>These roles allow access to Alchemy CMS.</p>
+          <ul>
+            <li><kbd>Member</kbd> describes regular logged in customers and allows to visit regularly restricted pages. It <strong>does not</strong> grant access to the CMS backend.</li>
+            <li><kbd>Author</kbd> grants access to edit content but not to create pages.</li>
+            <li><kbd>Editor</kbd> grants access to fully manage pages and languages.</li>
+            <li><kbd>Admin</kbd> grants access <strong>to manage everything</strong>.</li>
+          </ul>

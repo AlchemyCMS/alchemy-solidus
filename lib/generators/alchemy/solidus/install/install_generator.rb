@@ -1,5 +1,7 @@
 require "rails/generators"
+require "rails/generators/active_record/migration"
 require "generators/alchemy/install/install_generator"
+require "generators/alchemy/user_columns_migration/user_columns_migration_generator"
 require "generators/spree/custom_user/custom_user_generator"
 require "solidus_support"
 
@@ -11,6 +13,8 @@ end
 module Alchemy
   module Solidus
     class InstallGenerator < Rails::Generators::Base
+      include ActiveRecord::Generators::Migration
+
       SPREE_MOUNT_REGEXP = /mount\sSpree::Core::Engine.*$/
       desc "Installs Alchemy Solidus into your App."
 
@@ -24,6 +28,11 @@ module Alchemy
         type: :boolean,
         desc:
           "Set true if you don't want to run the Alchemy Devise installer. NOTE: Automatically skipped if Alchemy::Devise is not available."
+      class_option :skip_alchemy_user_columns_generator,
+        default: false,
+        type: :boolean,
+        desc:
+          "Set true if you don't want to run the Alchemy user columns generator. NOTE: Automatically skipped if Spree::User is not available."
       class_option :skip_spree_custom_user_generator,
         default: false,
         type: :boolean,
@@ -61,6 +70,20 @@ module Alchemy
         if alchemy_devise_present? && !options[:skip_alchemy_devise_installer]
           arguments = options[:auto_accept] ? ["--force"] : []
           Alchemy::Devise::Generators::InstallGenerator.start(arguments)
+        end
+      end
+
+      def run_alchemy_user_columns_generator
+        if defined?(::Spree::User) &&
+            !options[:skip_alchemy_user_columns_generator]
+          @table_name = ::Spree::User.table_name
+          arguments = [
+            "--table-name",
+            @table_name, options[:auto_accept] && "--force"
+          ].compact
+          Alchemy::Generators::UserColumnsMigrationGenerator.start(arguments)
+          migration_template "db/migrate/set_alchemy_roles.tt", "db/migrate/set_alchemy_roles_on_#{@table_name}_table.rb"
+          rake("db:migrate", abort_on_failure: true)
         end
       end
 

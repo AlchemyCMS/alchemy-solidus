@@ -9,34 +9,15 @@ RSpec.describe Alchemy::Solidus::SpreeUserPatch, type: :model do
         "Spree::User"
       end
 
-      def has_spree_role?(_role)
-        false
-      end
-
       include Alchemy::Solidus::SpreeUserPatch
     end
   end
 
   let(:user) { spree_user.new(email: "spree@example.com") }
 
-  describe "#alchemy_roles" do
-    context "when user is an admin" do
-      it "returns an array with the admin role" do
-        allow(user).to receive(:has_spree_role?).with(:admin).and_return(true)
-        expect(user.alchemy_roles).to eq %w[admin]
-      end
-    end
-
-    context "when user is not an admin" do
-      it { expect(user.alchemy_roles).to be_empty }
-    end
-  end
-
   describe "#alchemy_display_name" do
-    context "when user is not an admin" do
-      it "returns user's email" do
-        expect(user.alchemy_display_name).to eq "spree@example.com"
-      end
+    it "returns user's email" do
+      expect(user.alchemy_display_name).to eq "spree@example.com"
     end
   end
 end

@@ -1,0 +1,10 @@
+<!-- insert_after '[data-hook="admin_user_form_roles"]' -->
+
+<%= f.field_container :alchemy_roles do %>
+  <%= label_tag nil, t(".alchemy_roles") %>
+  <%= admin_hint t(".alchemy_roles"), t(:alchemy_roles_html, scope: [:spree, :hints, "spree/user"]) %>
+  <%= f.collection_select :alchemy_roles, Alchemy.config.user_roles, :to_s, :capitalize,
+    {include_blank: false},
+    multiple: true, disabled: cannot?(:update_role, @user),
+    class: "select2 fullwidth" %>
+<% end %>
