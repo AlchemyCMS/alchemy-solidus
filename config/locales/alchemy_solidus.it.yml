@@ -9,3 +9,16 @@ it:
         tags: "Tags"
         pictures: "Immagini"
         attachments: "File"
+      users:
+        form:
+          alchemy_roles: Alchemy Ruoli
+    hints:
+      spree/user:
+        alchemy_roles_html: |
+          <p>Questi ruoli consentono l'accesso ad Alchemy CMS.</p>
+          <ul>
+            <li><kbd>Membro</kbd> indica i normali clienti autenticati e consente di visitare le pagine ad accesso limitato. <strong>Non</strong> concede l'accesso al backend del CMS.</li>
+            <li><kbd>Autore</kbd> concede l'accesso alla modifica dei contenuti, ma non alla creazione di pagine.</li>
+            <li><kbd>Editore</kbd> concede l'accesso alla gestione completa di pagine e lingue.</li>
+            <li><kbd>Amministratore</kbd> concede l'accesso <strong>alla gestione di tutto</strong>.</li>
+          </ul>
