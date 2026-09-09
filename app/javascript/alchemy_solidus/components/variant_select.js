@@ -11,7 +11,7 @@ export default class VariantSelect extends RemoteSelect {
   }
 
   /**
-   * Search query send to server from select2
+   * Search query send to server
    * @param {string} term
    * @param {number} page
    * @returns {object}
@@ -28,7 +28,7 @@ export default class VariantSelect extends RemoteSelect {
   }
 
   /**
-   * Parses server response into select2 results object
+   * Parses server response into a results object
    * @param {object} response
    * @returns {object}
    * @private
@@ -41,38 +41,31 @@ export default class VariantSelect extends RemoteSelect {
   }
 
   /**
-   * result which is visible if a variant was selected
+   * slots of a dropdown option
    * @param {object} variant
-   * @returns {string}
-   * @private
+   * @param {string} term
+   * @returns {object}
+   * @protected
    */
-  _renderResult(variant) {
-    return variant.options_text
-      ? `${variant.name} - ${variant.options_text}`
-      : variant.name
+  _entry(variant, term) {
+    return {
+      primary: this._hightlightTerm(variant.name, term),
+      secondary: variant.options_text,
+      secondaryAside: variant.sku
+    }
   }
 
   /**
-   * html template for each list entry
+   * slots of the selected variant shown in the control
    * @param {object} variant
-   * @param {string} term
-   * @returns {string}
-   * @private
+   * @returns {object}
+   * @protected
    */
-  _renderListEntry(variant, term) {
-    const name = this._hightlightTerm(variant.name, term)
-    const sku = this._hightlightTerm(variant.sku, term)
-    return `
-      <div class="variant-select-result">
-        <div>
-          <span>${name}</span>
-        </div>
-        <div>
-          <span>${variant.options_text}</span>
-          <span>${sku}</span>
-        </div>
-      </div>
-    `
+  _selectedEntry(variant) {
+    return {
+      primary: variant.name,
+      secondary: variant.options_text
+    }
   }
 }
 

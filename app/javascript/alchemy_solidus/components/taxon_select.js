@@ -11,7 +11,7 @@ export default class TaxonSelect extends RemoteSelect {
   }
 
   /**
-   * Parses server response into select2 results object
+   * Parses server response into a results object
    * @param {object} response
    * @returns {object}
    * @private
@@ -24,24 +24,28 @@ export default class TaxonSelect extends RemoteSelect {
   }
 
   /**
-   * result which is visible if a taxon was selected
+   * slots of a dropdown option
    * @param {object} taxon
-   * @returns {string}
-   * @private
+   * @param {string} term
+   * @returns {object}
+   * @protected
    */
-  _renderResult(taxon) {
-    return taxon.text || taxon.pretty_name
+  _entry(taxon, term) {
+    return {
+      primary: this._hightlightTerm(taxon.pretty_name, term)
+    }
   }
 
   /**
-   * html template for each list entry
+   * slots of the selected taxon shown in the control
    * @param {object} taxon
-   * @param {string} term
-   * @returns {string}
-   * @private
+   * @returns {object}
+   * @protected
    */
-  _renderListEntry(taxon, term) {
-    return this._hightlightTerm(taxon.pretty_name, term)
+  _selectedEntry(taxon) {
+    return {
+      primary: taxon.text || taxon.pretty_name
+    }
   }
 }
 
