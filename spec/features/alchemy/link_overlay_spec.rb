@@ -2,8 +2,11 @@
 
 require "rails_helper"
 require "alchemy/devise/test_support/factories"
+require "alchemy/test_support/capybara_helpers"
 
 RSpec.describe "Link overlay" do
+  include Alchemy::TestSupport::CapybaraHelpers
+
   let(:a_page) { create(:alchemy_page) }
 
   let(:element) do
@@ -56,8 +59,8 @@ RSpec.describe "Link overlay" do
     end
 
     within "[name=overlay_tab_product_link]" do
-      expect(page).to have_selector("#s2id_product_link")
-      select2_search(product.name, from: "Product")
+      expect(page).to have_selector("#product_link-ts-control")
+      tom_select_search(product.name, from: "Product")
       click_button "apply"
     end
 
