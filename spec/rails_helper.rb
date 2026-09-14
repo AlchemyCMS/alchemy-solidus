@@ -45,7 +45,6 @@ require "spree/testing_support/factory_bot"
 Spree::TestingSupport::FactoryBot.add_paths_and_load!
 
 require "alchemy/test_support"
-require "alchemy/test_support/capybara_helpers"
 require "alchemy/test_support/integration_helpers"
 
 FactoryBot.definition_file_paths.append(Alchemy::TestSupport.factories_path)
@@ -77,7 +76,6 @@ Capybara.server = :puma, {Silent: true}
 
 RSpec.configure do |config|
   config.include Alchemy::TestSupport::IntegrationHelpers, type: :feature
-  config.include Alchemy::TestSupport::CapybaraHelpers, type: :feature
   config.include ActiveSupport::Testing::TimeHelpers, type: :model
   config.include ViewComponent::TestHelpers, type: :component
 
@@ -107,4 +105,11 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+
+  # TODO Remove when Devise fixes https://github.com/heartcombo/devise/issues/5705
+  if Rails.application.respond_to?(:reload_routes_unless_loaded)
+    config.before(:each, type: :feature) do
+      Rails.application.reload_routes_unless_loaded
+    end
+  end
 end

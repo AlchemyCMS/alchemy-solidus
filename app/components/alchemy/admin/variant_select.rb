@@ -40,7 +40,8 @@ module Alchemy
           id: variant.id,
           name: variant.name,
           sku: variant.sku,
-          options_text: variant.options_text
+          options_text: variant.options_text,
+          image: variant.images[0]&.url(:mini)
         }.to_json
       end
     end

@@ -1,0 +1,18 @@
+class SetAlchemyRolesOn<%= @table_name.camelcase %>Table < ActiveRecord::Migration[7.2]
+  def up
+    Spree::User.find_each do |user|
+      alchemy_roles = if user.has_spree_role?(:admin)
+        "admin"
+      elsif user.has_spree_role?(:user)
+        "member"
+      end
+      user.update_column(:alchemy_roles, alchemy_roles)
+    end
+  end
+
+  def down
+    Spree::User.find_each do |user|
+      user.update_column(:alchemy_roles, nil)
+    end
+  end
+end

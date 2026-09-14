@@ -15,7 +15,7 @@ export default class ProductSelect extends RemoteSelect {
   }
 
   /**
-   * Parses server response into select2 results object
+   * Parses server response into a results object
    * @param {object} response
    * @returns {object}
    * @private
@@ -26,6 +26,7 @@ export default class ProductSelect extends RemoteSelect {
         return {
           id: this._parsedValue(product),
           name: product.name,
+          image: product.master?.images[0]?.mini_url,
         }
       }),
       more: response.current_page * response.per_page < response.total_count,
@@ -48,24 +49,30 @@ export default class ProductSelect extends RemoteSelect {
   }
 
   /**
-   * result which is visible if a product was selected
+   * slots of a dropdown option
    * @param {object} product
-   * @returns {string}
-   * @private
+   * @param {string} term
+   * @returns {object}
+   * @protected
    */
-  _renderResult(product) {
-    return product.name
+  _entry(product, term) {
+    return {
+      primary: this._hightlightTerm(product.name, term),
+      media: product.image
+    }
   }
 
   /**
-   * html template for each list entry
+   * slots of the selected product shown in the control
    * @param {object} product
-   * @param {string} term
-   * @returns {string}
-   * @private
+   * @returns {object}
+   * @protected
    */
-  _renderListEntry(product, term) {
-    return this._hightlightTerm(product.name, term)
+  _selectedEntry(product) {
+    return {
+      primary: product.name,
+      media: product.image
+    }
   }
 }
 

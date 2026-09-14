@@ -18,3 +18,16 @@ de:
         users: Benutzer
         pictures: Bilder
         attachments: Dateien
+      users:
+        form:
+          alchemy_roles: Alchemy Rollen
+    hints:
+      spree/user:
+        alchemy_roles_html: |
+          <p>Diese Rollen steuern den Zugriff zum Alchemy CMS.</p>
+          <ul>
+            <li><kbd>Mitglied</kbd> beschreibt regulär angemeldete Kunden und ermöglicht den Zugriff auf regulär gesicherte Seiten. Sie <strong>ermöglicht nicht</strong> auf den Admin Bereich zuzugreifen.</li>
+            <li><kbd>Autor</kbd> ermöglicht Seiteninhalte zu bearbeiten, aber keine Seiten zu erstellen.</li>
+            <li><kbd>Editor</kbd> ermöglicht vollen Zugriff auf Seiten und Sprachen.</li>
+            <li><kbd>Admin</kbd> ermöglicht <strong>vollen Zugriff auf alles</strong>.</li>
+          </ul>

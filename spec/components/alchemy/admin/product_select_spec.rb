@@ -32,7 +32,7 @@ RSpec.describe Alchemy::Admin::ProductSelect, type: :component do
 
     it "adds a selection" do
       expect(page).to have_selector(
-        "alchemy-product-select[selection='{\"id\":#{product.id},\"name\":\"Product Name\"}']"
+        "alchemy-product-select[selection*='Product Name']"
       )
     end
   end

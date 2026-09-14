@@ -11,16 +11,9 @@ module Alchemy
         email
       end
 
-      def alchemy_roles
-        if has_spree_role?(:admin)
-          %w[admin]
-        else
-          []
-        end
-      end
-
       if defined?(::Spree::User)
         ::Spree::User.prepend self
+        ::Spree::User.include Alchemy::UserMethods
       end
     end
   end
