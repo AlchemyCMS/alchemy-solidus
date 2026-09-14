@@ -35,7 +35,12 @@ export default class VariantSelect extends RemoteSelect {
    */
   _parseResponse(response) {
     return {
-      results: response.variants,
+      results: response.variants.map((variant) => {
+        return {
+          ...variant,
+          image: variant.images[0]?.mini_url
+        }
+      }),
       more: response.current_page * response.per_page < response.total_count,
     }
   }
@@ -51,7 +56,8 @@ export default class VariantSelect extends RemoteSelect {
     return {
       primary: this._hightlightTerm(variant.name, term),
       secondary: variant.options_text,
-      secondaryAside: variant.sku
+      secondaryAside: variant.sku,
+      media: variant.image
     }
   }
 
@@ -64,7 +70,8 @@ export default class VariantSelect extends RemoteSelect {
   _selectedEntry(variant) {
     return {
       primary: variant.name,
-      secondary: variant.options_text
+      secondary: variant.options_text,
+      media: variant.image
     }
   }
 }
