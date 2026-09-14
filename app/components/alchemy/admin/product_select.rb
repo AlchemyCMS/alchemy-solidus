@@ -46,7 +46,8 @@ module Alchemy
       def serialized_selection
         {
           id: product.send(value_attribute),
-          name: product.name
+          name: product.name,
+          image: product.master&.images&.[](0)&.url(:mini)
         }.to_json
       end
     end

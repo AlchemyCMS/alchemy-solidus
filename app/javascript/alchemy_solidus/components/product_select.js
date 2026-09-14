@@ -26,6 +26,7 @@ export default class ProductSelect extends RemoteSelect {
         return {
           id: this._parsedValue(product),
           name: product.name,
+          image: product.master?.images[0]?.mini_url,
         }
       }),
       more: response.current_page * response.per_page < response.total_count,
@@ -56,7 +57,8 @@ export default class ProductSelect extends RemoteSelect {
    */
   _entry(product, term) {
     return {
-      primary: this._hightlightTerm(product.name, term)
+      primary: this._hightlightTerm(product.name, term),
+      media: product.image
     }
   }
 
@@ -68,7 +70,8 @@ export default class ProductSelect extends RemoteSelect {
    */
   _selectedEntry(product) {
     return {
-      primary: product.name
+      primary: product.name,
+      media: product.image
     }
   }
 }
