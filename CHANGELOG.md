@@ -1,5 +1,16 @@
 # Changelog
 
+## 8.4.0 (2026-10-12)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+### Other Changes
+* feat: Updates for Alchemy 8.4 by @tvdeyen in https://github.com/AlchemyCMS/alchemy-solidus/pull/153
+
+
+**Full Changelog**: https://github.com/AlchemyCMS/alchemy-solidus/compare/v8.3.0...v8.4.0
+
 ## 8.3.0 (2026-06-29)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
