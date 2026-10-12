@@ -37,3 +37,5 @@ group :lint do
 end
 
 gem "ruby-lsp-rspec", "~> 0.1.28"
+
+gem "json", "< 3", require: false
