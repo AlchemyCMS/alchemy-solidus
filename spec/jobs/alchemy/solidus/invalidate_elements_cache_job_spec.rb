@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Alchemy::Solidus::InvalidateElementsCacheJob, type: :job do
+  around { |e| Alchemy::Deprecation.silence { e.run } }
+
   let(:job) { described_class.new }
 
   subject { job.perform("SpreeProduct", product.id) }
