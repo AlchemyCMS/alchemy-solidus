@@ -1,5 +1,16 @@
 # Changelog
 
+## 8.4.1 (2026-10-13)
+
+<!-- Release notes generated using configuration in .github/release.yml at 8.4-stable -->
+
+## What's Changed
+### Bug Fixes
+* [8.4-stable] fix: Bump minimum required alchemy version by @alchemycms-bot[bot] in https://github.com/AlchemyCMS/alchemy-solidus/pull/157
+
+
+**Full Changelog**: https://github.com/AlchemyCMS/alchemy-solidus/compare/v8.4.0...v8.4.1
+
 ## 8.4.0 (2026-10-12)
 
 <!-- Release notes generated using configuration in .github/release.yml at main -->
