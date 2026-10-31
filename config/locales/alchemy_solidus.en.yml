@@ -31,3 +31,14 @@ en:
             <li><kbd>Editor</kbd> grants access to fully manage pages and languages.</li>
             <li><kbd>Admin</kbd> grants access <strong>to manage everything</strong>.</li>
           </ul>
+  activerecord:
+    models:
+      alchemy/ingredients/spree_product:
+        one: Product
+        other: Products
+      alchemy/ingredients/spree_taxon:
+        one: Taxon
+        other: Taxons
+      alchemy/ingredients/spree_variant:
+        one: Variant
+        other: Variants
