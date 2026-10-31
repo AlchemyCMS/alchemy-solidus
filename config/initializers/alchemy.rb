@@ -6,7 +6,7 @@ alchemy_module = {
     action: "index",
     name: "Store",
     icon: "shopping-cart",
-    data: {turbolinks: false, turbo: false},
+    data: {turbo: false},
     sub_navigation: [
       {
         controller: "/spree/admin/orders",
