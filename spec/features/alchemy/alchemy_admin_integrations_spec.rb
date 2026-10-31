@@ -26,18 +26,11 @@ RSpec.feature "Admin Integration", type: :feature do
     expect(page).to have_content "No Orders found"
   end
 
-  it "it disables turbolinks on Solidus link" do
-    login!
-    visit "/admin/pages"
-
-    expect(page).to have_css ".main_navi_entry[data-turbolinks='false']"
-  end
-
   it "it disables turbo on Solidus link" do
     login!
     visit "/admin/pages"
 
-    expect(page).to have_css ".main_navi_entry[data-turbo='false']"
+    expect(page).to have_css ".main_navi_entry[data-turbo='false'] a[href='/admin/orders']"
   end
 
   private
