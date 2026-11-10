@@ -4,18 +4,16 @@ store_menu_children = [
   {title: "Stock", engine_name: "spree", controller: "/spree/admin/stock_items", action: "index"}
 ]
 
-if defined?(Spree::Auth::Engine)
-  store_menu_children.push(
-    {title: "Users", engine_name: "spree", controller: "/spree/admin/users", action: "index"}
-  )
-  Alchemy.config.user_class = "Spree::User"
-  Alchemy.config.current_user_method = :spree_current_user
-  Rails.application.config.after_initialize do
-    Alchemy.config.logout_method = Devise.sign_out_via.to_s
-  end
-end
-
 Alchemy.configure do |config|
+  if defined?(Spree::Auth::Engine)
+    store_menu_children.push(
+      {title: "Users", engine_name: "spree", controller: "/spree/admin/users", action: "index"}
+    )
+    config.user_class = "Spree::User"
+    config.current_user_method = :spree_current_user
+    config.logout_method = Devise.sign_out_via.to_s
+  end
+
   config.menu.add(
     name: "solidus",
     title: "Store",
