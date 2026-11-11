@@ -1,5 +1,22 @@
 # Changelog
 
+## 8.4.2 (2026-11-11)
+
+<!-- Release notes generated using configuration in .github/release.yml at 8.4-stable -->
+
+## What's Changed
+### New Features
+* [8.4-stable] feat: Add translations for ingredient types by @alchemycms-bot[bot] in https://github.com/AlchemyCMS/alchemy-solidus/pull/164
+### Bug Fixes
+* [8.4-stable] fix: Add the Store menu entry with Alchemy.config.menu by @alchemycms-ci-bot in https://github.com/AlchemyCMS/alchemy-solidus/pull/163
+### Other Changes
+* [8.4-stable] chore: Unify alchemy initializer by @alchemycms-ci-bot in https://github.com/AlchemyCMS/alchemy-solidus/pull/166
+
+## New Contributors
+* @alchemycms-ci-bot made their first contribution in https://github.com/AlchemyCMS/alchemy-solidus/pull/163
+
+**Full Changelog**: https://github.com/AlchemyCMS/alchemy-solidus/compare/v8.4.1...v8.4.2
+
 ## 8.4.1 (2026-10-13)
 
 <!-- Release notes generated using configuration in .github/release.yml at 8.4-stable -->
